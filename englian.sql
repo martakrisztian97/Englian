@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Nov 11. 22:55
+-- Létrehozás ideje: 2022. Nov 11. 23:00
 -- Kiszolgáló verziója: 10.4.24-MariaDB
 -- PHP verzió: 8.1.6
 
@@ -109,7 +109,8 @@ CREATE TABLE `tematikak` (
 --
 
 INSERT INTO `tematikak` (`id`, `megnevezes`, `mappa_utvonal`) VALUES
-(1, 'gyümölcs', 'images/fruits/');
+(1, 'Gyümölcsök', 'images/fruits/'),
+(2, 'Színek', 'images/colors/');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -126,7 +127,7 @@ ALTER TABLE `szavak`
 -- A tábla indexei `tematikak`
 --
 ALTER TABLE `tematikak`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -142,7 +143,7 @@ ALTER TABLE `szavak`
 -- AUTO_INCREMENT a táblához `tematikak`
 --
 ALTER TABLE `tematikak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Megkötések a kiírt táblákhoz
