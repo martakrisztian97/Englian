@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Nov 11. 23:00
+-- Létrehozás ideje: 2022. Nov 17. 11:55
 -- Kiszolgáló verziója: 10.4.24-MariaDB
 -- PHP verzió: 8.1.6
 
@@ -22,6 +22,22 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `englian` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
 USE `englian`;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `felhasznalok`
+--
+
+CREATE TABLE `felhasznalok` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `vezeteknev` varchar(255) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `keresztnev` varchar(255) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `email` varchar(128) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `felhasznalonev` varchar(64) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `jelszo` varchar(64) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `regisztracio_datuma` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -117,6 +133,12 @@ INSERT INTO `tematikak` (`id`, `megnevezes`, `mappa_utvonal`) VALUES
 --
 
 --
+-- A tábla indexei `felhasznalok`
+--
+ALTER TABLE `felhasznalok`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A tábla indexei `szavak`
 --
 ALTER TABLE `szavak`
@@ -132,6 +154,12 @@ ALTER TABLE `tematikak`
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
+
+--
+-- AUTO_INCREMENT a táblához `felhasznalok`
+--
+ALTER TABLE `felhasznalok`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
