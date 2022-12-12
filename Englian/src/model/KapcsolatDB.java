@@ -1,10 +1,6 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * Regisztráció
@@ -32,6 +28,22 @@ public class KapcsolatDB {
         this.password = "";
     }
 
+    public void regisztracio(String nev, String email, String felhasznalonev, String jelszo) {
+        String query = "INSERT INTO felhasznalok (id, nev, email, felhasznalonev, jelszo)"
+                + "VALUES (NULL, '" + nev + "', '" + email + "', '" + felhasznalonev + "', '" + jelszo + "')";
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            st.executeUpdate(query);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: " + ex.getMessage());
+        }
+    }
+
     /*public int sorokSzama() {
         String query = "SELECT nev, felhasznalonev, jelszo FROM felhasznalok";
         try {
@@ -48,8 +60,4 @@ public class KapcsolatDB {
         }
         return ;
     }*/
-    
-    public static void main(String[] args) {
-        System.out.println();
-    }
 }

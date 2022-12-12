@@ -1,17 +1,58 @@
 package view;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.swing.JOptionPane;
+import model.KapcsolatDB;
+
 /**
  * Regisztráció
+ *
  * @author Márta Krisztián
  * @since 2022-11-17
  */
 public class RegisztracioJFrame extends javax.swing.JFrame {
+
+    private KapcsolatDB kapcsolat;
 
     /**
      * Creates new form Regisztracio7
      */
     public RegisztracioJFrame() {
         initComponents();
+        kapcsolat = new KapcsolatDB();
+    }
+
+    /**
+     * Regisztráció implementálása
+     */
+    public void regisztracio() {
+        String nev = nevTextField.getText();
+        String email = emailTextField.getText();
+        String felhasznalonev = felhasznalonevTextField.getText();
+        String jelszo = new String(jelszoPasswordField.getPassword());
+        String jelszoIsmet = new String(jelszoIsmetPasswordField.getPassword());
+        if (!jelszo.equals(jelszoIsmet))
+            JOptionPane.showMessageDialog(null, "A jelszavaknak egyezniük kell!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+        else
+            
+            //kapcsolat.regisztracio(nev, email, felhasznalonev, md5Kodolas(jelszo));
+    }
+
+    public String md5Kodolas(String jelszo) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(jelszo.getBytes());
+            BigInteger number = new BigInteger(1, messageDigest);
+            String hashtext = number.toString(16);
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -24,46 +65,41 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        vezeteknevTextField = new javax.swing.JTextField();
-        keresztnevTextField = new javax.swing.JTextField();
+        nevTextField = new javax.swing.JTextField();
         emailTextField = new javax.swing.JTextField();
         felhasznalonevTextField = new javax.swing.JTextField();
         jelszoPasswordField = new javax.swing.JPasswordField();
+        jelszoIsmetPasswordField = new javax.swing.JPasswordField();
         regisztracioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jelszoMegjeleniteseCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Angol szótanuló alkalmazás demó");
-        setMaximumSize(new java.awt.Dimension(500, 400));
-        setMinimumSize(new java.awt.Dimension(500, 400));
+        setMaximumSize(new java.awt.Dimension(500, 450));
+        setMinimumSize(new java.awt.Dimension(500, 450));
+        setPreferredSize(new java.awt.Dimension(500, 450));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        vezeteknevTextField.setMinimumSize(new java.awt.Dimension(200, 30));
-        vezeteknevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
+        nevTextField.setMinimumSize(new java.awt.Dimension(200, 30));
+        nevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
-        getContentPane().add(vezeteknevTextField, gridBagConstraints);
-
-        keresztnevTextField.setMinimumSize(new java.awt.Dimension(200, 30));
-        keresztnevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
-        getContentPane().add(keresztnevTextField, gridBagConstraints);
+        getContentPane().add(nevTextField, gridBagConstraints);
 
         emailTextField.setMinimumSize(new java.awt.Dimension(200, 30));
         emailTextField.setPreferredSize(new java.awt.Dimension(200, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(emailTextField, gridBagConstraints);
 
@@ -71,7 +107,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         felhasznalonevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(felhasznalonevTextField, gridBagConstraints);
 
@@ -79,18 +115,31 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         jelszoPasswordField.setPreferredSize(new java.awt.Dimension(200, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(jelszoPasswordField, gridBagConstraints);
+
+        jelszoIsmetPasswordField.setMinimumSize(new java.awt.Dimension(200, 30));
+        jelszoIsmetPasswordField.setPreferredSize(new java.awt.Dimension(200, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        getContentPane().add(jelszoIsmetPasswordField, gridBagConstraints);
 
         regisztracioButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         regisztracioButton.setText("Regisztráció");
         regisztracioButton.setMaximumSize(new java.awt.Dimension(250, 40));
         regisztracioButton.setMinimumSize(new java.awt.Dimension(250, 40));
         regisztracioButton.setPreferredSize(new java.awt.Dimension(250, 40));
+        regisztracioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                regisztracioButtonMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(regisztracioButton, gridBagConstraints);
@@ -102,45 +151,69 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         getContentPane().add(logoLabel, gridBagConstraints);
 
-        jLabel2.setText("Vezetéknév:");
-        jLabel2.setToolTipText("");
+        jLabel1.setText("Név:");
+        jLabel1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel2, gridBagConstraints);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel3.setText("Keresztnév:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel3, gridBagConstraints);
-
-        jLabel4.setText("E-mail:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel4, gridBagConstraints);
-
-        jLabel5.setText("Felhasználónév:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel5, gridBagConstraints);
-
-        jLabel6.setText("Jelszó:");
+        jLabel5.setText("Jelszó ismét:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel6, gridBagConstraints);
+        getContentPane().add(jLabel5, gridBagConstraints);
+
+        jLabel2.setText("E-mail:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        getContentPane().add(jLabel2, gridBagConstraints);
+
+        jLabel3.setText("Felhasználónév:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        getContentPane().add(jLabel3, gridBagConstraints);
+
+        jLabel4.setText("Jelszó:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        getContentPane().add(jLabel4, gridBagConstraints);
+
+        jelszoMegjeleniteseCheckBox.setText("Jelszó megjelenítése ");
+        jelszoMegjeleniteseCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jelszoMegjeleniteseCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        getContentPane().add(jelszoMegjeleniteseCheckBox, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void regisztracioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regisztracioButtonMouseClicked
+        regisztracio();
+    }//GEN-LAST:event_regisztracioButtonMouseClicked
+
+    private void jelszoMegjeleniteseCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jelszoMegjeleniteseCheckBoxActionPerformed
+        if (jelszoMegjeleniteseCheckBox.isSelected())
+            jelszoPasswordField.setEchoChar((char)0);
+        else
+            jelszoPasswordField.setEchoChar('*');
+    }//GEN-LAST:event_jelszoMegjeleniteseCheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,15 +256,16 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField felhasznalonevTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPasswordField jelszoIsmetPasswordField;
+    private javax.swing.JCheckBox jelszoMegjeleniteseCheckBox;
     private javax.swing.JPasswordField jelszoPasswordField;
-    private javax.swing.JTextField keresztnevTextField;
     private javax.swing.JLabel logoLabel;
+    private javax.swing.JTextField nevTextField;
     private javax.swing.JButton regisztracioButton;
-    private javax.swing.JTextField vezeteknevTextField;
     // End of variables declaration//GEN-END:variables
 }
