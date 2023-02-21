@@ -1,10 +1,10 @@
 package model;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
- * Regisztráció
- *
+ * Adatbázis kapcsolatért felelős osztály
  * @author Márta Krisztián
  * @since 2022-11-19
  */
@@ -44,20 +44,24 @@ public class KapcsolatDB {
         }
     }
 
-    /*public int sorokSzama() {
-        String query = "SELECT nev, felhasznalonev, jelszo FROM felhasznalok";
+    public ArrayList<String> felhasznalok() {
+        String query = "SELECT felhasznalonev FROM felhasznalok";
+        ArrayList<String> lista = new ArrayList();
         try {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(host + dbName, userName, password);
             Statement st = (Statement) conn.createStatement();
             ResultSet result = st.executeQuery(query);
-            int sorok = result.getInt();
+            while (result.next()) {
+                String felhasznalonev = result.getString("felhasznalonev");
+                lista.add(felhasznalonev);
+            }
             conn.close();
         } catch (SQLException e) {
             System.out.println("Hiba: " + e.getMessage());
         } catch (ClassNotFoundException ex) {
             System.out.println("Hiba: " + ex.getMessage());
         }
-        return ;
-    }*/
+        return lista;
+    }
 }

@@ -3,6 +3,10 @@ package view;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import model.KapcsolatDB;
 
@@ -15,6 +19,7 @@ import model.KapcsolatDB;
 public class RegisztracioJFrame extends javax.swing.JFrame {
 
     private KapcsolatDB kapcsolat;
+    List<String> felhasznalok = new ArrayList<>();
 
     /**
      * Creates new form Regisztracio7
@@ -22,6 +27,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     public RegisztracioJFrame() {
         initComponents();
         kapcsolat = new KapcsolatDB();
+        felhasznalok = kapcsolat.felhasznalok();
     }
 
     /**
@@ -33,13 +39,60 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         String felhasznalonev = felhasznalonevTextField.getText();
         String jelszo = new String(jelszoPasswordField.getPassword());
         String jelszoIsmet = new String(jelszoIsmetPasswordField.getPassword());
-        if (!jelszo.equals(jelszoIsmet))
+        if (!emailValidalas(email))
+            JOptionPane.showMessageDialog(null, "Helyes email címet adjon meg!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+        else if (felhasznalonev.isEmpty())
+            JOptionPane.showMessageDialog(null, "Felhasználónév megadása kötelező!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+        else if (felhasznalok.contains(felhasznalonev))
+            JOptionPane.showMessageDialog(null, "A felhasználónév foglalt!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+        else if (!jelszo.equals(jelszoIsmet))
             JOptionPane.showMessageDialog(null, "A jelszavaknak egyezniük kell!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
-        else
-            
-            //kapcsolat.regisztracio(nev, email, felhasznalonev, md5Kodolas(jelszo));
+        else if (!jelszoValidalas(jelszo))
+            JOptionPane.showMessageDialog(null, "A jelszónak minimum 8 karakter hosszúnak kell lenni, valamint tartalmaznia kell kisbetűt, nagybetűt és számot!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+        else {
+            kapcsolat.regisztracio(nev, email, felhasznalonev, md5Kodolas(jelszo));
+            JOptionPane.showMessageDialog(null, "Sikeres regisztráció!", "Sikeres regisztráció", JOptionPane.INFORMATION_MESSAGE);
+            nevTextField.setText("");
+            emailTextField.setText("");
+            felhasznalonevTextField.setText("");
+            jelszoPasswordField.setText("");
+            jelszoIsmetPasswordField.setText("");
+        }
+    }
+    
+    /**
+     * Email cím validálása.
+     * @param email A validálni kívánt email cím.
+     * @return Az email cím érvényessége.
+     */
+    public boolean emailValidalas(String email) {
+        Pattern pattern = Pattern.compile("[a-z0-9]+@[a-z]+\\.[a-z]+"); 
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+    
+     /**
+     * Jelszó cím validálása.
+     * @param jelszo A validálni kívánt jelszó.
+     * @return Az jelszó érvényessége.
+     */
+    public boolean jelszoValidalas(String jelszo) {
+        boolean ervenyes = true;
+        Pattern kisbetu = Pattern.compile("[a-z]"); 
+        Pattern nagybetu = Pattern.compile("[A-Z]");
+        Pattern szam = Pattern.compile("[0-9]");
+        if (jelszo.length() < 8) ervenyes = false;
+        if (!kisbetu.matcher(jelszo).find()) ervenyes = false;
+        if (!nagybetu.matcher(jelszo).find()) ervenyes = false;
+        if (!szam.matcher(jelszo).find()) ervenyes = false;
+        return ervenyes;
     }
 
+    /**
+     * MD5 kódolási algoritmus implementálása.
+     * @param jelszo A kódolni kívánt jelszó.
+     * @return A kódolt jelszó.
+     */
     public String md5Kodolas(String jelszo) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -209,10 +262,13 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_regisztracioButtonMouseClicked
 
     private void jelszoMegjeleniteseCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jelszoMegjeleniteseCheckBoxActionPerformed
-        if (jelszoMegjeleniteseCheckBox.isSelected())
+        if (jelszoMegjeleniteseCheckBox.isSelected()) {
             jelszoPasswordField.setEchoChar((char)0);
-        else
+            jelszoIsmetPasswordField.setEchoChar((char)0);
+        } else {
             jelszoPasswordField.setEchoChar('*');
+            jelszoIsmetPasswordField.setEchoChar('*');
+        }
     }//GEN-LAST:event_jelszoMegjeleniteseCheckBoxActionPerformed
 
     /**
