@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Nov 17. 11:55
+-- Létrehozás ideje: 2023. Feb 22. 10:24
 -- Kiszolgáló verziója: 10.4.24-MariaDB
 -- PHP verzió: 8.1.6
 
@@ -31,13 +31,19 @@ USE `englian`;
 
 CREATE TABLE `felhasznalok` (
   `id` int(10) UNSIGNED NOT NULL,
-  `vezeteknev` varchar(255) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `keresztnev` varchar(255) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `nev` varchar(255) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
   `email` varchar(128) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `felhasznalonev` varchar(64) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `felhasznalonev` varchar(32) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
   `jelszo` varchar(64) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `regisztracio_datuma` date NOT NULL DEFAULT current_timestamp()
+  `regisztracio_datuma` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `felhasznalok`
+--
+
+INSERT INTO `felhasznalok` (`id`, `nev`, `email`, `felhasznalonev`, `jelszo`, `regisztracio_datuma`) VALUES
+(1, 'Márta Krisztián', 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56');
 
 -- --------------------------------------------------------
 
@@ -159,7 +165,7 @@ ALTER TABLE `tematikak`
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
