@@ -28,9 +28,9 @@ public class KapcsolatDB {
         this.password = "";
     }
 
-    public void regisztracio(String nev, String email, String felhasznalonev, String jelszo) {
-        String query = "INSERT INTO felhasznalok (id, nev, email, felhasznalonev, jelszo)"
-                + "VALUES (NULL, '" + nev + "', '" + email + "', '" + felhasznalonev + "', '" + jelszo + "')";
+    public void regisztracio(String email, String felhasznalonev, String jelszo) {
+        String query = "INSERT INTO felhasznalok (id, email, felhasznalonev, jelszo)"
+                + "VALUES (NULL, '" + email + "', '" + felhasznalonev + "', '" + jelszo + "')";
         try {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(host + dbName, userName, password);

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import model.KapcsolatDB;
 
@@ -34,7 +35,6 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
      * Regisztráció implementálása
      */
     public void regisztracio() {
-        String nev = nevTextField.getText();
         String email = emailTextField.getText();
         String felhasznalonev = felhasznalonevTextField.getText();
         String jelszo = new String(jelszoPasswordField.getPassword());
@@ -50,9 +50,8 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         else if (!jelszoValidalas(jelszo))
             JOptionPane.showMessageDialog(null, "A jelszónak minimum 8 karakter hosszúnak kell lenni, valamint tartalmaznia kell kisbetűt, nagybetűt és számot!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else {
-            kapcsolat.regisztracio(nev, email, felhasznalonev, md5Kodolas(jelszo));
+            kapcsolat.regisztracio(email, felhasznalonev, md5Kodolas(jelszo));
             JOptionPane.showMessageDialog(null, "Sikeres regisztráció!", "Sikeres regisztráció", JOptionPane.INFORMATION_MESSAGE);
-            nevTextField.setText("");
             emailTextField.setText("");
             felhasznalonevTextField.setText("");
             jelszoPasswordField.setText("");
@@ -118,41 +117,38 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        nevTextField = new javax.swing.JTextField();
         emailTextField = new javax.swing.JTextField();
         felhasznalonevTextField = new javax.swing.JTextField();
         jelszoPasswordField = new javax.swing.JPasswordField();
         jelszoIsmetPasswordField = new javax.swing.JPasswordField();
-        regisztracioButton = new javax.swing.JButton();
+        bejelentkezesButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jelszoMegjeleniteseCheckBox = new javax.swing.JCheckBox();
+        regisztracioButton = new javax.swing.JButton();
+        jelszoFelfedLabel = new javax.swing.JLabel();
+        jelszoIsmetFelfedLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Angol szótanuló alkalmazás demó");
+        setTitle("Regisztráció Angol szótanuló alkalmazás demó");
         setMaximumSize(new java.awt.Dimension(500, 450));
         setMinimumSize(new java.awt.Dimension(500, 450));
         setPreferredSize(new java.awt.Dimension(500, 450));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        nevTextField.setMinimumSize(new java.awt.Dimension(200, 30));
-        nevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
-        getContentPane().add(nevTextField, gridBagConstraints);
 
         emailTextField.setMinimumSize(new java.awt.Dimension(200, 30));
         emailTextField.setPreferredSize(new java.awt.Dimension(200, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(emailTextField, gridBagConstraints);
 
@@ -160,7 +156,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         felhasznalonevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(felhasznalonevTextField, gridBagConstraints);
 
@@ -168,7 +164,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         jelszoPasswordField.setPreferredSize(new java.awt.Dimension(200, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(jelszoPasswordField, gridBagConstraints);
 
@@ -176,82 +172,104 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         jelszoIsmetPasswordField.setPreferredSize(new java.awt.Dimension(200, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(jelszoIsmetPasswordField, gridBagConstraints);
 
-        regisztracioButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        regisztracioButton.setText("Regisztráció");
-        regisztracioButton.setMaximumSize(new java.awt.Dimension(250, 40));
-        regisztracioButton.setMinimumSize(new java.awt.Dimension(250, 40));
-        regisztracioButton.setPreferredSize(new java.awt.Dimension(250, 40));
-        regisztracioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        bejelentkezesButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bejelentkezesButton.setText("Már van fiókom");
+        bejelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bejelentkezesButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        bejelentkezesButton.setMinimumSize(new java.awt.Dimension(200, 40));
+        bejelentkezesButton.setPreferredSize(new java.awt.Dimension(200, 40));
+        bejelentkezesButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                regisztracioButtonMouseClicked(evt);
+                bejelentkezesButtonMouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
-        getContentPane().add(regisztracioButton, gridBagConstraints);
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        getContentPane().add(bejelentkezesButton, gridBagConstraints);
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/myemoji2.png"))); // NOI18N
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/myemoji.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
         getContentPane().add(logoLabel, gridBagConstraints);
-
-        jLabel1.setText("Név:");
-        jLabel1.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel1, gridBagConstraints);
 
         jLabel5.setText("Jelszó ismét:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         getContentPane().add(jLabel5, gridBagConstraints);
 
         jLabel2.setText("E-mail:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jLabel3.setText("Felhasználónév:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         getContentPane().add(jLabel3, gridBagConstraints);
 
         jLabel4.setText("Jelszó:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         getContentPane().add(jLabel4, gridBagConstraints);
 
-        jelszoMegjeleniteseCheckBox.setText("Jelszó megjelenítése ");
-        jelszoMegjeleniteseCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jelszoMegjeleniteseCheckBoxActionPerformed(evt);
+        regisztracioButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        regisztracioButton.setText("Regisztráció");
+        regisztracioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        regisztracioButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        regisztracioButton.setMinimumSize(new java.awt.Dimension(200, 40));
+        regisztracioButton.setPreferredSize(new java.awt.Dimension(200, 40));
+        regisztracioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                regisztracioButtonMouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
-        getContentPane().add(jelszoMegjeleniteseCheckBox, gridBagConstraints);
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        getContentPane().add(regisztracioButton, gridBagConstraints);
+
+        jelszoFelfedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jelszoFelfedLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/eye1.png"))); // NOI18N
+        jelszoFelfedLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jelszoFelfedLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jelszoFelfedLabelMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        getContentPane().add(jelszoFelfedLabel, gridBagConstraints);
+
+        jelszoIsmetFelfedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jelszoIsmetFelfedLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/eye1.png"))); // NOI18N
+        jelszoIsmetFelfedLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jelszoIsmetFelfedLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jelszoIsmetFelfedLabelMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        getContentPane().add(jelszoIsmetFelfedLabel, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);
@@ -261,15 +279,36 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         regisztracio();
     }//GEN-LAST:event_regisztracioButtonMouseClicked
 
-    private void jelszoMegjeleniteseCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jelszoMegjeleniteseCheckBoxActionPerformed
-        if (jelszoMegjeleniteseCheckBox.isSelected()) {
+    private void bejelentkezesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bejelentkezesButtonMouseClicked
+        this.setVisible(false);
+        BejelentkezesJFrame b = new BejelentkezesJFrame();
+        b.setVisible(true);
+    }//GEN-LAST:event_bejelentkezesButtonMouseClicked
+
+    private void jelszoFelfedLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jelszoFelfedLabelMouseClicked
+        if (jelszoPasswordField.getEchoChar() == '*') {
             jelszoPasswordField.setEchoChar((char)0);
-            jelszoIsmetPasswordField.setEchoChar((char)0);
-        } else {
+            jelszoFelfedLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/passwordShow.png")));
+        } else if (jelszoPasswordField.getEchoChar() == (char)0) {
             jelszoPasswordField.setEchoChar('*');
-            jelszoIsmetPasswordField.setEchoChar('*');
+            jelszoFelfedLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/passwordHide.png")));
         }
-    }//GEN-LAST:event_jelszoMegjeleniteseCheckBoxActionPerformed
+    }//GEN-LAST:event_jelszoFelfedLabelMouseClicked
+
+    private void jelszoIsmetFelfedLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jelszoIsmetFelfedLabelMouseClicked
+        if (jelszoIsmetPasswordField.getEchoChar() == '*') {
+            jelszoIsmetPasswordField.setEchoChar((char)0);
+            jelszoIsmetFelfedLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/passwordShow.png")));
+        } else if (jelszoIsmetPasswordField.getEchoChar() == (char)0) {
+            jelszoIsmetPasswordField.setEchoChar('*');
+            jelszoIsmetFelfedLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/passwordHide.png")));
+        }
+    }//GEN-LAST:event_jelszoIsmetFelfedLabelMouseClicked
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        BejelentkezesJFrame b = new BejelentkezesJFrame();
+        b.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -310,18 +349,18 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bejelentkezesButton;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField felhasznalonevTextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jelszoFelfedLabel;
+    private javax.swing.JLabel jelszoIsmetFelfedLabel;
     private javax.swing.JPasswordField jelszoIsmetPasswordField;
-    private javax.swing.JCheckBox jelszoMegjeleniteseCheckBox;
     private javax.swing.JPasswordField jelszoPasswordField;
     private javax.swing.JLabel logoLabel;
-    private javax.swing.JTextField nevTextField;
     private javax.swing.JButton regisztracioButton;
     // End of variables declaration//GEN-END:variables
 }
