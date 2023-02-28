@@ -46,8 +46,9 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Hibás felhasználónév!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
         } else {
             if (Hash.MD5(jelszo).equals(kapcsolat.felhasznaloJelszava(felhasznalonev))) {
-                // ITT MEGNYILIK MAJD AZ APP @todo
-                JOptionPane.showMessageDialog(null, "siker");
+                MenuJFrame menu = new MenuJFrame();
+                menu.setVisible(true);
+                this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(null, "Hibás jelszó!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
             }

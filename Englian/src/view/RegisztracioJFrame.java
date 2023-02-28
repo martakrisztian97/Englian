@@ -98,13 +98,13 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         felhasznalonevTextField = new javax.swing.JTextField();
         jelszoPasswordField = new javax.swing.JPasswordField();
         jelszoIsmetPasswordField = new javax.swing.JPasswordField();
+        regisztracioButton = new javax.swing.JButton();
         bejelentkezesButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        regisztracioButton = new javax.swing.JButton();
         jelszoFelfedLabel = new javax.swing.JLabel();
         jelszoIsmetFelfedLabel = new javax.swing.JLabel();
 
@@ -151,6 +151,23 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(jelszoIsmetPasswordField, gridBagConstraints);
 
+        regisztracioButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        regisztracioButton.setText("Regisztráció");
+        regisztracioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        regisztracioButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        regisztracioButton.setMinimumSize(new java.awt.Dimension(200, 40));
+        regisztracioButton.setPreferredSize(new java.awt.Dimension(200, 40));
+        regisztracioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                regisztracioButtonMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        getContentPane().add(regisztracioButton, gridBagConstraints);
+
         bejelentkezesButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bejelentkezesButton.setText("Már van fiókom");
         bejelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -176,50 +193,33 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
         getContentPane().add(logoLabel, gridBagConstraints);
 
-        jLabel5.setText("Jelszó ismét:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel5, gridBagConstraints);
-
-        jLabel2.setText("E-mail:");
+        jLabel1.setText("E-mail:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel2, gridBagConstraints);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel3.setText("Felhasználónév:");
+        jLabel2.setText("Felhasználónév:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel3, gridBagConstraints);
+        getContentPane().add(jLabel2, gridBagConstraints);
 
-        jLabel4.setText("Jelszó:");
+        jLabel3.setText("Jelszó:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        getContentPane().add(jLabel4, gridBagConstraints);
+        getContentPane().add(jLabel3, gridBagConstraints);
 
-        regisztracioButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        regisztracioButton.setText("Regisztráció");
-        regisztracioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        regisztracioButton.setMaximumSize(new java.awt.Dimension(200, 40));
-        regisztracioButton.setMinimumSize(new java.awt.Dimension(200, 40));
-        regisztracioButton.setPreferredSize(new java.awt.Dimension(200, 40));
-        regisztracioButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                regisztracioButtonMouseClicked(evt);
-            }
-        });
+        jLabel4.setText("Jelszó ismét:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
-        getContentPane().add(regisztracioButton, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        getContentPane().add(jLabel4, gridBagConstraints);
 
         jelszoFelfedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jelszoFelfedLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/passwordShow.png"))); // NOI18N
@@ -328,10 +328,10 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     private javax.swing.JButton bejelentkezesButton;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField felhasznalonevTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jelszoFelfedLabel;
     private javax.swing.JLabel jelszoIsmetFelfedLabel;
     private javax.swing.JPasswordField jelszoIsmetPasswordField;
