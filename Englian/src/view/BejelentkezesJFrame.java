@@ -1,27 +1,59 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import model.Hash;
+import model.KapcsolatDB;
 
 /**
- * Bejelentkezés
+ * Bejelentkezési felület.
  * @author Márta Krisztián
  * @since 2022-11-17
  */
 public class BejelentkezesJFrame extends javax.swing.JFrame {
+    
+    private KapcsolatDB kapcsolat;
+    private List<String> felhasznalonevek = new ArrayList<>();
 
     /**
-     * Creates new form Bejelentkezes
+     * Creates new form Bejelentkezes.
      */
     public BejelentkezesJFrame() {
         initComponents();
+        kapcsolat = new KapcsolatDB();
+        felhasznalonevek = kapcsolat.felhasznalonevek();
+        System.out.println(felhasznalonevek);
     }
     
+    /**
+     * Regisztrációs felület megnyitása.
+     */
     public void regisztracioMegnyit() {
         RegisztracioJFrame reg = new RegisztracioJFrame();
         reg.setVisible(true);
         this.setVisible(false);
     }
-
+    
+    /**
+     * Bejelentkezés implementálása és validálása.
+     */
+    public void bejelentkezes() {
+        String felhasznalonev = felhasznalonevTextField.getText();
+        String jelszo = new String(jelszoPasswordField.getPassword());
+        if (!felhasznalonevek.contains(felhasznalonev)) {
+            JOptionPane.showMessageDialog(null, "Hibás felhasználónév!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
+        } else {
+            if (Hash.MD5(jelszo).equals(kapcsolat.felhasznaloJelszava(felhasznalonev))) {
+                // ITT MEGNYILIK MAJD AZ APP @todo
+                JOptionPane.showMessageDialog(null, "siker");
+            } else {
+                JOptionPane.showMessageDialog(null, "Hibás jelszó!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,6 +103,11 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         bejelentkezesButton.setMaximumSize(new java.awt.Dimension(200, 40));
         bejelentkezesButton.setMinimumSize(new java.awt.Dimension(200, 40));
         bejelentkezesButton.setPreferredSize(new java.awt.Dimension(200, 40));
+        bejelentkezesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bejelentkezesButtonMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -94,7 +131,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(regisztracioButton, gridBagConstraints);
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/myemoji.png"))); // NOI18N
+        logoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoLabel.setText("ENGLIAN");
         logoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
         logoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
@@ -120,7 +157,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jelszoFelfedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jelszoFelfedLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/eye1.png"))); // NOI18N
+        jelszoFelfedLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/passwordShow.png"))); // NOI18N
         jelszoFelfedLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jelszoFelfedLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,12 +180,16 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
     private void jelszoFelfedLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jelszoFelfedLabelMouseClicked
         if (jelszoPasswordField.getEchoChar() == '*') {
             jelszoPasswordField.setEchoChar((char)0);
-            jelszoFelfedLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/passwordShow.png")));
+            jelszoFelfedLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/passwordHide.png")));
         } else if (jelszoPasswordField.getEchoChar() == (char)0) {
             jelszoPasswordField.setEchoChar('*');
-            jelszoFelfedLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/passwordHide.png")));
+            jelszoFelfedLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/passwordShow.png")));
         }
     }//GEN-LAST:event_jelszoFelfedLabelMouseClicked
+
+    private void bejelentkezesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bejelentkezesButtonMouseClicked
+        bejelentkezes();
+    }//GEN-LAST:event_bejelentkezesButtonMouseClicked
 
     /**
      * @param args the command line arguments

@@ -1,14 +1,14 @@
 package view;
 
 /**
- * Névjegy
+ * Névjegy.
  * @author Márta Krisztián
  * @since 2022-11-20
  */
 public class Nevjegy extends javax.swing.JFrame {
 
     /**
-     * Creates new form Nevjegy
+     * Creates new form Nevjegy.
      */
     public Nevjegy() {
         initComponents();
