@@ -25,7 +25,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     public RegisztracioJFrame() {
         initComponents();
         kapcsolat = new KapcsolatDB();
-        felhasznalok = kapcsolat.felhasznalonevek();
+        felhasznalok = kapcsolat.felhasznalonevekLekerdez();
     }
 
     /**

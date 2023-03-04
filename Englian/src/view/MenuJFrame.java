@@ -30,59 +30,73 @@ public class MenuJFrame extends javax.swing.JFrame {
         ranglistaButton = new javax.swing.JButton();
         kijelentkezesButton = new javax.swing.JButton();
         kilepesButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(300, 600));
-        setMinimumSize(new java.awt.Dimension(300, 600));
-        setPreferredSize(new java.awt.Dimension(300, 600));
+        setTitle("Menü");
+        setMaximumSize(new java.awt.Dimension(300, 675));
+        setMinimumSize(new java.awt.Dimension(300, 675));
+        setPreferredSize(new java.awt.Dimension(300, 675));
         setResizable(false);
-        setSize(new java.awt.Dimension(300, 600));
+        setSize(new java.awt.Dimension(300, 675));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         szoszedetekButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         szoszedetekButton.setText("SZÓSZEDETEK");
+        szoszedetekButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         szoszedetekButton.setMaximumSize(new java.awt.Dimension(150, 75));
         szoszedetekButton.setMinimumSize(new java.awt.Dimension(150, 75));
         szoszedetekButton.setPreferredSize(new java.awt.Dimension(150, 75));
+        szoszedetekButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                szoszedetekButtonMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(szoszedetekButton, gridBagConstraints);
 
         tesztButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tesztButton.setText("TESZT INDÍTÁSA");
+        tesztButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tesztButton.setMaximumSize(new java.awt.Dimension(150, 75));
         tesztButton.setMinimumSize(new java.awt.Dimension(150, 75));
         tesztButton.setPreferredSize(new java.awt.Dimension(150, 75));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(tesztButton, gridBagConstraints);
 
         ujSzoszedetButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ujSzoszedetButton.setText("<html>ÚJ SZÓSZEDET<br>HOZZÁADÁSA<html>");
+        ujSzoszedetButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ujSzoszedetButton.setMaximumSize(new java.awt.Dimension(150, 75));
         ujSzoszedetButton.setMinimumSize(new java.awt.Dimension(150, 75));
         ujSzoszedetButton.setPreferredSize(new java.awt.Dimension(150, 75));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(ujSzoszedetButton, gridBagConstraints);
 
         ranglistaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ranglistaButton.setText("RANGLISTA");
+        ranglistaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ranglistaButton.setMaximumSize(new java.awt.Dimension(150, 75));
         ranglistaButton.setMinimumSize(new java.awt.Dimension(150, 75));
         ranglistaButton.setPreferredSize(new java.awt.Dimension(150, 75));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(ranglistaButton, gridBagConstraints);
 
         kijelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         kijelentkezesButton.setText("KIJELENTKEZÉS");
+        kijelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kijelentkezesButton.setMaximumSize(new java.awt.Dimension(150, 75));
         kijelentkezesButton.setMinimumSize(new java.awt.Dimension(150, 75));
         kijelentkezesButton.setPreferredSize(new java.awt.Dimension(150, 75));
@@ -93,12 +107,13 @@ public class MenuJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(kijelentkezesButton, gridBagConstraints);
 
         kilepesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         kilepesButton.setText("KILÉPÉS");
+        kilepesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kilepesButton.setMaximumSize(new java.awt.Dimension(150, 75));
         kilepesButton.setMinimumSize(new java.awt.Dimension(150, 75));
         kilepesButton.setPreferredSize(new java.awt.Dimension(150, 75));
@@ -109,9 +124,18 @@ public class MenuJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(kilepesButton, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("HELLO, ________!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 20, 0);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);
@@ -126,6 +150,12 @@ public class MenuJFrame extends javax.swing.JFrame {
     private void kilepesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kilepesButtonMouseClicked
         System.exit(0);
     }//GEN-LAST:event_kilepesButtonMouseClicked
+
+    private void szoszedetekButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szoszedetekButtonMouseClicked
+        TematikakJFrame szoszedet = new TematikakJFrame();
+        szoszedet.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_szoszedetekButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -163,6 +193,7 @@ public class MenuJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton kijelentkezesButton;
     private javax.swing.JButton kilepesButton;
     private javax.swing.JButton ranglistaButton;

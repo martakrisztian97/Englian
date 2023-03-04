@@ -1,56 +1,48 @@
-package layouts;
+package view;
 
-import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import model.KapcsolatDB;
+import model.Tematika;
 
-public class GridLayoutExampleJPanelAddToJFrame extends javax.swing.JFrame {
+/**
+ * 
+ * @author Márta Krisztián
+ * @since 2023-02-28
+ */
+public class TematikakJFrame extends javax.swing.JFrame {
+    
+    private KapcsolatDB kapcsolat;
+    private ArrayList<Tematika> tematikak;
 
     /**
-     * Creates new form GridLayoutExample2JFrame
+     * Creates new form SzoszedetekJFrame
      */
-    public GridLayoutExampleJPanelAddToJFrame() {        
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(0, 4, 10, 10));
-        
-        List<String> titles = new ArrayList<>();
-        titles.add("AAAAAAAAAAA");
-        titles.add("BBBBBBBBBBB");
-        titles.add("CCCCCCCCCCC");
-        titles.add("DDDDDDDDDDD");
-        titles.add("EEEEEEEEEEE");
-        titles.add("FFFFFFFFFFF");
-        titles.add("GGGGGGGGGGG");
-        titles.add("GGGGGGGGGGG");
-        titles.add("GGGGGGGGGGG");
-        titles.add("GGGGGGGGGGG");
-        titles.add("GGGGGGGGGGG");
-        titles.add("GGGGGGGGGGG");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        titles.add("ZZZZZZZZZZZ");
-        
+    public TematikakJFrame() {
+        kapcsolat = new KapcsolatDB();
+        tematikak = kapcsolat.tematikakLekerdez();
         List<JButton> buttons = new ArrayList<>();
-        for (int i = 0; i < titles.size(); i++) {
-            JButton newBtn = new JButton(titles.get(i));
-            newBtn.setPreferredSize(new Dimension(20, 20));
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(0, 3, 20, 20)); // (0 -> bármennyi sor, 4 -> oszlop, 20 -> vízszintes rés, 20 -> függőleges rés)
+             
+        for (int i = 0; i < tematikak.size(); i++) {
+            ImageIcon img = new ImageIcon(getClass().getResource("/view/images/"+tematikak.get(i).getKep()));
+            JButton newBtn = new JButton(tematikak.get(i).getMegnevezes(), img);
+            newBtn.setPreferredSize(new Dimension(200, 200));
+            newBtn.setHorizontalTextPosition(newBtn.CENTER);
+            newBtn.setVerticalTextPosition(newBtn.BOTTOM);
+            newBtn.setFocusable(false);
+            newBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             buttons.add(newBtn);
         }
         
@@ -59,9 +51,10 @@ public class GridLayoutExampleJPanelAddToJFrame extends javax.swing.JFrame {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    OpenJFrame open = new OpenJFrame(button.getText());
-                    open.setVisible(true);
-                }   
+                    System.out.println(button.getText());
+                    /*OpenJFrame open = new OpenJFrame(button.getText());
+                    open.setVisible(true);*/
+                }
             });
             panel.add(button);
         }
@@ -69,15 +62,21 @@ public class GridLayoutExampleJPanelAddToJFrame extends javax.swing.JFrame {
         JScrollPane scrollPane = new JScrollPane(panel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setBounds(20, 20, 1000, 500);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16); // görgő sebességének beállítása
+        
+        int magassag = 210;
+        if (tematikak.size() >= 4 && tematikak.size() <= 6)
+            magassag = 450;
+        else if (tematikak.size() >= 7)
+            magassag = 720;
+        
+        scrollPane.setBounds(20, 20, 750, magassag); // új elhelyezkedés és méret
+        scrollPane.setBorder(null);
         JPanel contentPane = new JPanel(null);
-        contentPane.setPreferredSize(new Dimension(1000, 500));
         contentPane.add(scrollPane);
         this.setContentPane(contentPane);
         this.pack();
-        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         this.setVisible(true);
-        
         initComponents();
     }
 
@@ -90,35 +89,36 @@ public class GridLayoutExampleJPanelAddToJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1200, 800));
-        setPreferredSize(new java.awt.Dimension(1200, 800));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Szószedetek");
+        setMinimumSize(new java.awt.Dimension(800, 800));
         setResizable(false);
-
-        jButton1.setText("jButton1");
+        setSize(new java.awt.Dimension(800, 800));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(1091, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(30, 30, 30))
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addComponent(jButton1)
-                .addContainerGap(455, Short.MAX_VALUE))
+            .addGap(0, 800, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        MenuJFrame menu = new MenuJFrame();
+        menu.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -137,13 +137,13 @@ public class GridLayoutExampleJPanelAddToJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GridLayoutExampleJPanelAddToJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TematikakJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GridLayoutExampleJPanelAddToJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TematikakJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GridLayoutExampleJPanelAddToJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TematikakJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GridLayoutExampleJPanelAddToJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TematikakJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -151,12 +151,11 @@ public class GridLayoutExampleJPanelAddToJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GridLayoutExampleJPanelAddToJFrame().setVisible(true);
+                new TematikakJFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

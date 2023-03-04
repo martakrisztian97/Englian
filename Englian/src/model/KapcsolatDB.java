@@ -2,6 +2,7 @@ package model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Adatbázis kapcsolatért felelős osztály.
@@ -24,11 +25,11 @@ public class KapcsolatDB {
      * Adatbázis kapcsolat létrehozása.
      */
     public void kapcsolodas() {
-        this.host = "jdbc:mysql://localhost:3306/";
-        this.dbName = "englian";
-        this.driver = "com.mysql.jdbc.Driver";
-        this.userName = "root";
-        this.password = "";
+        host = "jdbc:mysql://localhost:3306/";
+        dbName = "englian";
+        driver = "com.mysql.jdbc.Driver";
+        userName = "root";
+        password = "";
     }
     
     /**
@@ -57,7 +58,7 @@ public class KapcsolatDB {
      * A regisztrált felhasználónevek lekérdezése.
      * @return A regisztrált felhasználóneveket tartalmazó listával.
      */
-    public ArrayList<String> felhasznalonevek() {
+    public ArrayList<String> felhasznalonevekLekerdez() {
         String query = "SELECT felhasznalonev FROM felhasznalok";
         ArrayList<String> lista = new ArrayList();
         try {
@@ -101,4 +102,34 @@ public class KapcsolatDB {
         }
         return jelszo;
     }
+    
+    /**
+     * A tematikák lekérdezése.
+     * @return A tematikák adatait tartalmazó listával.
+     */
+    public ArrayList<Tematika> tematikakLekerdez() {
+        String query = "SELECT id, megnevezes, kep, mappa FROM tematikak";
+        ArrayList<Tematika> lista = new ArrayList<>();
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            ResultSet result = st.executeQuery(query);
+            while (result.next()) {
+                int id = result.getInt("id");
+                String megnevezes = result.getString("megnevezes");
+                String kep = result.getString("kep");
+                String mappa = result.getString("mappa");
+                lista.add(new Tematika(id, megnevezes, kep, mappa));
+            }
+        conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: "+e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: "+ex.getMessage());
+        }
+        return lista;
+    }
+    
+    
 }

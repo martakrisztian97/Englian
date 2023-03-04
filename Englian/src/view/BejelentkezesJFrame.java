@@ -23,7 +23,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
     public BejelentkezesJFrame() {
         initComponents();
         kapcsolat = new KapcsolatDB();
-        felhasznalonevek = kapcsolat.felhasznalonevek();
+        felhasznalonevek = kapcsolat.felhasznalonevekLekerdez();
         System.out.println(felhasznalonevek);
     }
     

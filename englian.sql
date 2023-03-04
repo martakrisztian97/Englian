@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Feb 22. 10:24
--- Kiszolgáló verziója: 10.4.24-MariaDB
--- PHP verzió: 8.1.6
+-- Létrehozás ideje: 2023. Már 04. 12:33
+-- Kiszolgáló verziója: 10.4.27-MariaDB
+-- PHP verzió: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,10 +31,9 @@ USE `englian`;
 
 CREATE TABLE `felhasznalok` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nev` varchar(255) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `email` varchar(128) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `felhasznalonev` varchar(32) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `jelszo` varchar(64) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `felhasznalonev` varchar(32) DEFAULT NULL,
+  `jelszo` varchar(64) DEFAULT NULL,
   `regisztracio_datuma` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
@@ -42,8 +41,31 @@ CREATE TABLE `felhasznalok` (
 -- A tábla adatainak kiíratása `felhasznalok`
 --
 
-INSERT INTO `felhasznalok` (`id`, `nev`, `email`, `felhasznalonev`, `jelszo`, `regisztracio_datuma`) VALUES
-(1, 'Márta Krisztián', 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56');
+INSERT INTO `felhasznalok` (`id`, `email`, `felhasznalonev`, `jelszo`, `regisztracio_datuma`) VALUES
+(1, 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56'),
+(22, 'test@test.hu', 'test', '22213aeb1ef6411bc8255c6341b1383e', '2023-02-28 14:06:34');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `kapcsolodas`
+--
+
+CREATE TABLE `kapcsolodas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `felhasznalo_id` int(10) UNSIGNED NOT NULL,
+  `tematika_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `kapcsolodas`
+--
+
+INSERT INTO `kapcsolodas` (`id`, `felhasznalo_id`, `tematika_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 22, 1),
+(4, 22, 2);
 
 -- --------------------------------------------------------
 
@@ -54,16 +76,16 @@ INSERT INTO `felhasznalok` (`id`, `nev`, `email`, `felhasznalonev`, `jelszo`, `r
 CREATE TABLE `szavak` (
   `id` int(10) UNSIGNED NOT NULL,
   `tematika_id` int(10) UNSIGNED NOT NULL,
-  `angol` varchar(32) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `magyar` varchar(32) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `kep_fajlnev` varchar(32) COLLATE utf8mb4_hungarian_ci DEFAULT NULL
+  `angol` varchar(32) DEFAULT NULL,
+  `magyar` varchar(32) DEFAULT NULL,
+  `kep` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `szavak`
 --
 
-INSERT INTO `szavak` (`id`, `tematika_id`, `angol`, `magyar`, `kep_fajlnev`) VALUES
+INSERT INTO `szavak` (`id`, `tematika_id`, `angol`, `magyar`, `kep`) VALUES
 (1, 1, 'almond', 'mandula', 'almond.png'),
 (2, 1, 'apple', 'alma', 'apple.png'),
 (3, 1, 'apricot', 'sárgabarack', 'apricot.png'),
@@ -122,17 +144,18 @@ INSERT INTO `szavak` (`id`, `tematika_id`, `angol`, `magyar`, `kep_fajlnev`) VAL
 
 CREATE TABLE `tematikak` (
   `id` int(10) UNSIGNED NOT NULL,
-  `megnevezes` varchar(32) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
-  `mappa_utvonal` varchar(32) COLLATE utf8mb4_hungarian_ci DEFAULT NULL
+  `megnevezes` varchar(32) DEFAULT NULL,
+  `kep` varchar(32) DEFAULT NULL,
+  `mappa` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `tematikak`
 --
 
-INSERT INTO `tematikak` (`id`, `megnevezes`, `mappa_utvonal`) VALUES
-(1, 'Gyümölcsök', 'images/fruits/'),
-(2, 'Színek', 'images/colors/');
+INSERT INTO `tematikak` (`id`, `megnevezes`, `kep`, `mappa`) VALUES
+(1, 'Gyümölcsök', 'proba.png', 'images/fruits/'),
+(2, 'Színek', 'proba.png', 'images/colors/');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -143,6 +166,14 @@ INSERT INTO `tematikak` (`id`, `megnevezes`, `mappa_utvonal`) VALUES
 --
 ALTER TABLE `felhasznalok`
   ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `kapcsolodas`
+--
+ALTER TABLE `kapcsolodas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `felhasznalo_kapcsolat` (`felhasznalo_id`),
+  ADD KEY `tematika_kapcsolat` (`tematika_id`);
 
 --
 -- A tábla indexei `szavak`
@@ -165,7 +196,13 @@ ALTER TABLE `tematikak`
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT a táblához `kapcsolodas`
+--
+ALTER TABLE `kapcsolodas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
@@ -182,6 +219,13 @@ ALTER TABLE `tematikak`
 --
 -- Megkötések a kiírt táblákhoz
 --
+
+--
+-- Megkötések a táblához `kapcsolodas`
+--
+ALTER TABLE `kapcsolodas`
+  ADD CONSTRAINT `felhasznalo_kapcsolat` FOREIGN KEY (`felhasznalo_id`) REFERENCES `felhasznalok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tematika_kapcsolat` FOREIGN KEY (`tematika_id`) REFERENCES `tematikak` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Megkötések a táblához `szavak`
