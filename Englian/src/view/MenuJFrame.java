@@ -1,17 +1,31 @@
 package view;
 
+import model.Felhasznalo;
+
 /**
  * Az alkalmazás menüje.
  * @author Márta Krisztián
  * @since 2023-02-28
  */
 public class MenuJFrame extends javax.swing.JFrame {
+    
+    private Felhasznalo beFelh;
 
     /**
      * Creates new form MenuJFrame.
      */
     public MenuJFrame() {
         initComponents();
+    }
+    
+    /**
+     * Creates new form MenuJFrame.
+     * @param f Bejelentkezett felhasználó.
+     */
+    public MenuJFrame(Felhasznalo f) {
+        initComponents();
+        beFelh = f;
+        udvLabel.setText("Szia "+f.getFelhasznalonev()+"!");
     }
 
     /**
@@ -30,7 +44,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         ranglistaButton = new javax.swing.JButton();
         kijelentkezesButton = new javax.swing.JButton();
         kilepesButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        udvLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menü");
@@ -128,14 +142,14 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(kilepesButton, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("HELLO, ________!");
+        udvLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        udvLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        udvLabel.setText("Szia, ________!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(30, 0, 20, 0);
-        getContentPane().add(jLabel1, gridBagConstraints);
+        getContentPane().add(udvLabel, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);
@@ -152,7 +166,7 @@ public class MenuJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_kilepesButtonMouseClicked
 
     private void szoszedetekButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szoszedetekButtonMouseClicked
-        TematikakJFrame szoszedet = new TematikakJFrame();
+        TematikakJFrame szoszedet = new TematikakJFrame(beFelh);
         szoszedet.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_szoszedetekButtonMouseClicked
@@ -193,12 +207,12 @@ public class MenuJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton kijelentkezesButton;
     private javax.swing.JButton kilepesButton;
     private javax.swing.JButton ranglistaButton;
     private javax.swing.JButton szoszedetekButton;
     private javax.swing.JButton tesztButton;
+    private javax.swing.JLabel udvLabel;
     private javax.swing.JButton ujSzoszedetButton;
     // End of variables declaration//GEN-END:variables
 }

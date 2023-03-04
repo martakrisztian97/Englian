@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import model.Felhasznalo;
 import model.Hash;
 import model.KapcsolatDB;
 
@@ -17,6 +18,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
     
     private KapcsolatDB kapcsolat;
     private List<String> felhasznalonevek = new ArrayList<>();
+    private Felhasznalo beFelh;
 
     /**
      * Creates new form Bejelentkezes.
@@ -46,8 +48,10 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         if (!felhasznalonevek.contains(felhasznalonev)) {
             JOptionPane.showMessageDialog(null, "Hibás felhasználónév!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
         } else {
-            if (Hash.MD5(jelszo).equals(kapcsolat.felhasznaloJelszava(felhasznalonev))) {
-                MenuJFrame menu = new MenuJFrame();
+            beFelh = kapcsolat.felhasznaloAdatokLekerdez(felhasznalonev);
+            if (Hash.MD5(jelszo).equals(beFelh.getJelszo())) {
+                System.out.println(beFelh.toString());
+                MenuJFrame menu = new MenuJFrame(beFelh);
                 menu.setVisible(true);
                 this.setVisible(false);
             } else {

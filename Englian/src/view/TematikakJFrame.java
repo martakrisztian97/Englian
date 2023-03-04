@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import model.Felhasznalo;
 import model.KapcsolatDB;
 import model.Tematika;
 
@@ -21,6 +23,7 @@ import model.Tematika;
  */
 public class TematikakJFrame extends javax.swing.JFrame {
     
+    private Felhasznalo beFelh;
     private KapcsolatDB kapcsolat;
     private ArrayList<Tematika> tematikak;
 
@@ -28,6 +31,16 @@ public class TematikakJFrame extends javax.swing.JFrame {
      * Creates new form SzoszedetekJFrame
      */
     public TematikakJFrame() {
+        initComponents();
+    }
+    
+    /**
+     * Creates new form SzoszedetekJFrame
+     * @param f  Bejelentkezett felhasználó.
+     */
+    public TematikakJFrame(Felhasznalo f) {
+        initComponents();
+        beFelh = f;
         kapcsolat = new KapcsolatDB();
         tematikak = kapcsolat.tematikakLekerdez();
         List<JButton> buttons = new ArrayList<>();
@@ -38,6 +51,9 @@ public class TematikakJFrame extends javax.swing.JFrame {
         for (int i = 0; i < tematikak.size(); i++) {
             ImageIcon img = new ImageIcon(getClass().getResource("/view/images/"+tematikak.get(i).getKep()));
             JButton newBtn = new JButton(tematikak.get(i).getMegnevezes(), img);
+            newBtn.setFont(new Font("Segou UI", Font.BOLD, 15));
+            newBtn.setText(newBtn.getText().toUpperCase());
+            newBtn.setText(beFelh.toString());
             newBtn.setPreferredSize(new Dimension(200, 200));
             newBtn.setHorizontalTextPosition(newBtn.CENTER);
             newBtn.setVerticalTextPosition(newBtn.BOTTOM);
@@ -77,7 +93,6 @@ public class TematikakJFrame extends javax.swing.JFrame {
         this.setContentPane(contentPane);
         this.pack();
         this.setVisible(true);
-        initComponents();
     }
 
     /**
@@ -116,7 +131,7 @@ public class TematikakJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        MenuJFrame menu = new MenuJFrame();
+        MenuJFrame menu = new MenuJFrame(beFelh);
         menu.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
