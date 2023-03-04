@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -76,14 +77,17 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bejelentkezés");
-        setMaximumSize(new java.awt.Dimension(500, 400));
         setMinimumSize(new java.awt.Dimension(500, 400));
-        setPreferredSize(new java.awt.Dimension(500, 400));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         felhasznalonevTextField.setMinimumSize(new java.awt.Dimension(200, 30));
         felhasznalonevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
+        felhasznalonevTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                felhasznalonevTextFieldKeyPressed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -92,6 +96,11 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
 
         jelszoPasswordField.setMinimumSize(new java.awt.Dimension(200, 30));
         jelszoPasswordField.setPreferredSize(new java.awt.Dimension(200, 30));
+        jelszoPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jelszoPasswordFieldKeyPressed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -107,6 +116,11 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         bejelentkezesButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bejelentkezesButtonMouseClicked(evt);
+            }
+        });
+        bejelentkezesButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bejelentkezesButtonKeyPressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -191,6 +205,24 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
     private void bejelentkezesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bejelentkezesButtonMouseClicked
         bejelentkezes();
     }//GEN-LAST:event_bejelentkezesButtonMouseClicked
+
+    private void bejelentkezesButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bejelentkezesButtonKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            bejelentkezes();
+        }
+    }//GEN-LAST:event_bejelentkezesButtonKeyPressed
+
+    private void jelszoPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jelszoPasswordFieldKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            bejelentkezes();
+        }
+    }//GEN-LAST:event_jelszoPasswordFieldKeyPressed
+
+    private void felhasznalonevTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_felhasznalonevTextFieldKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            bejelentkezes();
+        }
+    }//GEN-LAST:event_felhasznalonevTextFieldKeyPressed
 
     /**
      * @param args the command line arguments
