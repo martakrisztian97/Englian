@@ -10,27 +10,30 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import model.Felhasznalo;
 import model.KapcsolatDB;
-import model.Tematika;
+import model.Temakor;
 
 /**
- * 
+ * A bejelentkezett felhasználó szószedeteit tartalmazó felület.
  * @author Márta Krisztián
  * @since 2023-02-28
  */
-public class TematikakJFrame extends javax.swing.JFrame {
+public class SzoszedetekJFrame extends javax.swing.JFrame {
     
+    private JFrame frame;
     private Felhasznalo beFelh;
     private KapcsolatDB kapcsolat;
-    private ArrayList<Tematika> tematikak;
+    private ArrayList<Temakor> temakorok;
+    List<JButton> buttons;
 
     /**
      * Creates new form SzoszedetekJFrame
      */
-    public TematikakJFrame() {
+    public SzoszedetekJFrame() {
         initComponents();
     }
     
@@ -38,22 +41,22 @@ public class TematikakJFrame extends javax.swing.JFrame {
      * Creates new form SzoszedetekJFrame
      * @param f  Bejelentkezett felhasználó.
      */
-    public TematikakJFrame(Felhasznalo f) {
+    public SzoszedetekJFrame(Felhasznalo f) {
         initComponents();
+        frame = this;
         beFelh = f;
         kapcsolat = new KapcsolatDB();
-        tematikak = kapcsolat.tematikakLekerdez();
-        List<JButton> buttons = new ArrayList<>();
+        temakorok = kapcsolat.temakorokLekerdez(beFelh);
+        buttons = new ArrayList<>();
         
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(0, 3, 20, 20)); // (0 -> bármennyi sor, 4 -> oszlop, 20 -> vízszintes rés, 20 -> függőleges rés)
              
-        for (int i = 0; i < tematikak.size(); i++) {
-            ImageIcon img = new ImageIcon(getClass().getResource("/view/images/"+tematikak.get(i).getKep()));
-            JButton newBtn = new JButton(tematikak.get(i).getMegnevezes(), img);
+        for (int i = 0; i < temakorok.size(); i++) {
+            ImageIcon img = new ImageIcon(getClass().getResource("/view/images/"+temakorok.get(i).getKep()));
+            JButton newBtn = new JButton(temakorok.get(i).getMegnevezes(), img);
             newBtn.setFont(new Font("Segou UI", Font.BOLD, 15));
             newBtn.setText(newBtn.getText().toUpperCase());
-            newBtn.setText(beFelh.toString());
             newBtn.setPreferredSize(new Dimension(200, 200));
             newBtn.setHorizontalTextPosition(newBtn.CENTER);
             newBtn.setVerticalTextPosition(newBtn.BOTTOM);
@@ -62,17 +65,21 @@ public class TematikakJFrame extends javax.swing.JFrame {
             buttons.add(newBtn);
         }
         
-        for (JButton button : buttons) {
-            button.addActionListener(new ActionListener() {
+        //for (JButton button : buttons) {
+        for (int i = 0; i < buttons.size(); i++) { //@todo
+            buttons.get(i).addActionListener(new ActionListener() {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(button.getText());
-                    /*OpenJFrame open = new OpenJFrame(button.getText());
-                    open.setVisible(true);*/
+                    //System.out.println()); // @todo
+                    //System.out.println(buttons.get(panel.getComponentCount()-1).getText());
+                    System.out.println(buttons.indexOf(e.getSource()));
+                    SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(buttons.indexOf(e.getSource())).getId());
+                    szotanulo.setVisible(true);
+                    frame.setVisible(false);
                 }
             });
-            panel.add(button);
+            panel.add(buttons.get(i));
         }
         
         JScrollPane scrollPane = new JScrollPane(panel);
@@ -81,9 +88,9 @@ public class TematikakJFrame extends javax.swing.JFrame {
         scrollPane.getVerticalScrollBar().setUnitIncrement(16); // görgő sebességének beállítása
         
         int magassag = 210;
-        if (tematikak.size() >= 4 && tematikak.size() <= 6)
+        if (temakorok.size() >= 4 && temakorok.size() <= 6)
             magassag = 450;
-        else if (tematikak.size() >= 7)
+        else if (temakorok.size() >= 7)
             magassag = 720;
         
         scrollPane.setBounds(20, 20, 750, magassag); // új elhelyezkedés és méret
@@ -152,21 +159,23 @@ public class TematikakJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TematikakJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SzoszedetekJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TematikakJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SzoszedetekJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TematikakJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SzoszedetekJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TematikakJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SzoszedetekJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TematikakJFrame().setVisible(true);
+                new SzoszedetekJFrame().setVisible(true);
             }
         });
     }

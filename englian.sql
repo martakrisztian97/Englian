@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 04. 12:33
+-- Létrehozás ideje: 2023. Már 06. 01:00
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -43,29 +43,7 @@ CREATE TABLE `felhasznalok` (
 
 INSERT INTO `felhasznalok` (`id`, `email`, `felhasznalonev`, `jelszo`, `regisztracio_datuma`) VALUES
 (1, 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56'),
-(22, 'test@test.hu', 'test', '22213aeb1ef6411bc8255c6341b1383e', '2023-02-28 14:06:34');
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `kapcsolodas`
---
-
-CREATE TABLE `kapcsolodas` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `felhasznalo_id` int(10) UNSIGNED NOT NULL,
-  `tematika_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `kapcsolodas`
---
-
-INSERT INTO `kapcsolodas` (`id`, `felhasznalo_id`, `tematika_id`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 22, 1),
-(4, 22, 2);
+(23, 'test@test.hu', 'test', 'ba8e8c3e23d2e0418ced895c2b31a125', '2023-03-04 23:02:56');
 
 -- --------------------------------------------------------
 
@@ -75,7 +53,7 @@ INSERT INTO `kapcsolodas` (`id`, `felhasznalo_id`, `tematika_id`) VALUES
 
 CREATE TABLE `szavak` (
   `id` int(10) UNSIGNED NOT NULL,
-  `tematika_id` int(10) UNSIGNED NOT NULL,
+  `temakor_id` int(10) UNSIGNED NOT NULL,
   `angol` varchar(32) DEFAULT NULL,
   `magyar` varchar(32) DEFAULT NULL,
   `kep` varchar(32) DEFAULT NULL
@@ -85,7 +63,7 @@ CREATE TABLE `szavak` (
 -- A tábla adatainak kiíratása `szavak`
 --
 
-INSERT INTO `szavak` (`id`, `tematika_id`, `angol`, `magyar`, `kep`) VALUES
+INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (1, 1, 'almond', 'mandula', 'almond.png'),
 (2, 1, 'apple', 'alma', 'apple.png'),
 (3, 1, 'apricot', 'sárgabarack', 'apricot.png'),
@@ -139,10 +117,31 @@ INSERT INTO `szavak` (`id`, `tematika_id`, `angol`, `magyar`, `kep`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `tematikak`
+-- Tábla szerkezet ehhez a táblához `tananyag`
 --
 
-CREATE TABLE `tematikak` (
+CREATE TABLE `tananyag` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `felhasznalo_id` int(10) UNSIGNED NOT NULL,
+  `temakor_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `tananyag`
+--
+
+INSERT INTO `tananyag` (`id`, `felhasznalo_id`, `temakor_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 23, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `temakorok`
+--
+
+CREATE TABLE `temakorok` (
   `id` int(10) UNSIGNED NOT NULL,
   `megnevezes` varchar(32) DEFAULT NULL,
   `kep` varchar(32) DEFAULT NULL,
@@ -150,12 +149,12 @@ CREATE TABLE `tematikak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
--- A tábla adatainak kiíratása `tematikak`
+-- A tábla adatainak kiíratása `temakorok`
 --
 
-INSERT INTO `tematikak` (`id`, `megnevezes`, `kep`, `mappa`) VALUES
+INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`) VALUES
 (1, 'Gyümölcsök', 'proba.png', 'images/fruits/'),
-(2, 'Színek', 'proba.png', 'images/colors/');
+(2, 'Színek', 'colors.png', 'images/colors/');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -165,27 +164,28 @@ INSERT INTO `tematikak` (`id`, `megnevezes`, `kep`, `mappa`) VALUES
 -- A tábla indexei `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  ADD PRIMARY KEY (`id`);
-
---
--- A tábla indexei `kapcsolodas`
---
-ALTER TABLE `kapcsolodas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `felhasznalo_kapcsolat` (`felhasznalo_id`),
-  ADD KEY `tematika_kapcsolat` (`tematika_id`);
+  ADD UNIQUE KEY `email` (`email`,`felhasznalonev`);
 
 --
 -- A tábla indexei `szavak`
 --
 ALTER TABLE `szavak`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ketogria_idegen_kulcs` (`tematika_id`);
+  ADD KEY `ketogria_idegen_kulcs` (`temakor_id`);
 
 --
--- A tábla indexei `tematikak`
+-- A tábla indexei `tananyag`
 --
-ALTER TABLE `tematikak`
+ALTER TABLE `tananyag`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `felhasznalo_kapcsolat` (`felhasznalo_id`),
+  ADD KEY `tematika_kapcsolat` (`temakor_id`);
+
+--
+-- A tábla indexei `temakorok`
+--
+ALTER TABLE `temakorok`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
@@ -196,13 +196,7 @@ ALTER TABLE `tematikak`
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT a táblához `kapcsolodas`
---
-ALTER TABLE `kapcsolodas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
@@ -211,27 +205,33 @@ ALTER TABLE `szavak`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- AUTO_INCREMENT a táblához `tematikak`
+-- AUTO_INCREMENT a táblához `tananyag`
 --
-ALTER TABLE `tematikak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tananyag`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT a táblához `temakorok`
+--
+ALTER TABLE `temakorok`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Megkötések a kiírt táblákhoz
 --
 
 --
--- Megkötések a táblához `kapcsolodas`
---
-ALTER TABLE `kapcsolodas`
-  ADD CONSTRAINT `felhasznalo_kapcsolat` FOREIGN KEY (`felhasznalo_id`) REFERENCES `felhasznalok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tematika_kapcsolat` FOREIGN KEY (`tematika_id`) REFERENCES `tematikak` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Megkötések a táblához `szavak`
 --
 ALTER TABLE `szavak`
-  ADD CONSTRAINT `ketogria_idegen_kulcs` FOREIGN KEY (`tematika_id`) REFERENCES `tematikak` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ketogria_idegen_kulcs` FOREIGN KEY (`temakor_id`) REFERENCES `temakorok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Megkötések a táblához `tananyag`
+--
+ALTER TABLE `tananyag`
+  ADD CONSTRAINT `felhasznalo_kapcsolat` FOREIGN KEY (`felhasznalo_id`) REFERENCES `felhasznalok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tematika_kapcsolat` FOREIGN KEY (`temakor_id`) REFERENCES `temakorok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -30,6 +30,7 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="felhasznalonevTextField">
       <Properties>
+        <Property name="text" type="java.lang.String" value="admin"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[200, 30]"/>
         </Property>
@@ -48,6 +49,7 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="jelszoPasswordField">
       <Properties>
+        <Property name="text" type="java.lang.String" value="admin"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[200, 30]"/>
         </Property>

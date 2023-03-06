@@ -85,6 +85,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        felhasznalonevTextField.setText("admin");
         felhasznalonevTextField.setMinimumSize(new java.awt.Dimension(200, 30));
         felhasznalonevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
         felhasznalonevTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -98,6 +99,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(felhasznalonevTextField, gridBagConstraints);
 
+        jelszoPasswordField.setText("admin");
         jelszoPasswordField.setMinimumSize(new java.awt.Dimension(200, 30));
         jelszoPasswordField.setPreferredSize(new java.awt.Dimension(200, 30));
         jelszoPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {

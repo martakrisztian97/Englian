@@ -82,7 +82,7 @@ public class KapcsolatDB {
      * Egy adott felhasználó jelszavának lekérdezése a bejelentkezéshez.
      * @param felhasznalonev A felhasználó felhasználóneve.
      * @return A felhasználó jelszavával.
-     */
+     */ // @todo
     public String felhasznaloJelszava(String felhasznalonev) {
         String query = "SELECT jelszo FROM felhasznalok WHERE felhasznalonev LIKE \"" + felhasznalonev + "\"";
         String jelszo = "";
@@ -128,14 +128,16 @@ public class KapcsolatDB {
         }
         return felhasznalo;
     }
-    
+        
     /**
-     * A tematikák lekérdezése.
-     * @return A tematikák adatait tartalmazó listával.
+     * A felhasználóhoz tartozó szószedetek témaköreinek lekérdezése.
+     * @param f A felhasználó.
+     * @return A témakörök adatait tartalmazó listával.
      */
-    public ArrayList<Tematika> tematikakLekerdez() {
-        String query = "SELECT id, megnevezes, kep, mappa FROM tematikak";
-        ArrayList<Tematika> lista = new ArrayList<>();
+    public ArrayList<Temakor> temakorokLekerdez(Felhasznalo f) {
+        String query = "SELECT temakorok.id, temakorok.megnevezes, temakorok.kep, temakorok.mappa FROM temakorok, tananyag "
+                + "WHERE tananyag.temakor_id = temakorok.id AND tananyag.felhasznalo_id = "+f.getId();
+        ArrayList<Temakor> lista = new ArrayList<>();
         try {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(host + dbName, userName, password);
@@ -146,7 +148,7 @@ public class KapcsolatDB {
                 String megnevezes = result.getString("megnevezes");
                 String kep = result.getString("kep");
                 String mappa = result.getString("mappa");
-                lista.add(new Tematika(id, megnevezes, kep, mappa));
+                lista.add(new Temakor(id, megnevezes, kep, mappa));
             }
         conn.close();
         } catch (SQLException e) {
@@ -156,6 +158,5 @@ public class KapcsolatDB {
         }
         return lista;
     }
-    
     
 }

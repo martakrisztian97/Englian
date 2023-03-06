@@ -56,7 +56,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         szoszedetekButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        szoszedetekButton.setText("SZÓSZEDETEK");
+        szoszedetekButton.setText("<html><div text-align:center>TEMATIKUS<br>SZÓSZEDETEK</div></html>\n");
         szoszedetekButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         szoszedetekButton.setMaximumSize(new java.awt.Dimension(150, 75));
         szoszedetekButton.setMinimumSize(new java.awt.Dimension(150, 75));
@@ -166,7 +166,7 @@ public class MenuJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_kilepesButtonMouseClicked
 
     private void szoszedetekButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szoszedetekButtonMouseClicked
-        TematikakJFrame szoszedet = new TematikakJFrame(beFelh);
+        SzoszedetekJFrame szoszedet = new SzoszedetekJFrame(beFelh);
         szoszedet.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_szoszedetekButtonMouseClicked

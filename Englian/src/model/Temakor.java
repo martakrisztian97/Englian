@@ -1,17 +1,17 @@
 package model;
 
 /**
- * Tematikák tárolására szolgáló osztály.
+ * Témakörök tárolására szolgáló osztály.
  * @author Márta Krisztián
  * @since 2023-03-04
  */
-public class Tematika {
+public class Temakor {
     private int id;
     private String megnevezes;
     private String kep;
     private String mappa;
 
-    public Tematika(int id, String megnevezes, String kep, String mappa) {
+    public Temakor(int id, String megnevezes, String kep, String mappa) {
         this.id = id;
         this.megnevezes = megnevezes;
         this.kep = kep;
