@@ -28,7 +28,7 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
     private Felhasznalo beFelh;
     private KapcsolatDB kapcsolat;
     private ArrayList<Temakor> temakorok;
-    List<JButton> buttons;
+    List<JButton> gombok;
 
     /**
      * Creates new form SzoszedetekJFrame
@@ -47,7 +47,7 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
         beFelh = f;
         kapcsolat = new KapcsolatDB();
         temakorok = kapcsolat.temakorokLekerdez(beFelh);
-        buttons = new ArrayList<>();
+        gombok = new ArrayList<>();
         
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(0, 3, 20, 20)); // (0 -> bármennyi sor, 4 -> oszlop, 20 -> vízszintes rés, 20 -> függőleges rés)
@@ -62,24 +62,21 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
             newBtn.setVerticalTextPosition(newBtn.BOTTOM);
             newBtn.setFocusable(false);
             newBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            buttons.add(newBtn);
+            gombok.add(newBtn);
         }
         
-        //for (JButton button : buttons) {
-        for (int i = 0; i < buttons.size(); i++) { //@todo
-            buttons.get(i).addActionListener(new ActionListener() {
+        for (JButton gomb : gombok) {
+            gomb.addActionListener(new ActionListener() {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //System.out.println()); // @todo
-                    //System.out.println(buttons.get(panel.getComponentCount()-1).getText());
-                    System.out.println(buttons.indexOf(e.getSource()));
-                    SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(buttons.indexOf(e.getSource())).getId());
+                    System.out.println("GOMB FORRÁSA KATTINTÁSKOR: "+gombok.indexOf(e.getSource()));
+                    SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())).getId());
                     szotanulo.setVisible(true);
                     frame.setVisible(false);
                 }
             });
-            panel.add(buttons.get(i));
+            panel.add(gomb);
         }
         
         JScrollPane scrollPane = new JScrollPane(panel);

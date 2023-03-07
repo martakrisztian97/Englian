@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Témakörök tárolására szolgáló osztály.
+ * Témakör tárolására szolgáló osztály.
  * @author Márta Krisztián
  * @since 2023-03-04
  */

@@ -175,7 +175,34 @@ public class KapcsolatDB {
                 String mappa = result.getString("mappa");
                 lista.add(new Temakor(id, megnevezes, kep, mappa));
             }
-        conn.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: "+e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: "+ex.getMessage());
+        }
+        return lista;
+    }
+    
+    /**
+     * Egy adott témakör szavainak lekérdezése.
+     * @param temakorId A témakör azonosítója.
+     * @return A szavakat tartalmazó listával.
+     */
+    public ArrayList<Szo> szavakAdottTemakorbenLekerdez(int temakorId) {
+        String query = "SELECT angol, magyar FROM szavak WHERE temakor_id = "+temakorId;
+        ArrayList<Szo> lista = new ArrayList<>();
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            ResultSet result = st.executeQuery(query);
+            while (result.next()) {
+                String angol = result.getString("angol");
+                String magyar = result.getString("magyar");
+                lista.add(new Szo(angol, magyar));
+            }
+            conn.close();
         } catch (SQLException e) {
             System.out.println("Hiba: "+e.getMessage());
         } catch (ClassNotFoundException ex) {
