@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +73,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
 
         felhasznalonevTextField = new javax.swing.JTextField();
         jelszoPasswordField = new javax.swing.JPasswordField();
+        capsLockLabel = new javax.swing.JLabel();
         bejelentkezesButton = new javax.swing.JButton();
         regisztracioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
@@ -106,12 +108,25 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jelszoPasswordFieldKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jelszoPasswordFieldKeyTyped(evt);
+            }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
         getContentPane().add(jelszoPasswordField, gridBagConstraints);
+
+        capsLockLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        capsLockLabel.setForeground(new java.awt.Color(255, 0, 0));
+        capsLockLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 5, 0);
+        getContentPane().add(capsLockLabel, gridBagConstraints);
 
         bejelentkezesButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         bejelentkezesButton.setText("Bejelentkezés");
@@ -131,7 +146,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(bejelentkezesButton, gridBagConstraints);
 
@@ -148,7 +163,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(regisztracioButton, gridBagConstraints);
 
@@ -230,6 +245,15 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_felhasznalonevTextFieldKeyPressed
 
+    private void jelszoPasswordFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jelszoPasswordFieldKeyTyped
+        boolean capsBe = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+        if (capsBe) {
+            capsLockLabel.setText("A Caps Lock aktív!");
+        } else {
+            capsLockLabel.setText("");
+        }
+    }//GEN-LAST:event_jelszoPasswordFieldKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -268,6 +292,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bejelentkezesButton;
+    private javax.swing.JLabel capsLockLabel;
     private javax.swing.JTextField felhasznalonevTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

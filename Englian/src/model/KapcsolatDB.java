@@ -79,6 +79,31 @@ public class KapcsolatDB {
     }
     
     /**
+     * A regisztrált felhasználók email címeinek lekérdezése.
+     * @return A regisztrált felhasználók email címeit tartalmazó listával.
+     */
+    public ArrayList<String> emailCimeketLekerdez() {
+        String query = "SELECT email FROM felhasznalok";
+        ArrayList<String> lista = new ArrayList();
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            ResultSet result = st.executeQuery(query);
+            while (result.next()) {
+                String email = result.getString("email");
+                lista.add(email);
+            }
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: " + ex.getMessage());
+        }
+        return lista;
+    }
+    
+    /**
      * Egy adott felhasználó jelszavának lekérdezése a bejelentkezéshez.
      * @param felhasznalonev A felhasználó felhasználóneve.
      * @return A felhasználó jelszavával.

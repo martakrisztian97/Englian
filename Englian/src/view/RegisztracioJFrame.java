@@ -17,7 +17,8 @@ import model.KapcsolatDB;
 public class RegisztracioJFrame extends javax.swing.JFrame {
 
     private KapcsolatDB kapcsolat;
-    private List<String> felhasznalok = new ArrayList<>();
+    private List<String> felhasznaloknevek = new ArrayList<>();
+    private List<String> emailCimek = new ArrayList<>();
 
     /**
      * Creates new form Regisztracio.
@@ -25,7 +26,8 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     public RegisztracioJFrame() {
         initComponents();
         kapcsolat = new KapcsolatDB();
-        felhasznalok = kapcsolat.felhasznalonevekLekerdez();
+        felhasznaloknevek = kapcsolat.felhasznalonevekLekerdez();
+        emailCimek = kapcsolat.emailCimeketLekerdez();
     }
 
     /**
@@ -38,9 +40,11 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         String jelszoIsmet = new String(jelszoIsmetPasswordField.getPassword());
         if (!emailValidalas(email))
             JOptionPane.showMessageDialog(null, "Helyes email címet adjon meg!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+        else if (emailCimek.contains(email))
+            JOptionPane.showMessageDialog(null, "Ez az e-mail cím már regisztrálva van!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else if (felhasznalonev.isEmpty())
             JOptionPane.showMessageDialog(null, "Felhasználónév megadása kötelező!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
-        else if (felhasznalok.contains(felhasznalonev))
+        else if (felhasznaloknevek.contains(felhasznalonev))
             JOptionPane.showMessageDialog(null, "A felhasználónév már foglalt!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else if (!jelszo.equals(jelszoIsmet))
             JOptionPane.showMessageDialog(null, "A jelszavaknak egyezniük kell!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
