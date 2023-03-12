@@ -38,13 +38,13 @@ public class MenuJFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        udvLabel = new javax.swing.JLabel();
         szoszedetekButton = new javax.swing.JButton();
         tesztButton = new javax.swing.JButton();
         ujSzoszedetButton = new javax.swing.JButton();
         ranglistaButton = new javax.swing.JButton();
         kijelentkezesButton = new javax.swing.JButton();
-        kilepesButton = new javax.swing.JButton();
-        udvLabel = new javax.swing.JLabel();
+        bezarasButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menü");
@@ -54,6 +54,15 @@ public class MenuJFrame extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(300, 675));
         getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        udvLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        udvLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        udvLabel.setText("Szia, ________!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 20, 0);
+        getContentPane().add(udvLabel, gridBagConstraints);
 
         szoszedetekButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         szoszedetekButton.setText("<html><div text-align:center>TEMATIKUS<br>SZÓSZEDETEK</div></html>\n");
@@ -125,31 +134,22 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(kijelentkezesButton, gridBagConstraints);
 
-        kilepesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        kilepesButton.setText("KILÉPÉS");
-        kilepesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        kilepesButton.setMaximumSize(new java.awt.Dimension(150, 75));
-        kilepesButton.setMinimumSize(new java.awt.Dimension(150, 75));
-        kilepesButton.setPreferredSize(new java.awt.Dimension(150, 75));
-        kilepesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        bezarasButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bezarasButton.setText("BEZÁRÁS");
+        bezarasButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bezarasButton.setMaximumSize(new java.awt.Dimension(150, 75));
+        bezarasButton.setMinimumSize(new java.awt.Dimension(150, 75));
+        bezarasButton.setPreferredSize(new java.awt.Dimension(150, 75));
+        bezarasButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kilepesButtonMouseClicked(evt);
+                bezarasButtonMouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
-        getContentPane().add(kilepesButton, gridBagConstraints);
-
-        udvLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        udvLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        udvLabel.setText("Szia, ________!");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 20, 0);
-        getContentPane().add(udvLabel, gridBagConstraints);
+        getContentPane().add(bezarasButton, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);
@@ -161,9 +161,9 @@ public class MenuJFrame extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_kijelentkezesButtonMouseClicked
 
-    private void kilepesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kilepesButtonMouseClicked
+    private void bezarasButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bezarasButtonMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_kilepesButtonMouseClicked
+    }//GEN-LAST:event_bezarasButtonMouseClicked
 
     private void szoszedetekButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szoszedetekButtonMouseClicked
         SzoszedetekJFrame szoszedet = new SzoszedetekJFrame(beFelh);
@@ -207,8 +207,8 @@ public class MenuJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bezarasButton;
     private javax.swing.JButton kijelentkezesButton;
-    private javax.swing.JButton kilepesButton;
     private javax.swing.JButton ranglistaButton;
     private javax.swing.JButton szoszedetekButton;
     private javax.swing.JButton tesztButton;
