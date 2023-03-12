@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 06. 01:00
+-- Létrehozás ideje: 2023. Már 12. 23:42
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -112,7 +112,10 @@ INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (46, 1, 'strawberry', 'eper', 'strawberry.png'),
 (47, 1, 'tangerine', 'mandarin', 'tangerine.png'),
 (48, 1, 'walnut', 'dió', 'walnut.png'),
-(49, 1, 'watermelon', 'görögdinnye', 'watermelon.png');
+(49, 1, 'watermelon', 'görögdinnye', 'watermelon.png'),
+(50, 2, 'black', 'fekete', 'black.png'),
+(51, 2, 'white', 'fehér', 'white.png'),
+(52, 2, 'red', 'piros', 'red.png');
 
 -- --------------------------------------------------------
 
@@ -153,8 +156,8 @@ CREATE TABLE `temakorok` (
 --
 
 INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`) VALUES
-(1, 'Gyümölcsök', 'proba.png', 'images/fruits/'),
-(2, 'Színek', 'colors.png', 'images/colors/');
+(1, 'Gyümölcsök', 'proba.png', 'fruits'),
+(2, 'Színek', 'colors.png', 'colors');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -196,13 +199,13 @@ ALTER TABLE `temakorok`
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
 --
 ALTER TABLE `szavak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT a táblához `tananyag`
@@ -214,7 +217,7 @@ ALTER TABLE `tananyag`
 -- AUTO_INCREMENT a táblához `temakorok`
 --
 ALTER TABLE `temakorok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Megkötések a kiírt táblákhoz
