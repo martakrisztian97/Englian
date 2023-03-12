@@ -2,6 +2,7 @@ package model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  * Adatbázis kapcsolatért felelős osztály.
@@ -190,7 +191,7 @@ public class KapcsolatDB {
      * @return A szavakat tartalmazó listával.
      */
     public ArrayList<Szo> szavakAdottTemakorbenLekerdez(int temakorId) {
-        String query = "SELECT angol, magyar FROM szavak WHERE temakor_id = "+temakorId;
+        String query = "SELECT angol, magyar, kep FROM szavak WHERE temakor_id = "+temakorId;
         ArrayList<Szo> lista = new ArrayList<>();
         try {
             Class.forName(driver);
@@ -200,7 +201,8 @@ public class KapcsolatDB {
             while (result.next()) {
                 String angol = result.getString("angol");
                 String magyar = result.getString("magyar");
-                lista.add(new Szo(angol, magyar));
+                String kep = result.getString("kep");
+                lista.add(new Szo(angol, magyar, kep));
             }
             conn.close();
         } catch (SQLException e) {

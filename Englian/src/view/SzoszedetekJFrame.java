@@ -53,16 +53,16 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
         panel.setLayout(new GridLayout(0, 3, 20, 20)); // (0 -> bármennyi sor, 4 -> oszlop, 20 -> vízszintes rés, 20 -> függőleges rés)
              
         for (int i = 0; i < temakorok.size(); i++) {
-            ImageIcon img = new ImageIcon(getClass().getResource("/view/images/"+temakorok.get(i).getKep()));
-            JButton newBtn = new JButton(temakorok.get(i).getMegnevezes(), img);
-            newBtn.setFont(new Font("Segou UI", Font.BOLD, 15));
-            newBtn.setText(newBtn.getText().toUpperCase());
-            newBtn.setPreferredSize(new Dimension(200, 200));
-            newBtn.setHorizontalTextPosition(newBtn.CENTER);
-            newBtn.setVerticalTextPosition(newBtn.BOTTOM);
-            newBtn.setFocusable(false);
-            newBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            gombok.add(newBtn);
+            ImageIcon kep = new ImageIcon(getClass().getResource("/view/images/"+temakorok.get(i).getKep()));
+            JButton ujGomb = new JButton(temakorok.get(i).getMegnevezes(), kep);
+            ujGomb.setFont(new Font("Segou UI", Font.BOLD, 15));
+            ujGomb.setText(ujGomb.getText().toUpperCase());
+            ujGomb.setPreferredSize(new Dimension(200, 200));
+            ujGomb.setHorizontalTextPosition(ujGomb.CENTER);
+            ujGomb.setVerticalTextPosition(ujGomb.BOTTOM);
+            ujGomb.setFocusable(false);
+            ujGomb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            gombok.add(ujGomb);
         }
         
         for (JButton gomb : gombok) {
@@ -71,7 +71,8 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("GOMB FORRÁSA KATTINTÁSKOR: "+gombok.indexOf(e.getSource()));
-                    SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())).getId());
+                    //SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())).getId());
+                    SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())));
                     szotanulo.setVisible(true);
                     frame.setVisible(false);
                 }

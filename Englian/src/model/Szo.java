@@ -8,10 +8,12 @@ package model;
 public class Szo {
     private String angol;
     private String magyar;
+    private String kep;
 
-    public Szo(String angol, String magyar) {
+    public Szo(String angol, String magyar, String kep) {
         this.angol = angol;
         this.magyar = magyar;
+        this.kep = kep;
     }
 
     public String getAngol() {
@@ -22,8 +24,12 @@ public class Szo {
         return magyar;
     }
 
+    public String getKep() {
+        return kep;
+    }
+
     @Override
     public String toString() {
-        return "Szo{" + "angol=" + angol + ", magyar=" + magyar + '}';
+        return "Szo{" + "angol=" + angol + ", magyar=" + magyar + ", kep=" + kep + '}';
     }
 }
