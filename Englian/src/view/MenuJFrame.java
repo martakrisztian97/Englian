@@ -116,6 +116,11 @@ public class MenuJFrame extends javax.swing.JFrame {
         ranglistaButton.setMaximumSize(new java.awt.Dimension(150, 75));
         ranglistaButton.setMinimumSize(new java.awt.Dimension(150, 75));
         ranglistaButton.setPreferredSize(new java.awt.Dimension(150, 75));
+        ranglistaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ranglistaButtonMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -181,6 +186,10 @@ public class MenuJFrame extends javax.swing.JFrame {
         teszt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_tesztButtonMouseClicked
+
+    private void ranglistaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ranglistaButtonMouseClicked
+        
+    }//GEN-LAST:event_ranglistaButtonMouseClicked
 
     /**
      * @param args the command line arguments

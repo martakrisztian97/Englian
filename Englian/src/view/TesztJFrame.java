@@ -1,17 +1,17 @@
 package view;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import model.Felhasznalo;
 import model.KapcsolatDB;
 import model.Szo;
 import model.Temakor;
 
 /**
- * @todo
+ * Tesztfeladatsor kitöltésére alkalmas felület.
  * @author Márta Krisztián
  * @since 2023-03-15
  */
@@ -25,8 +25,8 @@ public class TesztJFrame extends javax.swing.JFrame {
     private List<Szo> szavak;
     private List<String> kifejezesek;
     private List<String> definiciok;
-//    private int hanyadikSzo; // Nem index, hanem sorszám
-//    private int tudta;
+    private int hanyadikSzo; // Nem index, hanem sorszám
+    private int tudta;
 
     /**
      * Creates new form SzavakJFrame.
@@ -43,6 +43,8 @@ public class TesztJFrame extends javax.swing.JFrame {
         initComponents();
         tesztPanel.setVisible(false);
         vegePanel.setVisible(false);
+        kovetkezoButton.setVisible(false);
+        visszajelzesLabel.setVisible(false);
         beFelh = f;
         kapcsolat = new KapcsolatDB();
         kifejezesAngol = angolRadioButtonKijelolve();
@@ -50,6 +52,8 @@ public class TesztJFrame extends javax.swing.JFrame {
         temakorokComboBoxFeltolt();
         kifejezesek = new ArrayList<>();
         definiciok = new ArrayList<>();
+        hanyadikSzo = 1;
+        tudta = 0;
     }
     
     /**
@@ -105,16 +109,21 @@ public class TesztJFrame extends javax.swing.JFrame {
         temakorokComboBox = new javax.swing.JComboBox<>();
         kezdesButton = new javax.swing.JButton();
         tesztPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        kepLabel = new javax.swing.JLabel();
+        kifejezesLabel = new javax.swing.JLabel();
+        definicioTextField = new javax.swing.JTextField();
+        visszajelzesLabel = new javax.swing.JLabel();
+        valaszButton = new javax.swing.JButton();
+        kovetkezoButton = new javax.swing.JButton();
+        pontszamLabel = new javax.swing.JLabel();
         vegePanel = new javax.swing.JPanel();
         ujraButton = new javax.swing.JButton();
         bezarasButton = new javax.swing.JButton();
+        eredmenyLabel = new javax.swing.JLabel();
+        aranyLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(600, 700));
         setMinimumSize(new java.awt.Dimension(600, 700));
         setSize(new java.awt.Dimension(600, 700));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -202,22 +211,90 @@ public class TesztJFrame extends javax.swing.JFrame {
         tesztPanel.setPreferredSize(new java.awt.Dimension(600, 700));
         tesztPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("jLabel1");
-        tesztPanel.add(jLabel1, new java.awt.GridBagConstraints());
+        kepLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kepLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/proba.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
+        tesztPanel.add(kepLabel, gridBagConstraints);
 
-        jLabel2.setText("jLabel2");
-        tesztPanel.add(jLabel2, new java.awt.GridBagConstraints());
+        kifejezesLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        kifejezesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kifejezesLabel.setText("KIFEJEZÉS");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
+        tesztPanel.add(kifejezesLabel, gridBagConstraints);
 
-        jTextField1.setText("jTextField1");
-        tesztPanel.add(jTextField1, new java.awt.GridBagConstraints());
+        definicioTextField.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        definicioTextField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        definicioTextField.setMaximumSize(new java.awt.Dimension(350, 50));
+        definicioTextField.setMinimumSize(new java.awt.Dimension(350, 50));
+        definicioTextField.setPreferredSize(new java.awt.Dimension(350, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
+        tesztPanel.add(definicioTextField, gridBagConstraints);
 
-        jButton1.setText("jButton1");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tesztPanel.add(jButton1, new java.awt.GridBagConstraints());
+        visszajelzesLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        visszajelzesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        visszajelzesLabel.setText("VISSZAJELZÉS");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
+        tesztPanel.add(visszajelzesLabel, gridBagConstraints);
 
-        jButton2.setText("jButton2");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tesztPanel.add(jButton2, new java.awt.GridBagConstraints());
+        valaszButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        valaszButton.setText("VÁLASZ");
+        valaszButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        valaszButton.setFocusable(false);
+        valaszButton.setMaximumSize(new java.awt.Dimension(125, 50));
+        valaszButton.setMinimumSize(new java.awt.Dimension(125, 50));
+        valaszButton.setPreferredSize(new java.awt.Dimension(125, 50));
+        valaszButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                valaszButtonMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
+        tesztPanel.add(valaszButton, gridBagConstraints);
+
+        kovetkezoButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        kovetkezoButton.setText("KÖVETKEZŐ");
+        kovetkezoButton.setToolTipText("");
+        kovetkezoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        kovetkezoButton.setFocusable(false);
+        kovetkezoButton.setMaximumSize(new java.awt.Dimension(125, 50));
+        kovetkezoButton.setMinimumSize(new java.awt.Dimension(125, 50));
+        kovetkezoButton.setPreferredSize(new java.awt.Dimension(125, 50));
+        kovetkezoButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                kovetkezoButtonMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
+        tesztPanel.add(kovetkezoButton, gridBagConstraints);
+
+        pontszamLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        pontszamLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        tesztPanel.add(pontszamLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -243,7 +320,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
         vegePanel.add(ujraButton, gridBagConstraints);
 
@@ -262,8 +339,26 @@ public class TesztJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         vegePanel.add(bezarasButton, gridBagConstraints);
+
+        eredmenyLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        eredmenyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eredmenyLabel.setText("EREDMÉNY");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        vegePanel.add(eredmenyLabel, gridBagConstraints);
+
+        aranyLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        aranyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        aranyLabel.setText("ARÁNY");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 100, 0);
+        vegePanel.add(aranyLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -288,6 +383,8 @@ public class TesztJFrame extends javax.swing.JFrame {
         System.out.println(szavak); // @todo
         Collections.shuffle(szavak);
         kifejezesekEsDefiniciokBeallitasa();
+        kifejezesLabel.setText(kifejezesek.get(0));
+        kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(0).getKep()))); // @todo resize images
     }//GEN-LAST:event_kezdesButtonMouseClicked
 
     private void angolRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_angolRadioButtonItemStateChanged
@@ -304,7 +401,47 @@ public class TesztJFrame extends javax.swing.JFrame {
     private void ujraButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ujraButtonMouseClicked
         vegePanel.setVisible(false);
         inditasPanel.setVisible(true);
+        pontszamLabel.setText("");
+        hanyadikSzo = 1;
+        tudta = 0;
     }//GEN-LAST:event_ujraButtonMouseClicked
+
+    private void valaszButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valaszButtonMouseClicked
+        valaszButton.setVisible(false);
+        visszajelzesLabel.setVisible(true); // @todo tolowercase
+        definicioTextField.setEnabled(false);
+        if (definiciok.get(hanyadikSzo-1).equals(definicioTextField.getText())) {
+            visszajelzesLabel.setForeground(Color.GREEN);
+            visszajelzesLabel.setText("HELYES!");
+            tudta++;
+        }
+        else {
+            visszajelzesLabel.setForeground(Color.RED);
+            visszajelzesLabel.setText(definiciok.get(hanyadikSzo-1));
+        }
+        kovetkezoButton.setVisible(true);
+        pontszamLabel.setText(tudta+"/"+hanyadikSzo);
+    }//GEN-LAST:event_valaszButtonMouseClicked
+
+    private void kovetkezoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kovetkezoButtonMouseClicked
+        hanyadikSzo++;
+        kovetkezoButton.setVisible(false);
+        visszajelzesLabel.setVisible(false);
+        definicioTextField.setEnabled(true);
+        valaszButton.setVisible(true);
+        definicioTextField.setText("");
+        if (hanyadikSzo-1 < szavak.size()) {
+            kifejezesLabel.setText(kifejezesek.get(hanyadikSzo-1));
+            kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep()))); // @todo resize images
+        } else {
+            tesztPanel.setVisible(false);
+            vegePanel.setVisible(true);
+            eredmenyLabel.setText("Pontszám: "+tudta+" / "+szavak.size());
+            double eredmeny = (double)tudta/szavak.size()*100;
+            aranyLabel.setText(Math.round(eredmeny)+"%");
+            kapcsolat.tesztEredmenyFeltolt(beFelh.getId(), tesztTemakor.getId(), (int)Math.round(eredmeny));
+        }
+    }//GEN-LAST:event_kovetkezoButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -346,19 +483,23 @@ public class TesztJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton angolRadioButton;
+    private javax.swing.JLabel aranyLabel;
     private javax.swing.JButton bezarasButton;
+    private javax.swing.JTextField definicioTextField;
+    private javax.swing.JLabel eredmenyLabel;
     private javax.swing.JPanel inditasPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel kepLabel;
     private javax.swing.JButton kezdesButton;
+    private javax.swing.JLabel kifejezesLabel;
     private javax.swing.ButtonGroup kifejezesNyelveButtonGroup;
+    private javax.swing.JButton kovetkezoButton;
     private javax.swing.JRadioButton magyarRadioButton;
+    private javax.swing.JLabel pontszamLabel;
     private javax.swing.JComboBox<String> temakorokComboBox;
     private javax.swing.JPanel tesztPanel;
     private javax.swing.JButton ujraButton;
+    private javax.swing.JButton valaszButton;
     private javax.swing.JPanel vegePanel;
+    private javax.swing.JLabel visszajelzesLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -213,4 +213,25 @@ public class KapcsolatDB {
         return lista;
     }
     
+    /**
+     * Egy tesztfeladatsor eredményének mentése adatbázisba.
+     * @param felhasznaloId A felhasználó azonosítója.
+     * @param temakorId A témakör azonosítója.
+     * @param eredmeny Az eredmény.
+     */
+    public void tesztEredmenyFeltolt(int felhasznaloId, int temakorId, int eredmeny) {
+        String query = "INSERT INTO ranglista (id, felhasznalo_id, temakor_id, eredmeny)"
+                + "VALUES (NULL, '" + felhasznaloId + "', '" + temakorId + "', '" + eredmeny + "')";
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            st.executeUpdate(query);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: " + ex.getMessage());
+        }
+    }
 }
