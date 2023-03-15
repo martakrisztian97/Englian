@@ -27,8 +27,8 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
     private JFrame frame;
     private Felhasznalo beFelh;
     private KapcsolatDB kapcsolat;
-    private ArrayList<Temakor> temakorok;
-    List<JButton> gombok;
+    private ArrayList<Temakor> temakorok;  // @todo list?
+    List<JButton> gombok; // @todo list?
 
     /**
      * Creates new form SzoszedetekJFrame

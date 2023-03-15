@@ -87,6 +87,11 @@ public class MenuJFrame extends javax.swing.JFrame {
         tesztButton.setMaximumSize(new java.awt.Dimension(150, 75));
         tesztButton.setMinimumSize(new java.awt.Dimension(150, 75));
         tesztButton.setPreferredSize(new java.awt.Dimension(150, 75));
+        tesztButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tesztButtonMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -170,6 +175,12 @@ public class MenuJFrame extends javax.swing.JFrame {
         szoszedet.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_szoszedetekButtonMouseClicked
+
+    private void tesztButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tesztButtonMouseClicked
+        TesztJFrame teszt = new TesztJFrame(beFelh);
+        teszt.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_tesztButtonMouseClicked
 
     /**
      * @param args the command line arguments

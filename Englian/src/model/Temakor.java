@@ -33,4 +33,9 @@ public class Temakor {
     public String getMappa() {
         return mappa;
     }
+
+    @Override
+    public String toString() {
+        return "Temakor{" + "id=" + id + ", megnevezes=" + megnevezes + ", kep=" + kep + ", mappa=" + mappa + '}';
+    }
 }
