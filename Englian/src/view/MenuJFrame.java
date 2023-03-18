@@ -41,7 +41,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         udvLabel = new javax.swing.JLabel();
         szoszedetekButton = new javax.swing.JButton();
         tesztButton = new javax.swing.JButton();
-        ujSzoszedetButton = new javax.swing.JButton();
+        szerkesztoButton = new javax.swing.JButton();
         ranglistaButton = new javax.swing.JButton();
         kijelentkezesButton = new javax.swing.JButton();
         bezarasButton = new javax.swing.JButton();
@@ -58,6 +58,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         udvLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         udvLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         udvLabel.setText("Szia, ________!");
+        udvLabel.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -67,6 +68,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         szoszedetekButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         szoszedetekButton.setText("<html><div text-align:center>TEMATIKUS<br>SZÓSZEDETEK</div></html>\n");
         szoszedetekButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        szoszedetekButton.setFocusable(false);
         szoszedetekButton.setMaximumSize(new java.awt.Dimension(150, 75));
         szoszedetekButton.setMinimumSize(new java.awt.Dimension(150, 75));
         szoszedetekButton.setPreferredSize(new java.awt.Dimension(150, 75));
@@ -84,6 +86,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         tesztButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tesztButton.setText("TESZT INDÍTÁSA");
         tesztButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tesztButton.setFocusable(false);
         tesztButton.setMaximumSize(new java.awt.Dimension(150, 75));
         tesztButton.setMinimumSize(new java.awt.Dimension(150, 75));
         tesztButton.setPreferredSize(new java.awt.Dimension(150, 75));
@@ -98,21 +101,28 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(tesztButton, gridBagConstraints);
 
-        ujSzoszedetButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ujSzoszedetButton.setText("<html>ÚJ SZÓSZEDET<br>HOZZÁADÁSA<html>");
-        ujSzoszedetButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ujSzoszedetButton.setMaximumSize(new java.awt.Dimension(150, 75));
-        ujSzoszedetButton.setMinimumSize(new java.awt.Dimension(150, 75));
-        ujSzoszedetButton.setPreferredSize(new java.awt.Dimension(150, 75));
+        szerkesztoButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        szerkesztoButton.setText("<html>SZÓSZEDETEK<br>SZERKESZTÉSE<html>");
+        szerkesztoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        szerkesztoButton.setFocusable(false);
+        szerkesztoButton.setMaximumSize(new java.awt.Dimension(150, 75));
+        szerkesztoButton.setMinimumSize(new java.awt.Dimension(150, 75));
+        szerkesztoButton.setPreferredSize(new java.awt.Dimension(150, 75));
+        szerkesztoButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                szerkesztoButtonMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
-        getContentPane().add(ujSzoszedetButton, gridBagConstraints);
+        getContentPane().add(szerkesztoButton, gridBagConstraints);
 
         ranglistaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ranglistaButton.setText("RANGLISTA");
         ranglistaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ranglistaButton.setFocusable(false);
         ranglistaButton.setMaximumSize(new java.awt.Dimension(150, 75));
         ranglistaButton.setMinimumSize(new java.awt.Dimension(150, 75));
         ranglistaButton.setPreferredSize(new java.awt.Dimension(150, 75));
@@ -130,6 +140,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         kijelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         kijelentkezesButton.setText("KIJELENTKEZÉS");
         kijelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        kijelentkezesButton.setFocusable(false);
         kijelentkezesButton.setMaximumSize(new java.awt.Dimension(150, 75));
         kijelentkezesButton.setMinimumSize(new java.awt.Dimension(150, 75));
         kijelentkezesButton.setPreferredSize(new java.awt.Dimension(150, 75));
@@ -147,6 +158,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         bezarasButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bezarasButton.setText("BEZÁRÁS");
         bezarasButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bezarasButton.setFocusable(false);
         bezarasButton.setMaximumSize(new java.awt.Dimension(150, 75));
         bezarasButton.setMinimumSize(new java.awt.Dimension(150, 75));
         bezarasButton.setPreferredSize(new java.awt.Dimension(150, 75));
@@ -193,6 +205,12 @@ public class MenuJFrame extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_ranglistaButtonMouseClicked
 
+    private void szerkesztoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szerkesztoButtonMouseClicked
+        SzerkesztoJFrame szerk = new SzerkesztoJFrame(beFelh);
+        szerk.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_szerkesztoButtonMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -232,9 +250,9 @@ public class MenuJFrame extends javax.swing.JFrame {
     private javax.swing.JButton bezarasButton;
     private javax.swing.JButton kijelentkezesButton;
     private javax.swing.JButton ranglistaButton;
+    private javax.swing.JButton szerkesztoButton;
     private javax.swing.JButton szoszedetekButton;
     private javax.swing.JButton tesztButton;
     private javax.swing.JLabel udvLabel;
-    private javax.swing.JButton ujSzoszedetButton;
     // End of variables declaration//GEN-END:variables
 }

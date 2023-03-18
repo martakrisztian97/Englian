@@ -27,6 +27,10 @@ public class RanglistaJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     * Creates new form RanglistaJFrame.
+     * @param f  Bejelentkezett felhasználó.
+     */
     public RanglistaJFrame(Felhasznalo f) {
         initComponents();
         beFelh = f;
@@ -36,7 +40,7 @@ public class RanglistaJFrame extends javax.swing.JFrame {
         for (Temakor t : temakorok) {
             temakorokComboBox.addItem(t.getMegnevezes());
         }
-        ranglistaTable.setRowHeight(28);
+        ranglistaTable.setRowHeight(24);
     }
 
     /**
@@ -84,7 +88,6 @@ public class RanglistaJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         getContentPane().add(temakorokComboBox, gridBagConstraints);
 
-        ranglistaTable.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         ranglistaTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
