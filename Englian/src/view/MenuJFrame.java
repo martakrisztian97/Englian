@@ -188,7 +188,9 @@ public class MenuJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_tesztButtonMouseClicked
 
     private void ranglistaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ranglistaButtonMouseClicked
-        
+        RanglistaJFrame ranglista = new RanglistaJFrame(beFelh);
+        ranglista.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_ranglistaButtonMouseClicked
 
     /**

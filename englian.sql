@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 12. 23:42
+-- Létrehozás ideje: 2023. Már 18. 10:07
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -22,6 +22,30 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `englian` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
 USE `englian`;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `eredmenyek`
+--
+
+CREATE TABLE `eredmenyek` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `felhasznalo_id` int(10) UNSIGNED NOT NULL,
+  `temakor_id` int(10) UNSIGNED NOT NULL,
+  `eredmeny` int(3) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `eredmenyek`
+--
+
+INSERT INTO `eredmenyek` (`id`, `felhasznalo_id`, `temakor_id`, `eredmeny`) VALUES
+(1, 1, 2, 100),
+(2, 1, 2, 67),
+(3, 1, 2, 33),
+(4, 1, 2, 67),
+(5, 1, 1, 71);
 
 -- --------------------------------------------------------
 
@@ -164,6 +188,14 @@ INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`) VALUES
 --
 
 --
+-- A tábla indexei `eredmenyek`
+--
+ALTER TABLE `eredmenyek`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `felhasznalo_kapcsolat2` (`felhasznalo_id`),
+  ADD KEY `temakor_kapcsolat2` (`temakor_id`);
+
+--
 -- A tábla indexei `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
@@ -175,7 +207,7 @@ ALTER TABLE `felhasznalok`
 --
 ALTER TABLE `szavak`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ketogria_idegen_kulcs` (`temakor_id`);
+  ADD KEY `temakor_idegen_kulcs` (`temakor_id`) USING BTREE;
 
 --
 -- A tábla indexei `tananyag`
@@ -183,7 +215,7 @@ ALTER TABLE `szavak`
 ALTER TABLE `tananyag`
   ADD PRIMARY KEY (`id`),
   ADD KEY `felhasznalo_kapcsolat` (`felhasznalo_id`),
-  ADD KEY `tematika_kapcsolat` (`temakor_id`);
+  ADD KEY `temakor_kapcsolat` (`temakor_id`) USING BTREE;
 
 --
 -- A tábla indexei `temakorok`
@@ -194,6 +226,12 @@ ALTER TABLE `temakorok`
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
+
+--
+-- AUTO_INCREMENT a táblához `eredmenyek`
+--
+ALTER TABLE `eredmenyek`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`
@@ -224,10 +262,17 @@ ALTER TABLE `temakorok`
 --
 
 --
+-- Megkötések a táblához `eredmenyek`
+--
+ALTER TABLE `eredmenyek`
+  ADD CONSTRAINT `felhasznalo_kapcsolat2` FOREIGN KEY (`felhasznalo_id`) REFERENCES `felhasznalok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `temakor_kapcsolat2` FOREIGN KEY (`temakor_id`) REFERENCES `temakorok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Megkötések a táblához `szavak`
 --
 ALTER TABLE `szavak`
-  ADD CONSTRAINT `ketogria_idegen_kulcs` FOREIGN KEY (`temakor_id`) REFERENCES `temakorok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `temakor_idegen_kulcs` FOREIGN KEY (`temakor_id`) REFERENCES `temakorok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Megkötések a táblához `tananyag`

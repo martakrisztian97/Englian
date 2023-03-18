@@ -2,7 +2,6 @@ package model;
 
 import java.sql.*;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 /**
  * Adatbázis kapcsolatért felelős osztály.
@@ -220,7 +219,7 @@ public class KapcsolatDB {
      * @param eredmeny Az eredmény.
      */
     public void tesztEredmenyFeltolt(int felhasznaloId, int temakorId, int eredmeny) {
-        String query = "INSERT INTO ranglista (id, felhasznalo_id, temakor_id, eredmeny)"
+        String query = "INSERT INTO eredmenyek (id, felhasznalo_id, temakor_id, eredmeny)"
                 + "VALUES (NULL, '" + felhasznaloId + "', '" + temakorId + "', '" + eredmeny + "')";
         try {
             Class.forName(driver);
@@ -233,5 +232,32 @@ public class KapcsolatDB {
         } catch (ClassNotFoundException ex) {
             System.out.println("Hiba: " + ex.getMessage());
         }
+    }
+    
+    /**
+     * Eredmények lekérdezése.
+     * @param temakorId  A témakör azonosítója.
+     * @return Az eredményeket tartalmazó listával.
+     */
+    public ArrayList<Eredmeny> eredmenyeketLekerdez(int temakorId) {
+        String query = "SELECT felhasznalonev, eredmeny FROM felhasznalok, eredmenyek "
+        +"WHERE eredmenyek.felhasznalo_id = felhasznalok.id AND eredmenyek.temakor_id = "+temakorId+" ORDER BY eredmeny DESC";
+        ArrayList<Eredmeny> lista = new ArrayList<>();
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            ResultSet result = st.executeQuery(query);
+            while (result.next()) {
+                String felhasznalonev = result.getString("felhasznalonev");
+                int eredmeny = result.getInt("eredmeny");
+                lista.add(new Eredmeny(felhasznalonev, eredmeny));
+            }
+        } catch (SQLException e) {
+            System.out.println("Hiba: "+e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: "+ex.getMessage());
+        }
+        return lista;
     }
 }
