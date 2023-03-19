@@ -25,8 +25,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     private List<String> kifejezesek;
     private List<String> definiciok;
     private int hanyadikSzo; // Nem index, hanem sorszám
-    private int tudta;
-    private int nemTudta;
 
     /**
      * Creates new form SzotanuloJFrame.
@@ -47,15 +45,12 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         beFelh = f;
         temakor = t;
         kapcsolat = new KapcsolatDB();
-        kifejezesAngol = angolRadioButtonKijelolve(); //@todo marad vagy sem, és akkor átkerül kezdesclickhez
         szavak = kapcsolat.szavakAdottTemakorbenLekerdez(temakor.getId());
         System.out.println(szavak.toString()); //@todo
         Collections.shuffle(szavak);
         kifejezesek = new ArrayList<>();
         definiciok = new ArrayList<>();
         hanyadikSzo = 1;
-        tudta = 0;
-        nemTudta = 0;
         // -----------------------------------------------------------------------
         System.out.println("ANGOL GOMB KIJELÖLVE? - "+kifejezesAngol); //@todo
         System.out.println(szavak.toString()); //@todo
@@ -104,8 +99,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         definicoButton = new javax.swing.JButton();
         marTudomButton = new javax.swing.JButton();
         megTanulomButton = new javax.swing.JButton();
-        tudtaLabel = new javax.swing.JLabel();
-        nemTudtaLabel = new javax.swing.JLabel();
         inditasPanel = new javax.swing.JPanel();
         angolRadioButton = new javax.swing.JRadioButton();
         magyarRadioButton = new javax.swing.JRadioButton();
@@ -142,7 +135,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         kifejezesButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         tanulasPanel.add(kifejezesButton, gridBagConstraints);
 
@@ -159,17 +152,18 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         tanulasPanel.add(definicoButton, gridBagConstraints);
 
+        marTudomButton.setBackground(new java.awt.Color(0, 128, 0));
         marTudomButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        marTudomButton.setForeground(new java.awt.Color(0, 128, 0));
+        marTudomButton.setForeground(new java.awt.Color(255, 255, 255));
         marTudomButton.setText("<html><div text-align:center>MÁR<br>TUDOM</div></html>");
         marTudomButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         marTudomButton.setFocusable(false);
-        marTudomButton.setMaximumSize(new java.awt.Dimension(200, 100));
-        marTudomButton.setMinimumSize(new java.awt.Dimension(200, 100));
+        marTudomButton.setMaximumSize(new java.awt.Dimension(175, 100));
+        marTudomButton.setMinimumSize(new java.awt.Dimension(175, 100));
         marTudomButton.setPreferredSize(new java.awt.Dimension(175, 100));
         marTudomButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -178,17 +172,18 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         tanulasPanel.add(marTudomButton, gridBagConstraints);
 
+        megTanulomButton.setBackground(new java.awt.Color(255, 0, 0));
         megTanulomButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        megTanulomButton.setForeground(new java.awt.Color(255, 0, 0));
+        megTanulomButton.setForeground(new java.awt.Color(255, 255, 255));
         megTanulomButton.setText("<html><div text-align:center>MÉG<br>TANULOM</div></html>");
         megTanulomButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         megTanulomButton.setFocusable(false);
-        megTanulomButton.setMaximumSize(new java.awt.Dimension(200, 100));
-        megTanulomButton.setMinimumSize(new java.awt.Dimension(200, 100));
+        megTanulomButton.setMaximumSize(new java.awt.Dimension(175, 100));
+        megTanulomButton.setMinimumSize(new java.awt.Dimension(175, 100));
         megTanulomButton.setPreferredSize(new java.awt.Dimension(175, 100));
         megTanulomButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -197,26 +192,9 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         tanulasPanel.add(megTanulomButton, gridBagConstraints);
-
-        tudtaLabel.setBackground(new java.awt.Color(255, 0, 0));
-        tudtaLabel.setForeground(new java.awt.Color(255, 255, 255));
-        tudtaLabel.setText("jLabel1");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        tanulasPanel.add(tudtaLabel, gridBagConstraints);
-
-        nemTudtaLabel.setBackground(new java.awt.Color(0, 128, 0));
-        nemTudtaLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        nemTudtaLabel.setForeground(new java.awt.Color(255, 255, 255));
-        nemTudtaLabel.setText("jLabel2");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        tanulasPanel.add(nemTudtaLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -258,7 +236,9 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 100, 200, 0);
         inditasPanel.add(magyarRadioButton, gridBagConstraints);
 
+        kezdesButton.setBackground(new java.awt.Color(0, 0, 255));
         kezdesButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kezdesButton.setForeground(new java.awt.Color(255, 255, 255));
         kezdesButton.setText("KEZDÉS");
         kezdesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kezdesButton.setFocusable(false);
@@ -287,7 +267,9 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         vegePanel.setPreferredSize(new java.awt.Dimension(600, 700));
         vegePanel.setLayout(new java.awt.GridBagLayout());
 
+        ujraButton.setBackground(new java.awt.Color(0, 0, 255));
         ujraButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ujraButton.setForeground(new java.awt.Color(255, 255, 255));
         ujraButton.setText("ÚJRA");
         ujraButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ujraButton.setFocusable(false);
@@ -305,8 +287,9 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
         vegePanel.add(ujraButton, gridBagConstraints);
 
+        bezarasButton.setBackground(new java.awt.Color(255, 0, 0));
         bezarasButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        bezarasButton.setForeground(new java.awt.Color(255, 0, 0));
+        bezarasButton.setForeground(new java.awt.Color(255, 255, 255));
         bezarasButton.setText("BEZÁRÁS");
         bezarasButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bezarasButton.setFocusable(false);
@@ -340,9 +323,10 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     private void kezdesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kezdesButtonMouseClicked
         inditasPanel.setVisible(false);
         tanulasPanel.setVisible(true);
+        kifejezesAngol = angolRadioButtonKijelolve(); //@todo marad vagy sem, és akkor átkerül kezdesclickhez
         kifejezesekEsDefiniciokBeallitasa();
         kifejezesButton.setText(kifejezesek.get(0));
-        kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep()))); // @todo resize images
+        kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep())));
     }//GEN-LAST:event_kezdesButtonMouseClicked
 
     private void angolRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_angolRadioButtonItemStateChanged
@@ -357,7 +341,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_definicoButtonMouseClicked
 
     private void marTudomButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_marTudomButtonMouseClicked
-        tudta++;
         definicoButton.setText("");
         szavak.remove(hanyadikSzo-1);
         kifejezesek.remove(hanyadikSzo-1);
@@ -368,17 +351,16 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             vegePanel.setVisible(true);
         } else if (hanyadikSzo-1 < szavak.size()) {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
-            kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep()))); // @todo resize images
+            kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
             JOptionPane.showMessageDialog(null, "ELŐLRŐL AMIK MARADTAK!!!");
             hanyadikSzo = 1;
             kifejezesButton.setText(kifejezesek.get(0));
-            kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep()))); // @todo resize images
+            kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep())));
         }
     }//GEN-LAST:event_marTudomButtonMouseClicked
 
     private void megTanulomButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_megTanulomButtonMouseClicked
-        nemTudta++;
         definicoButton.setText("");
         hanyadikSzo++;
         if (hanyadikSzo-1 < szavak.size()) {
@@ -390,7 +372,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             Collections.shuffle(szavak);
             kifejezesekEsDefiniciokBeallitasa();
             kifejezesButton.setText(kifejezesek.get(0));
-            kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep()))); // @todo resize images
+            kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep())));
         }
     }//GEN-LAST:event_megTanulomButtonMouseClicked
 
@@ -406,8 +388,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         szavak = kapcsolat.szavakAdottTemakorbenLekerdez(temakor.getId());
         Collections.shuffle(szavak);
         hanyadikSzo = 1;
-        tudta = 0;
-        nemTudta = 0;
     }//GEN-LAST:event_ujraButtonMouseClicked
 
     /**
@@ -457,9 +437,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton magyarRadioButton;
     private javax.swing.JButton marTudomButton;
     private javax.swing.JButton megTanulomButton;
-    private javax.swing.JLabel nemTudtaLabel;
     private javax.swing.JPanel tanulasPanel;
-    private javax.swing.JLabel tudtaLabel;
     private javax.swing.JButton ujraButton;
     private javax.swing.JPanel vegePanel;
     // End of variables declaration//GEN-END:variables
