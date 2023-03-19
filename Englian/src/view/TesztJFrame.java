@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import model.Felhasznalo;
 import model.KapcsolatDB;
 import model.Szo;
@@ -375,16 +376,20 @@ public class TesztJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void kezdesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kezdesButtonMouseClicked
-        inditasPanel.setVisible(false);
-        tesztPanel.setVisible(true);
         tesztTemakor = temakorok.get(temakorokComboBox.getSelectedIndex());
         szavak = kapcsolat.szavakAdottTemakorbenLekerdez(tesztTemakor.getId());
         System.out.println(tesztTemakor.toString()); // @todo
         System.out.println(szavak); // @todo
-        Collections.shuffle(szavak);
-        kifejezesekEsDefiniciokBeallitasa();
-        kifejezesLabel.setText(kifejezesek.get(0));
-        kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(0).getKep()))); // @todo resize images
+        if (szavak.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!"); // @todo
+        } else {
+            inditasPanel.setVisible(false);
+            tesztPanel.setVisible(true);
+            Collections.shuffle(szavak);
+            kifejezesekEsDefiniciokBeallitasa();
+            kifejezesLabel.setText(kifejezesek.get(0));
+            kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(0).getKep()))); // @todo resize images
+        }
     }//GEN-LAST:event_kezdesButtonMouseClicked
 
     private void angolRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_angolRadioButtonItemStateChanged

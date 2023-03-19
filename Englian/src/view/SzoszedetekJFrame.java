@@ -11,10 +11,12 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import model.Felhasznalo;
 import model.KapcsolatDB;
+import model.Szo;
 import model.Temakor;
 
 /**
@@ -27,8 +29,9 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
     private JFrame frame;
     private Felhasznalo beFelh;
     private KapcsolatDB kapcsolat;
-    private ArrayList<Temakor> temakorok;  // @todo list?
-    List<JButton> gombok; // @todo list?
+    private ArrayList<Temakor> temakorok;
+    private ArrayList<Szo> szavak;
+    private ArrayList<JButton> gombok;
 
     /**
      * Creates new form SzoszedetekJFrame
@@ -71,10 +74,14 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("GOMB FORRÁSA KATTINTÁSKOR: "+gombok.indexOf(e.getSource()));
-                    //SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())).getId());
-                    SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())));
-                    szotanulo.setVisible(true);
-                    frame.setVisible(false);
+                    szavak = kapcsolat.szavakAdottTemakorbenLekerdez(temakorok.get(gombok.indexOf(e.getSource())).getId());
+                    if (szavak.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!"); // @todo
+                    } else {
+                        SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())));
+                        szotanulo.setVisible(true);
+                        frame.setVisible(false);
+                    }
                 }
             });
             panel.add(gomb);

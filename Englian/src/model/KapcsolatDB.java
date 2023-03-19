@@ -160,7 +160,7 @@ public class KapcsolatDB {
      * @return A témakörök adatait tartalmazó listával.
      */
     public ArrayList<Temakor> temakorokLekerdez(Felhasznalo f) {
-        String query = "SELECT temakorok.id, temakorok.megnevezes, temakorok.kep, temakorok.mappa FROM temakorok, tananyag "
+        String query = "SELECT temakorok.id, temakorok.megnevezes, temakorok.kep, temakorok.mappa, temakorok.beepitett FROM temakorok, tananyag "
                 + "WHERE tananyag.temakor_id = temakorok.id AND tananyag.felhasznalo_id = "+f.getId();
         ArrayList<Temakor> lista = new ArrayList<>();
         try {
@@ -173,7 +173,8 @@ public class KapcsolatDB {
                 String megnevezes = result.getString("megnevezes");
                 String kep = result.getString("kep");
                 String mappa = result.getString("mappa");
-                lista.add(new Temakor(id, megnevezes, kep, mappa));
+                boolean beepitett = result.getBoolean("beepitett");
+                lista.add(new Temakor(id, megnevezes, kep, mappa, beepitett));
             }
             conn.close();
         } catch (SQLException e) {
@@ -190,7 +191,7 @@ public class KapcsolatDB {
      * @return A szavakat tartalmazó listával.
      */
     public ArrayList<Szo> szavakAdottTemakorbenLekerdez(int temakorId) {
-        String query = "SELECT angol, magyar, kep FROM szavak WHERE temakor_id = "+temakorId;
+        String query = "SELECT id, angol, magyar, kep FROM szavak WHERE temakor_id = "+temakorId;
         ArrayList<Szo> lista = new ArrayList<>();
         try {
             Class.forName(driver);
@@ -198,10 +199,11 @@ public class KapcsolatDB {
             Statement st = (Statement) conn.createStatement();
             ResultSet result = st.executeQuery(query);
             while (result.next()) {
+                int id = result.getInt("id");
                 String angol = result.getString("angol");
                 String magyar = result.getString("magyar");
                 String kep = result.getString("kep");
-                lista.add(new Szo(angol, magyar, kep));
+                lista.add(new Szo(id, angol, magyar, kep));
             }
             conn.close();
         } catch (SQLException e) {
@@ -259,5 +261,47 @@ public class KapcsolatDB {
             System.out.println("Hiba: "+ex.getMessage());
         }
         return lista;
+    }
+    
+    /**
+     * Szó törlése.
+     * @param szoId A szó azonosítója.
+     */
+    public void szoTorles(int szoId) {
+        String query = "DELETE FROM szavak WHERE szavak.id = " + szoId;
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            st.executeUpdate(query);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: " + ex.getMessage());
+        }
+    }
+    
+    /**
+     * Szó módosítása.
+     * @param szoId  A szó azonosítója.
+     * @param angolModositas A módosított angol szó.
+     * @param magyarModositas  A módosított magyar szó.
+     */
+    public void szotModosit(int szoId, String angolModositas, String magyarModositas) {
+        String query = "UPDATE szavak SET angol = '"+angolModositas+"' WHERE szavak.id = " + szoId;
+        String query2 = "UPDATE szavak SET magyar = '"+magyarModositas+"' WHERE szavak.id = " + szoId;
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            st.executeUpdate(query);
+            st.executeUpdate(query2);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: " + ex.getMessage());
+        }
     }
 }

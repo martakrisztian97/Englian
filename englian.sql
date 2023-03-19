@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 18. 10:07
+-- Létrehozás ideje: 2023. Már 20. 00:17
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -136,10 +136,7 @@ INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (46, 1, 'strawberry', 'eper', 'strawberry.png'),
 (47, 1, 'tangerine', 'mandarin', 'tangerine.png'),
 (48, 1, 'walnut', 'dió', 'walnut.png'),
-(49, 1, 'watermelon', 'görögdinnye', 'watermelon.png'),
-(50, 2, 'black', 'fekete', 'black.png'),
-(51, 2, 'white', 'fehér', 'white.png'),
-(52, 2, 'red', 'piros', 'red.png');
+(49, 1, 'watermelon', 'görögdinnye', 'watermelon.png');
 
 -- --------------------------------------------------------
 
@@ -172,16 +169,17 @@ CREATE TABLE `temakorok` (
   `id` int(10) UNSIGNED NOT NULL,
   `megnevezes` varchar(32) DEFAULT NULL,
   `kep` varchar(32) DEFAULT NULL,
-  `mappa` varchar(32) DEFAULT NULL
+  `mappa` varchar(32) DEFAULT NULL,
+  `beepitett` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `temakorok`
 --
 
-INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`) VALUES
-(1, 'Gyümölcsök', 'proba.png', 'fruits'),
-(2, 'Színek', 'colors.png', 'colors');
+INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`, `beepitett`) VALUES
+(1, 'Gyümölcsök', 'proba.png', 'fruits', 1),
+(2, 'Színek', 'colors.png', 'colors', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -243,7 +241,7 @@ ALTER TABLE `felhasznalok`
 -- AUTO_INCREMENT a táblához `szavak`
 --
 ALTER TABLE `szavak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT a táblához `tananyag`
@@ -255,7 +253,7 @@ ALTER TABLE `tananyag`
 -- AUTO_INCREMENT a táblához `temakorok`
 --
 ALTER TABLE `temakorok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Megkötések a kiírt táblákhoz

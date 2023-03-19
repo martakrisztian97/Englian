@@ -6,11 +6,13 @@ package model;
  * @since 2022-11-17
  */
 public class Szo {
+    private int id;
     private String angol;
     private String magyar;
     private String kep;
 
-    public Szo(String angol, String magyar, String kep) {
+    public Szo(int id, String angol, String magyar, String kep) {
+        this.id = id;
         this.angol = angol;
         this.magyar = magyar;
         this.kep = kep;
@@ -28,8 +30,12 @@ public class Szo {
         return kep;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
-        return "Szo{" + "angol=" + angol + ", magyar=" + magyar + ", kep=" + kep + '}';
+        return "Szo{" + "id=" + id + ", angol=" + angol + ", magyar=" + magyar + ", kep=" + kep + '}';
     }
 }
