@@ -161,7 +161,7 @@ public class KapcsolatDB {
      */
     public ArrayList<Temakor> temakorokLekerdez(Felhasznalo f) {
         String query = "SELECT temakorok.id, temakorok.megnevezes, temakorok.kep, temakorok.mappa, temakorok.beepitett FROM temakorok, tananyag "
-                + "WHERE tananyag.temakor_id = temakorok.id AND tananyag.felhasznalo_id = "+f.getId();
+                + "WHERE tananyag.temakor_id = temakorok.id AND tananyag.felhasznalo_id = " + f.getId() + " ORDER BY temakorok.megnevezes ASC";
         ArrayList<Temakor> lista = new ArrayList<>();
         try {
             Class.forName(driver);
@@ -297,6 +297,71 @@ public class KapcsolatDB {
             Statement st = (Statement) conn.createStatement();
             st.executeUpdate(query);
             st.executeUpdate(query2);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: " + ex.getMessage());
+        }
+    }
+    
+    /**
+     * Új témakör létrehozása, valamint a témakör kapcsolásáa a felhasználóhoz.
+     * @param felhasznaloId A felhasználó azonosítója.
+     * @param megnevezes Az új témakör megnevezése.
+     */
+    public void ujTemakor(int felhasznaloId, String megnevezes) {
+        String query = "INSERT INTO temakorok (id, megnevezes, kep, mappa, beepitett)"
+                + "VALUES (NULL, '" + megnevezes + "', 'proba.png', '', 0)";
+        String query2 = "INSERT INTO tananyag(id, felhasznalo_id, temakor_id) VALUES"
+                + "(NULL, " + felhasznaloId + ", (SELECT temakorok.id FROM temakorok WHERE temakorok.megnevezes LIKE '"+ megnevezes +"') )";
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            st.executeUpdate(query);
+            st.executeUpdate(query2);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: " + ex.getMessage());
+        }
+    }
+    
+    /**
+     * Új szó feltöltése.
+     * @param temakorId  A témakör azonosítója.
+     * @param angol Az új szó angolul.
+     * @param magyar Az új szó magyarul.
+     */
+    public void ujSzo(int temakorId, String angol, String magyar) {
+        String query = "INSERT INTO szavak (id, temakor_id, angol, magyar, kep)"
+                + "VALUES (NULL, '" + temakorId + "', '" + angol + "', '" + magyar + "', 'proba.png')";
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            st.executeUpdate(query);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Hiba: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Hiba: " + ex.getMessage());
+        }
+    }
+    
+    /**
+     * Szószedet törlése.
+     * @param temakorId A témakör azonosítója.
+     */
+    public void szoszedetTorlese(int temakorId) {
+        String query = "DELETE FROM temakorok WHERE temakorok.id = " + temakorId;
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(host + dbName, userName, password);
+            Statement st = (Statement) conn.createStatement();
+            st.executeUpdate(query);
             conn.close();
         } catch (SQLException e) {
             System.out.println("Hiba: " + e.getMessage());

@@ -59,9 +59,7 @@ public class RanglistaJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ranglista témakörönként");
-        setMaximumSize(new java.awt.Dimension(800, 800));
         setMinimumSize(new java.awt.Dimension(800, 800));
-        setPreferredSize(new java.awt.Dimension(800, 800));
         setSize(new java.awt.Dimension(800, 800));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {

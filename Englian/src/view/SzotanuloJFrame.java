@@ -124,7 +124,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         tanulasPanel.setLayout(new java.awt.GridBagLayout());
 
         kifejezesButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        kifejezesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/proba.png"))); // NOI18N
         kifejezesButton.setText("kifejezesButton");
         kifejezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         kifejezesButton.setFocusable(false);

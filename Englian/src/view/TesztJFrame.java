@@ -213,7 +213,6 @@ public class TesztJFrame extends javax.swing.JFrame {
         tesztPanel.setLayout(new java.awt.GridBagLayout());
 
         kepLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        kepLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/proba.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
