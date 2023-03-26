@@ -299,6 +299,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
 
         ujTemakorTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         ujTemakorTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ujTemakorTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ujTemakorTextField.setMaximumSize(new java.awt.Dimension(250, 50));
         ujTemakorTextField.setMinimumSize(new java.awt.Dimension(250, 50));
         ujTemakorTextField.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -358,6 +359,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
 
         ujAngolTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         ujAngolTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ujAngolTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ujAngolTextField.setMaximumSize(new java.awt.Dimension(250, 50));
         ujAngolTextField.setMinimumSize(new java.awt.Dimension(250, 50));
         ujAngolTextField.setPreferredSize(new java.awt.Dimension(250, 50));
@@ -370,6 +372,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
 
         ujMagyarTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         ujMagyarTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ujMagyarTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ujMagyarTextField.setMaximumSize(new java.awt.Dimension(250, 50));
         ujMagyarTextField.setMinimumSize(new java.awt.Dimension(250, 50));
         ujMagyarTextField.setPreferredSize(new java.awt.Dimension(250, 50));
