@@ -7,7 +7,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -76,7 +75,7 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
                     System.out.println("GOMB FORRÁSA KATTINTÁSKOR: "+gombok.indexOf(e.getSource()));
                     szavak = kapcsolat.szavakAdottTemakorbenLekerdez(temakorok.get(gombok.indexOf(e.getSource())).getId());
                     if (szavak.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!"); // @todo
+                        JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!", "Üzenet", JOptionPane.ERROR_MESSAGE);
                     } else {
                         SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())));
                         szotanulo.setVisible(true);

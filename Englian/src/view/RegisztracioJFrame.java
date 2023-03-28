@@ -19,6 +19,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     private KapcsolatDB kapcsolat;
     private List<String> felhasznaloknevek = new ArrayList<>();
     private List<String> emailCimek = new ArrayList<>();
+    private BejelentkezesJFrame b;
 
     /**
      * Creates new form Regisztracio.
@@ -53,10 +54,9 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         else {
             kapcsolat.regisztracio(email, felhasznalonev, Hash.MD5(jelszo));
             JOptionPane.showMessageDialog(null, "Sikeres regisztráció!", "Sikeres regisztráció", JOptionPane.INFORMATION_MESSAGE);
-            emailTextField.setText("");
-            felhasznalonevTextField.setText("");
-            jelszoPasswordField.setText("");
-            jelszoIsmetPasswordField.setText("");
+            this.setVisible(false);
+            b = new BejelentkezesJFrame();
+            b.setVisible(true);
         }
     }
     
@@ -113,7 +113,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         jelszoIsmetFelfedLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Regisztráció Angol szótanuló alkalmazás demó");
+        setTitle("Regisztráció");
         setMinimumSize(new java.awt.Dimension(500, 450));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -155,8 +155,10 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(jelszoIsmetPasswordField, gridBagConstraints);
 
-        regisztracioButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        regisztracioButton.setText("Regisztráció");
+        regisztracioButton.setBackground(new java.awt.Color(0, 153, 255));
+        regisztracioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        regisztracioButton.setForeground(new java.awt.Color(255, 255, 255));
+        regisztracioButton.setText("REGISZTRÁCIÓ");
         regisztracioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         regisztracioButton.setMaximumSize(new java.awt.Dimension(200, 40));
         regisztracioButton.setMinimumSize(new java.awt.Dimension(200, 40));
@@ -172,8 +174,10 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         getContentPane().add(regisztracioButton, gridBagConstraints);
 
-        bejelentkezesButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        bejelentkezesButton.setText("Már van fiókom");
+        bejelentkezesButton.setBackground(new java.awt.Color(0, 153, 255));
+        bejelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bejelentkezesButton.setForeground(new java.awt.Color(255, 255, 255));
+        bejelentkezesButton.setText("MÁR VAN FIÓKOM");
         bejelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bejelentkezesButton.setMaximumSize(new java.awt.Dimension(200, 40));
         bejelentkezesButton.setMinimumSize(new java.awt.Dimension(200, 40));
@@ -190,7 +194,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         getContentPane().add(bejelentkezesButton, gridBagConstraints);
 
         logoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoLabel.setText("ENGLIAN");
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/proba.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -261,7 +265,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
 
     private void bejelentkezesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bejelentkezesButtonMouseClicked
         this.setVisible(false);
-        BejelentkezesJFrame b = new BejelentkezesJFrame();
+        b = new BejelentkezesJFrame();
         b.setVisible(true);
     }//GEN-LAST:event_bejelentkezesButtonMouseClicked
 
@@ -286,7 +290,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jelszoIsmetFelfedLabelMouseClicked
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        BejelentkezesJFrame b = new BejelentkezesJFrame();
+        b = new BejelentkezesJFrame();
         b.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 

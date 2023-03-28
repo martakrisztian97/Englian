@@ -83,27 +83,34 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bejelentkezés");
-        setMinimumSize(new java.awt.Dimension(500, 400));
+        setMaximumSize(new java.awt.Dimension(800, 800));
+        setMinimumSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(800, 800));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        felhasznalonevTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         felhasznalonevTextField.setText("admin");
-        felhasznalonevTextField.setMinimumSize(new java.awt.Dimension(200, 30));
-        felhasznalonevTextField.setPreferredSize(new java.awt.Dimension(200, 30));
+        felhasznalonevTextField.setToolTipText("");
+        felhasznalonevTextField.setMaximumSize(new java.awt.Dimension(250, 50));
+        felhasznalonevTextField.setMinimumSize(new java.awt.Dimension(250, 50));
+        felhasznalonevTextField.setPreferredSize(new java.awt.Dimension(250, 50));
         felhasznalonevTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 felhasznalonevTextFieldKeyPressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         getContentPane().add(felhasznalonevTextField, gridBagConstraints);
 
+        jelszoPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jelszoPasswordField.setText("admin");
-        jelszoPasswordField.setMinimumSize(new java.awt.Dimension(200, 30));
-        jelszoPasswordField.setPreferredSize(new java.awt.Dimension(200, 30));
+        jelszoPasswordField.setMaximumSize(new java.awt.Dimension(250, 50));
+        jelszoPasswordField.setMinimumSize(new java.awt.Dimension(250, 50));
+        jelszoPasswordField.setPreferredSize(new java.awt.Dimension(250, 50));
         jelszoPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jelszoPasswordFieldKeyPressed(evt);
@@ -113,23 +120,24 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 0);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         getContentPane().add(jelszoPasswordField, gridBagConstraints);
 
-        capsLockLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         capsLockLabel.setForeground(new java.awt.Color(255, 0, 0));
         capsLockLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 5, 0);
         getContentPane().add(capsLockLabel, gridBagConstraints);
 
-        bejelentkezesButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        bejelentkezesButton.setText("Bejelentkezés");
+        bejelentkezesButton.setBackground(new java.awt.Color(0, 153, 255));
+        bejelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bejelentkezesButton.setForeground(new java.awt.Color(255, 255, 255));
+        bejelentkezesButton.setText("BEJELENTKEZÉS");
         bejelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bejelentkezesButton.setMaximumSize(new java.awt.Dimension(200, 40));
         bejelentkezesButton.setMinimumSize(new java.awt.Dimension(200, 40));
@@ -145,13 +153,14 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
         getContentPane().add(bejelentkezesButton, gridBagConstraints);
 
-        regisztracioButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        regisztracioButton.setText("Új fiók létrehozása");
+        regisztracioButton.setBackground(new java.awt.Color(0, 153, 255));
+        regisztracioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        regisztracioButton.setForeground(new java.awt.Color(255, 255, 255));
+        regisztracioButton.setText("ÚJ FIÓK LÉTREHOZÁSA");
         regisztracioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         regisztracioButton.setMaximumSize(new java.awt.Dimension(200, 40));
         regisztracioButton.setMinimumSize(new java.awt.Dimension(200, 40));
@@ -162,34 +171,35 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
         getContentPane().add(regisztracioButton, gridBagConstraints);
 
         logoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoLabel.setText("ENGLIAN");
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/proba.png"))); // NOI18N
         logoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
         logoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
         logoLabel.setPreferredSize(new java.awt.Dimension(150, 150));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         getContentPane().add(logoLabel, gridBagConstraints);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Felhasználónév:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         getContentPane().add(jLabel1, gridBagConstraints);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Jelszó:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jelszoFelfedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -201,8 +211,8 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
         getContentPane().add(jelszoFelfedLabel, gridBagConstraints);
 
         pack();

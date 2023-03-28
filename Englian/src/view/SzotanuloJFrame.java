@@ -40,6 +40,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
      */
     public SzotanuloJFrame(Felhasznalo f, Temakor t) {
         initComponents();
+        this.setTitle(t.getMegnevezes()+" szó kártyák");
         tanulasPanel.setVisible(false);
         vegePanel.setVisible(false);
         beFelh = f;
@@ -104,12 +105,14 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         magyarRadioButton = new javax.swing.JRadioButton();
         kezdesButton = new javax.swing.JButton();
         vegePanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         ujraButton = new javax.swing.JButton();
         bezarasButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 700));
         setMinimumSize(new java.awt.Dimension(600, 700));
+        setResizable(false);
         setSize(new java.awt.Dimension(600, 700));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -124,7 +127,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         tanulasPanel.setLayout(new java.awt.GridBagLayout());
 
         kifejezesButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        kifejezesButton.setText("kifejezesButton");
         kifejezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         kifejezesButton.setFocusable(false);
         kifejezesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -235,7 +237,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 100, 200, 0);
         inditasPanel.add(magyarRadioButton, gridBagConstraints);
 
-        kezdesButton.setBackground(new java.awt.Color(0, 0, 255));
+        kezdesButton.setBackground(new java.awt.Color(0, 153, 255));
         kezdesButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         kezdesButton.setForeground(new java.awt.Color(255, 255, 255));
         kezdesButton.setText("KEZDÉS");
@@ -266,7 +268,15 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         vegePanel.setPreferredSize(new java.awt.Dimension(600, 700));
         vegePanel.setLayout(new java.awt.GridBagLayout());
 
-        ujraButton.setBackground(new java.awt.Color(0, 0, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("A szószedet végére ért!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
+        vegePanel.add(jLabel1, gridBagConstraints);
+
+        ujraButton.setBackground(new java.awt.Color(0, 153, 255));
         ujraButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         ujraButton.setForeground(new java.awt.Color(255, 255, 255));
         ujraButton.setText("ÚJRA");
@@ -282,8 +292,8 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         vegePanel.add(ujraButton, gridBagConstraints);
 
         bezarasButton.setBackground(new java.awt.Color(255, 0, 0));
@@ -302,7 +312,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         vegePanel.add(bezarasButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -322,7 +332,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     private void kezdesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kezdesButtonMouseClicked
         inditasPanel.setVisible(false);
         tanulasPanel.setVisible(true);
-        kifejezesAngol = angolRadioButtonKijelolve(); //@todo marad vagy sem, és akkor átkerül kezdesclickhez
+        kifejezesAngol = angolRadioButtonKijelolve();
         kifejezesekEsDefiniciokBeallitasa();
         kifejezesButton.setText(kifejezesek.get(0));
         kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep())));
@@ -345,14 +355,13 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         kifejezesek.remove(hanyadikSzo-1);
         definiciok.remove(hanyadikSzo-1);
         if (szavak.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "SIKERESEN MEGTANULTAD A SZÓSZEDET SZAVAIT!"); //@todo
             tanulasPanel.setVisible(false);
             vegePanel.setVisible(true);
         } else if (hanyadikSzo-1 < szavak.size()) {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
-            JOptionPane.showMessageDialog(null, "ELŐLRŐL AMIK MARADTAK!!!");
+            JOptionPane.showMessageDialog(null, "Újra a meg nem tanult szavakkal!", "Üzenet", JOptionPane.INFORMATION_MESSAGE);
             hanyadikSzo = 1;
             kifejezesButton.setText(kifejezesek.get(0));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep())));
@@ -366,7 +375,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
-            JOptionPane.showMessageDialog(null, "ELŐLRŐL AMIK MARADTAK!!!");
+            JOptionPane.showMessageDialog(null, "Újra a meg nem tanult szavakkal!", "Üzenet", JOptionPane.INFORMATION_MESSAGE);
             hanyadikSzo = 1;
             Collections.shuffle(szavak);
             kifejezesekEsDefiniciokBeallitasa();
@@ -430,6 +439,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     private javax.swing.JButton bezarasButton;
     private javax.swing.JButton definicoButton;
     private javax.swing.JPanel inditasPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton kezdesButton;
     private javax.swing.JButton kifejezesButton;
     private javax.swing.ButtonGroup kifejezesNyelveButtonGroup;

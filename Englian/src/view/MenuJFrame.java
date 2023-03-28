@@ -65,7 +65,9 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(30, 0, 20, 0);
         getContentPane().add(udvLabel, gridBagConstraints);
 
+        szoszedetekButton.setBackground(new java.awt.Color(0, 153, 255));
         szoszedetekButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        szoszedetekButton.setForeground(new java.awt.Color(255, 255, 255));
         szoszedetekButton.setText("<html><div text-align:center>TEMATIKUS<br>SZÓSZEDETEK</div></html>\n");
         szoszedetekButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         szoszedetekButton.setFocusable(false);
@@ -83,7 +85,9 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(szoszedetekButton, gridBagConstraints);
 
+        tesztButton.setBackground(new java.awt.Color(0, 153, 255));
         tesztButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tesztButton.setForeground(new java.awt.Color(255, 255, 255));
         tesztButton.setText("TESZT INDÍTÁSA");
         tesztButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tesztButton.setFocusable(false);
@@ -101,7 +105,9 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(tesztButton, gridBagConstraints);
 
+        szerkesztoButton.setBackground(new java.awt.Color(0, 153, 255));
         szerkesztoButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        szerkesztoButton.setForeground(new java.awt.Color(255, 255, 255));
         szerkesztoButton.setText("<html>SZÓSZEDETEK<br>SZERKESZTÉSE<html>");
         szerkesztoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         szerkesztoButton.setFocusable(false);
@@ -119,7 +125,9 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(szerkesztoButton, gridBagConstraints);
 
+        ranglistaButton.setBackground(new java.awt.Color(0, 153, 255));
         ranglistaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ranglistaButton.setForeground(new java.awt.Color(255, 255, 255));
         ranglistaButton.setText("RANGLISTA");
         ranglistaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ranglistaButton.setFocusable(false);
@@ -137,7 +145,9 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(ranglistaButton, gridBagConstraints);
 
+        kijelentkezesButton.setBackground(new java.awt.Color(0, 153, 255));
         kijelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        kijelentkezesButton.setForeground(new java.awt.Color(255, 255, 255));
         kijelentkezesButton.setText("KIJELENTKEZÉS");
         kijelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kijelentkezesButton.setFocusable(false);
@@ -155,7 +165,9 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(kijelentkezesButton, gridBagConstraints);
 
+        bezarasButton.setBackground(new java.awt.Color(0, 153, 255));
         bezarasButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bezarasButton.setForeground(new java.awt.Color(255, 255, 255));
         bezarasButton.setText("BEZÁRÁS");
         bezarasButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bezarasButton.setFocusable(false);

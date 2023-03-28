@@ -126,6 +126,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 700));
         setMinimumSize(new java.awt.Dimension(600, 700));
+        setResizable(false);
         setSize(new java.awt.Dimension(600, 700));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -169,6 +170,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 100, 50, 0);
         inditasPanel.add(magyarRadioButton, gridBagConstraints);
 
+        temakorokComboBox.setBackground(new java.awt.Color(0, 153, 255));
         temakorokComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         temakorokComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         temakorokComboBox.setFocusable(false);
@@ -182,8 +184,11 @@ public class TesztJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(50, 0, 50, 0);
         inditasPanel.add(temakorokComboBox, gridBagConstraints);
 
+        kezdesButton.setBackground(new java.awt.Color(0, 153, 255));
         kezdesButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kezdesButton.setForeground(new java.awt.Color(255, 255, 255));
         kezdesButton.setText("KEZDÉS");
+        kezdesButton.setToolTipText("Teszt indítása");
         kezdesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kezdesButton.setFocusable(false);
         kezdesButton.setMaximumSize(new java.awt.Dimension(200, 100));
@@ -380,7 +385,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         System.out.println(tesztTemakor.toString()); // @todo
         System.out.println(szavak); // @todo
         if (szavak.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!"); // @todo
+            JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!", "Üzenet", JOptionPane.ERROR_MESSAGE);
         } else {
             inditasPanel.setVisible(false);
             tesztPanel.setVisible(true);

@@ -152,6 +152,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szavakSzerkesztesePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Szavak szerkesztése", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         szavakSzerkesztesePanel.setLayout(new java.awt.GridBagLayout());
 
+        temakorokComboBox.setBackground(new java.awt.Color(0, 153, 255));
         temakorokComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         temakorokComboBox.setFocusable(false);
         temakorokComboBox.setMaximumSize(new java.awt.Dimension(200, 35));
@@ -169,6 +170,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         szavakSzerkesztesePanel.add(temakorokComboBox, gridBagConstraints);
 
+        szavakComboBox.setBackground(new java.awt.Color(0, 153, 255));
         szavakComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         szavakComboBox.setFocusable(false);
         szavakComboBox.setMaximumSize(new java.awt.Dimension(300, 35));
@@ -345,6 +347,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         ujSzoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Új szó hozzáadása", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         ujSzoPanel.setLayout(new java.awt.GridBagLayout());
 
+        temakorokComboBoxUjSzohoz.setBackground(new java.awt.Color(0, 153, 255));
         temakorokComboBoxUjSzohoz.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         temakorokComboBoxUjSzohoz.setFocusable(false);
         temakorokComboBoxUjSzohoz.setMaximumSize(new java.awt.Dimension(200, 35));
@@ -443,6 +446,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szoszedetTorlesePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Szószedet törlése", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         szoszedetTorlesePanel.setLayout(new java.awt.GridBagLayout());
 
+        temakorokComboBoxSzoszedetTorleshez.setBackground(new java.awt.Color(0, 153, 255));
         temakorokComboBoxSzoszedetTorleshez.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         temakorokComboBoxSzoszedetTorleshez.setFocusable(false);
         temakorokComboBoxSzoszedetTorleshez.setMaximumSize(new java.awt.Dimension(200, 35));
