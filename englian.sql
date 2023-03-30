@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 20. 00:17
+-- Létrehozás ideje: 2023. Már 30. 22:06
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -41,11 +41,13 @@ CREATE TABLE `eredmenyek` (
 --
 
 INSERT INTO `eredmenyek` (`id`, `felhasznalo_id`, `temakor_id`, `eredmeny`) VALUES
-(1, 1, 2, 100),
-(2, 1, 2, 67),
-(3, 1, 2, 33),
-(4, 1, 2, 67),
-(5, 1, 1, 71);
+(1, 1, 3, 100),
+(2, 1, 3, 67),
+(3, 1, 3, 33),
+(4, 1, 3, 67),
+(5, 1, 1, 71),
+(9, 1, 16, 0),
+(10, 1, 16, 0);
 
 -- --------------------------------------------------------
 
@@ -78,8 +80,8 @@ INSERT INTO `felhasznalok` (`id`, `email`, `felhasznalonev`, `jelszo`, `regisztr
 CREATE TABLE `szavak` (
   `id` int(10) UNSIGNED NOT NULL,
   `temakor_id` int(10) UNSIGNED NOT NULL,
-  `angol` varchar(32) DEFAULT NULL,
-  `magyar` varchar(32) DEFAULT NULL,
+  `angol` varchar(128) DEFAULT NULL,
+  `magyar` varchar(128) DEFAULT NULL,
   `kep` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
@@ -93,50 +95,51 @@ INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (3, 1, 'apricot', 'sárgabarack', 'apricot.png'),
 (4, 1, 'avocado', 'avokádó', 'avocado.png'),
 (5, 1, 'banana', 'banán', 'banana.png'),
-(6, 1, 'bilberry', 'áfonya', 'bilberry.png'),
-(7, 1, 'blackberry', 'szeder', 'blackberry.png'),
-(8, 1, 'blackcurrant', 'feketeribizli', 'blackcurrant.png'),
-(9, 1, 'blackthorn', 'kökény', 'blackthorn.png'),
-(10, 1, 'blueberry', 'fekete áfonya', 'blueberry.png'),
-(11, 1, 'cantaloupe', 'sárgadinnye', 'cantaloupe.png'),
-(12, 1, 'cherry', 'cseresznye', 'cherry.png'),
-(13, 1, 'chestnut', 'gesztenye', 'chestnut.png'),
-(14, 1, 'coconut', 'kókuszdió', 'coconut.png'),
-(15, 1, 'cranberry', 'áfonya', 'cranberry.png'),
-(16, 1, 'date', 'datolya', 'date.png'),
-(17, 1, 'dragon fruit', 'sárkánygyümölcs', 'dragon_fruit.png'),
-(18, 1, 'elderberry', 'bodza', 'elderberry.png'),
-(19, 1, 'fig', 'füge', 'fig.png'),
-(20, 1, 'gooseberry', 'egres', 'gooseberry.png'),
-(21, 1, 'grape', 'szőlő', 'grape.png'),
-(22, 1, 'grapefruit', 'gréfrút', 'grapefruit.png'),
-(23, 1, 'hazelnut', 'mogyoró', 'hazelnut.png'),
-(24, 1, 'kiwi', 'kivi', 'kiwi.png'),
-(25, 1, 'lemon', 'citrom', 'lemon.png'),
-(26, 1, 'lime', 'zöldcitrom', 'lime.png'),
-(27, 1, 'lychee', 'licsi', 'lychee.png'),
-(28, 1, 'mango', 'mangó', 'mango.png'),
-(29, 1, 'nectarine', 'nektarin', 'nectarine.png'),
-(30, 1, 'orange', 'narancs', 'orange.png'),
-(31, 1, 'passion fruit', 'maracuja', 'passion_fruit.png'),
-(32, 1, 'peach', 'őszibarack', 'peach.png'),
-(33, 1, 'peanut', 'földimogyoró', 'peanut.png'),
-(34, 1, 'pear', 'körte', 'pear.png'),
-(35, 1, 'pineapple', 'ananász', 'pineapple.png'),
-(36, 1, 'pistachio', 'pisztácia', 'pistachio.png'),
-(37, 1, 'plum', 'szilva', 'plum.png'),
-(38, 1, 'pomegranate', 'gránátalma', 'pomegranate.png'),
-(39, 1, 'quince', 'birs', 'quince.png'),
-(40, 1, 'raisin', 'mazsola', 'raisin.png'),
-(41, 1, 'raspberry', 'málna', 'raspberry.png'),
-(42, 1, 'redcurrant', 'ribizli', 'redcurrant.png'),
-(43, 1, 'rosehip', 'csipkebogyó', 'rosehip.png'),
-(44, 1, 'sour cherry', 'meggy', 'sour_cherry.png'),
-(45, 1, 'starfruit', 'csillaggyümölcs', 'starfruit.png'),
-(46, 1, 'strawberry', 'eper', 'strawberry.png'),
-(47, 1, 'tangerine', 'mandarin', 'tangerine.png'),
-(48, 1, 'walnut', 'dió', 'walnut.png'),
-(49, 1, 'watermelon', 'görögdinnye', 'watermelon.png');
+(6, 1, 'blackberry', 'szeder', 'blackberry.png'),
+(7, 1, 'blackcurrant', 'feketeribizli', 'blackcurrant.png'),
+(8, 1, 'blueberry', 'fekete áfonya', 'blueberry.png'),
+(9, 1, 'cantaloupe', 'sárgadinnye', 'cantaloupe.png'),
+(10, 1, 'cherry', 'cseresznye', 'cherry.png'),
+(11, 1, 'chestnut', 'gesztenye', 'chestnut.png'),
+(12, 1, 'coconut', 'kókuszdió', 'coconut.png'),
+(13, 1, 'cranberry', 'áfonya', 'cranberry.png'),
+(14, 1, 'date', 'datolya', 'date.png'),
+(15, 1, 'dragon fruit', 'sárkánygyümölcs', 'dragon_fruit.png'),
+(16, 1, 'elderberry', 'bodza', 'elderberry.png'),
+(17, 1, 'fig', 'füge', 'fig.png'),
+(18, 1, 'gooseberry', 'egres', 'gooseberry.png'),
+(19, 1, 'grape', 'szőlő', 'grape.png'),
+(20, 1, 'grapefruit', 'gréfrút', 'grapefruit.png'),
+(21, 1, 'hazelnut', 'mogyoró', 'hazelnut.png'),
+(22, 1, 'kiwi', 'kivi', 'kiwi.png'),
+(23, 1, 'lemon', 'citrom', 'lemon.png'),
+(24, 1, 'lime', 'zöldcitrom', 'lime.png'),
+(25, 1, 'lychee', 'licsi', 'lychee.png'),
+(26, 1, 'mango', 'mangó', 'mango.png'),
+(27, 1, 'nectarine', 'nektarin', 'nectarine.png'),
+(28, 1, 'orange', 'narancs', 'orange.png'),
+(29, 1, 'passion fruit', 'maracuja', 'passion_fruit.png'),
+(30, 1, 'peach', 'őszibarack', 'peach.png'),
+(31, 1, 'peanut', 'földimogyoró', 'peanut.png'),
+(32, 1, 'pear', 'körte', 'pear.png'),
+(33, 1, 'pineapple', 'ananász', 'pineapple.png'),
+(34, 1, 'pistachio', 'pisztácia', 'pistachio.png'),
+(35, 1, 'plum', 'szilva', 'plum.png'),
+(36, 1, 'pomegranate', 'gránátalma', 'pomegranate.png'),
+(37, 1, 'quince', 'birs', 'quince.png'),
+(38, 1, 'raisin', 'mazsola', 'raisin.png'),
+(39, 1, 'raspberry', 'málna', 'raspberry.png'),
+(40, 1, 'redcurrant', 'ribizli', 'redcurrant.png'),
+(41, 1, 'rosehip', 'csipkebogyó', 'rosehip.png'),
+(42, 1, 'sour cherry', 'meggy', 'sour_cherry.png'),
+(43, 1, 'starfruit', 'csillaggyümölcs', 'starfruit.png'),
+(44, 1, 'strawberry', 'eper', 'strawberry.png'),
+(45, 1, 'tangerine', 'mandarin', 'tangerine.png'),
+(46, 1, 'walnut', 'dió', 'walnut.png'),
+(47, 1, 'watermelon', 'görögdinnye', 'watermelon.png'),
+(48, 16, 'TESZT', '1', 'proba.png'),
+(49, 16, '11111', '111111', 'proba.png'),
+(54, 16, 'wwqqwwq', 'qwwqqwqw', 'proba.png');
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,15 @@ CREATE TABLE `tananyag` (
 INSERT INTO `tananyag` (`id`, `felhasznalo_id`, `temakor_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
-(3, 23, 1);
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(20, 23, 1),
+(21, 23, 2),
+(22, 23, 3),
+(23, 23, 4),
+(24, 23, 5),
+(32, 1, 16);
 
 -- --------------------------------------------------------
 
@@ -167,7 +178,7 @@ INSERT INTO `tananyag` (`id`, `felhasznalo_id`, `temakor_id`) VALUES
 
 CREATE TABLE `temakorok` (
   `id` int(10) UNSIGNED NOT NULL,
-  `megnevezes` varchar(32) DEFAULT NULL,
+  `megnevezes` varchar(20) DEFAULT NULL,
   `kep` varchar(32) DEFAULT NULL,
   `mappa` varchar(32) DEFAULT NULL,
   `beepitett` tinyint(1) NOT NULL
@@ -178,8 +189,12 @@ CREATE TABLE `temakorok` (
 --
 
 INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`, `beepitett`) VALUES
-(1, 'Gyümölcsök', 'proba.png', 'fruits', 1),
-(2, 'Színek', 'colors.png', 'colors', 0);
+(1, 'Gyümölcsök', 'fruits.png', 'fruits', 1),
+(2, 'Zöldségek', 'vegetables.png', 'vegetables', 1),
+(3, 'Színek', 'colors.png', 'colors', 1),
+(4, 'Állatok', 'animals.png', 'animals', 1),
+(5, 'Anyagok', 'materials.png', 'materials', 1),
+(16, 'teszt1', 'proba.png', '', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -229,31 +244,31 @@ ALTER TABLE `temakorok`
 -- AUTO_INCREMENT a táblához `eredmenyek`
 --
 ALTER TABLE `eredmenyek`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
 --
 ALTER TABLE `szavak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT a táblához `tananyag`
 --
 ALTER TABLE `tananyag`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT a táblához `temakorok`
 --
 ALTER TABLE `temakorok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Megkötések a kiírt táblákhoz
