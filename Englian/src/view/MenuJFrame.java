@@ -48,9 +48,9 @@ public class MenuJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menü");
-        setMaximumSize(new java.awt.Dimension(300, 675));
-        setMinimumSize(new java.awt.Dimension(300, 675));
-        setPreferredSize(new java.awt.Dimension(300, 675));
+        setMaximumSize(new java.awt.Dimension(300, 700));
+        setMinimumSize(new java.awt.Dimension(300, 700));
+        setPreferredSize(new java.awt.Dimension(300, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(300, 675));
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -62,7 +62,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 20, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 25, 0);
         getContentPane().add(udvLabel, gridBagConstraints);
 
         szoszedetekButton.setBackground(new java.awt.Color(0, 153, 255));
@@ -82,7 +82,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         getContentPane().add(szoszedetekButton, gridBagConstraints);
 
         tesztButton.setBackground(new java.awt.Color(0, 153, 255));
@@ -165,7 +165,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(kijelentkezesButton, gridBagConstraints);
 
-        bezarasButton.setBackground(new java.awt.Color(0, 153, 255));
+        bezarasButton.setBackground(new java.awt.Color(255, 99, 71));
         bezarasButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bezarasButton.setForeground(new java.awt.Color(255, 255, 255));
         bezarasButton.setText("BEZÁRÁS");
@@ -182,7 +182,7 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 25, 0);
         getContentPane().add(bezarasButton, gridBagConstraints);
 
         pack();

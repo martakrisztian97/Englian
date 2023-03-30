@@ -157,7 +157,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         tanulasPanel.add(definicoButton, gridBagConstraints);
 
-        marTudomButton.setBackground(new java.awt.Color(0, 128, 0));
+        marTudomButton.setBackground(new java.awt.Color(50, 205, 50));
         marTudomButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         marTudomButton.setForeground(new java.awt.Color(255, 255, 255));
         marTudomButton.setText("<html><div text-align:center>MÁR<br>TUDOM</div></html>");
@@ -177,7 +177,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         tanulasPanel.add(marTudomButton, gridBagConstraints);
 
-        megTanulomButton.setBackground(new java.awt.Color(255, 0, 0));
+        megTanulomButton.setBackground(new java.awt.Color(255, 99, 71));
         megTanulomButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         megTanulomButton.setForeground(new java.awt.Color(255, 255, 255));
         megTanulomButton.setText("<html><div text-align:center>MÉG<br>TANULOM</div></html>");
@@ -296,7 +296,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         vegePanel.add(ujraButton, gridBagConstraints);
 
-        bezarasButton.setBackground(new java.awt.Color(255, 0, 0));
+        bezarasButton.setBackground(new java.awt.Color(255, 99, 71));
         bezarasButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         bezarasButton.setForeground(new java.awt.Color(255, 255, 255));
         bezarasButton.setText("BEZÁRÁS");
@@ -361,7 +361,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
-            JOptionPane.showMessageDialog(null, "Újra a meg nem tanult szavakkal!", "Üzenet", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!", "Üzenet", JOptionPane.INFORMATION_MESSAGE);
             hanyadikSzo = 1;
             kifejezesButton.setText(kifejezesek.get(0));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep())));
@@ -375,7 +375,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
-            JOptionPane.showMessageDialog(null, "Újra a meg nem tanult szavakkal!", "Üzenet", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!", "Üzenet", JOptionPane.INFORMATION_MESSAGE);
             hanyadikSzo = 1;
             Collections.shuffle(szavak);
             kifejezesekEsDefiniciokBeallitasa();

@@ -159,15 +159,22 @@ public class KapcsolatDB {
      * @param f A felhasználó.
      * @return A témakörök adatait tartalmazó listával.
      */
-    public ArrayList<Temakor> temakorokLekerdez(Felhasznalo f) {
+    public ArrayList<Temakor> temakorokLekerdez(Felhasznalo f, boolean rendezve) {
         String query = "SELECT temakorok.id, temakorok.megnevezes, temakorok.kep, temakorok.mappa, temakorok.beepitett FROM temakorok, tananyag "
+                + "WHERE tananyag.temakor_id = temakorok.id AND tananyag.felhasznalo_id = " + f.getId();
+        String queryRendezve = "SELECT temakorok.id, temakorok.megnevezes, temakorok.kep, temakorok.mappa, temakorok.beepitett FROM temakorok, tananyag "
                 + "WHERE tananyag.temakor_id = temakorok.id AND tananyag.felhasznalo_id = " + f.getId() + " ORDER BY temakorok.megnevezes ASC";
         ArrayList<Temakor> lista = new ArrayList<>();
         try {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(host + dbName, userName, password);
             Statement st = (Statement) conn.createStatement();
-            ResultSet result = st.executeQuery(query);
+            ResultSet result;
+            if (rendezve) {
+                result = st.executeQuery(queryRendezve);
+            } else {
+                result = st.executeQuery(query);
+            }
             while (result.next()) {
                 int id = result.getInt("id");
                 String megnevezes = result.getString("megnevezes");

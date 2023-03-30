@@ -49,7 +49,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         beFelh = f;
         kapcsolat = new KapcsolatDB();
         kifejezesAngol = angolRadioButtonKijelolve();
-        temakorok = kapcsolat.temakorokLekerdez(beFelh);
+        temakorok = kapcsolat.temakorokLekerdez(beFelh, true);
         temakorokComboBoxFeltolt();
         kifejezesek = new ArrayList<>();
         definiciok = new ArrayList<>();
@@ -124,6 +124,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         aranyLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Teszt");
         setMaximumSize(new java.awt.Dimension(600, 700));
         setMinimumSize(new java.awt.Dimension(600, 700));
         setResizable(false);
@@ -257,7 +258,9 @@ public class TesztJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         tesztPanel.add(visszajelzesLabel, gridBagConstraints);
 
+        valaszButton.setBackground(new java.awt.Color(0, 153, 255));
         valaszButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        valaszButton.setForeground(new java.awt.Color(255, 255, 255));
         valaszButton.setText("VÁLASZ");
         valaszButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         valaszButton.setFocusable(false);
@@ -275,7 +278,9 @@ public class TesztJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         tesztPanel.add(valaszButton, gridBagConstraints);
 
+        kovetkezoButton.setBackground(new java.awt.Color(0, 153, 255));
         kovetkezoButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        kovetkezoButton.setForeground(new java.awt.Color(255, 255, 255));
         kovetkezoButton.setText("KÖVETKEZŐ");
         kovetkezoButton.setToolTipText("");
         kovetkezoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -311,7 +316,9 @@ public class TesztJFrame extends javax.swing.JFrame {
         vegePanel.setPreferredSize(new java.awt.Dimension(600, 700));
         vegePanel.setLayout(new java.awt.GridBagLayout());
 
+        ujraButton.setBackground(new java.awt.Color(0, 153, 255));
         ujraButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ujraButton.setForeground(new java.awt.Color(255, 255, 255));
         ujraButton.setText("ÚJRA");
         ujraButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ujraButton.setFocusable(false);
@@ -329,8 +336,9 @@ public class TesztJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
         vegePanel.add(ujraButton, gridBagConstraints);
 
+        bezarasButton.setBackground(new java.awt.Color(255, 99, 71));
         bezarasButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        bezarasButton.setForeground(new java.awt.Color(255, 0, 0));
+        bezarasButton.setForeground(new java.awt.Color(255, 255, 255));
         bezarasButton.setText("BEZÁRÁS");
         bezarasButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bezarasButton.setFocusable(false);

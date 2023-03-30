@@ -48,7 +48,7 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
         frame = this;
         beFelh = f;
         kapcsolat = new KapcsolatDB();
-        temakorok = kapcsolat.temakorokLekerdez(beFelh);
+        temakorok = kapcsolat.temakorokLekerdez(beFelh, false);
         gombok = new ArrayList<>();
         
         JPanel panel = new JPanel();

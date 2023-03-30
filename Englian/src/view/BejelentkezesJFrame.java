@@ -83,13 +83,13 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bejelentkezés");
-        setMaximumSize(new java.awt.Dimension(800, 800));
-        setMinimumSize(new java.awt.Dimension(800, 800));
-        setPreferredSize(new java.awt.Dimension(800, 800));
+        setMaximumSize(new java.awt.Dimension(600, 600));
+        setMinimumSize(new java.awt.Dimension(600, 600));
+        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        felhasznalonevTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        felhasznalonevTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         felhasznalonevTextField.setText("admin");
         felhasznalonevTextField.setToolTipText("");
         felhasznalonevTextField.setMaximumSize(new java.awt.Dimension(250, 50));
@@ -104,12 +104,14 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 40, 10, 0);
         getContentPane().add(felhasznalonevTextField, gridBagConstraints);
 
-        jelszoPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jelszoPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jelszoPasswordField.setText("admin");
         jelszoPasswordField.setMaximumSize(new java.awt.Dimension(250, 50));
         jelszoPasswordField.setMinimumSize(new java.awt.Dimension(250, 50));
+        jelszoPasswordField.setOpaque(true);
         jelszoPasswordField.setPreferredSize(new java.awt.Dimension(250, 50));
         jelszoPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -123,6 +125,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 40, 0, 0);
         getContentPane().add(jelszoPasswordField, gridBagConstraints);
 
         capsLockLabel.setForeground(new java.awt.Color(255, 0, 0));
@@ -131,17 +134,17 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 40, 25, 0);
         getContentPane().add(capsLockLabel, gridBagConstraints);
 
         bejelentkezesButton.setBackground(new java.awt.Color(0, 153, 255));
-        bejelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bejelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         bejelentkezesButton.setForeground(new java.awt.Color(255, 255, 255));
         bejelentkezesButton.setText("BEJELENTKEZÉS");
         bejelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bejelentkezesButton.setMaximumSize(new java.awt.Dimension(200, 40));
-        bejelentkezesButton.setMinimumSize(new java.awt.Dimension(200, 40));
-        bejelentkezesButton.setPreferredSize(new java.awt.Dimension(200, 40));
+        bejelentkezesButton.setMaximumSize(new java.awt.Dimension(200, 50));
+        bejelentkezesButton.setMinimumSize(new java.awt.Dimension(200, 50));
+        bejelentkezesButton.setPreferredSize(new java.awt.Dimension(200, 50));
         bejelentkezesButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bejelentkezesButtonMouseClicked(evt);
@@ -155,16 +158,17 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(0, 40, 10, 0);
         getContentPane().add(bejelentkezesButton, gridBagConstraints);
 
         regisztracioButton.setBackground(new java.awt.Color(0, 153, 255));
-        regisztracioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        regisztracioButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         regisztracioButton.setForeground(new java.awt.Color(255, 255, 255));
         regisztracioButton.setText("ÚJ FIÓK LÉTREHOZÁSA");
         regisztracioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        regisztracioButton.setMaximumSize(new java.awt.Dimension(200, 40));
-        regisztracioButton.setMinimumSize(new java.awt.Dimension(200, 40));
-        regisztracioButton.setPreferredSize(new java.awt.Dimension(200, 40));
+        regisztracioButton.setMaximumSize(new java.awt.Dimension(200, 50));
+        regisztracioButton.setMinimumSize(new java.awt.Dimension(200, 50));
+        regisztracioButton.setPreferredSize(new java.awt.Dimension(200, 50));
         regisztracioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 regisztracioButtonMouseClicked(evt);
@@ -173,6 +177,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
+        gridBagConstraints.insets = new java.awt.Insets(0, 40, 0, 0);
         getContentPane().add(regisztracioButton, gridBagConstraints);
 
         logoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -183,23 +188,26 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         getContentPane().add(logoLabel, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Felhasználónév:");
+        jLabel1.setText("Felhasználónév");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 40, 0, 0);
         getContentPane().add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Jelszó:");
+        jLabel2.setText("Jelszó");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 40, 0, 0);
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jelszoFelfedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -213,6 +221,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         getContentPane().add(jelszoFelfedLabel, gridBagConstraints);
 
         pack();

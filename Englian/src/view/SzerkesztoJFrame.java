@@ -65,7 +65,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
      * temakorokComboBox és temakorokComboBoxUjSzohoz nevű legördülő listák feltöltése.
      */
     public void temakorokComboBoxokFeltolt() {
-        temakorok = kapcsolat.temakorokLekerdez(beFelh);
+        temakorok = kapcsolat.temakorokLekerdez(beFelh, true);
         
         // a beépített témakörök kivétele, hogy azt ne lehessen szerkeszteni
         Iterator itr = temakorok.iterator();
@@ -127,6 +127,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szoszedetTorlesePanel = new javax.swing.JPanel();
         temakorokComboBoxSzoszedetTorleshez = new javax.swing.JComboBox<>();
         szoszedetTorleseButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Szerkesztőnézet");
@@ -188,12 +189,12 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         szavakSzerkesztesePanel.add(szavakComboBox, gridBagConstraints);
 
-        angolTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        angolTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         angolTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         angolTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        angolTextField.setMaximumSize(new java.awt.Dimension(250, 50));
-        angolTextField.setMinimumSize(new java.awt.Dimension(250, 50));
-        angolTextField.setPreferredSize(new java.awt.Dimension(250, 50));
+        angolTextField.setMaximumSize(new java.awt.Dimension(300, 50));
+        angolTextField.setMinimumSize(new java.awt.Dimension(300, 50));
+        angolTextField.setPreferredSize(new java.awt.Dimension(300, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -201,12 +202,12 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
         szavakSzerkesztesePanel.add(angolTextField, gridBagConstraints);
 
-        magyarTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        magyarTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         magyarTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         magyarTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        magyarTextField.setMaximumSize(new java.awt.Dimension(250, 50));
-        magyarTextField.setMinimumSize(new java.awt.Dimension(250, 50));
-        magyarTextField.setPreferredSize(new java.awt.Dimension(250, 50));
+        magyarTextField.setMaximumSize(new java.awt.Dimension(300, 50));
+        magyarTextField.setMinimumSize(new java.awt.Dimension(300, 50));
+        magyarTextField.setPreferredSize(new java.awt.Dimension(300, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -234,7 +235,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         szavakSzerkesztesePanel.add(modositButton, gridBagConstraints);
 
-        szoTorlesButton.setBackground(new java.awt.Color(255, 0, 0));
+        szoTorlesButton.setBackground(new java.awt.Color(255, 99, 71));
         szoTorlesButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         szoTorlesButton.setForeground(new java.awt.Color(255, 255, 255));
         szoTorlesButton.setText("TÖRLÉS");
@@ -299,17 +300,16 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         ujTemakorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Új témakör létrehozása", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         ujTemakorPanel.setLayout(new java.awt.GridBagLayout());
 
-        ujTemakorTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        ujTemakorTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         ujTemakorTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ujTemakorTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        ujTemakorTextField.setMaximumSize(new java.awt.Dimension(250, 50));
-        ujTemakorTextField.setMinimumSize(new java.awt.Dimension(250, 50));
-        ujTemakorTextField.setPreferredSize(new java.awt.Dimension(250, 50));
+        ujTemakorTextField.setMaximumSize(new java.awt.Dimension(300, 50));
+        ujTemakorTextField.setMinimumSize(new java.awt.Dimension(300, 50));
+        ujTemakorTextField.setPreferredSize(new java.awt.Dimension(300, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 25);
         ujTemakorPanel.add(ujTemakorTextField, gridBagConstraints);
 
         temakorLetrehozButton.setBackground(new java.awt.Color(0, 153, 255));
@@ -327,17 +327,16 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 25);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         ujTemakorPanel.add(temakorLetrehozButton, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Új témakör");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(25, 25, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 0, 0);
         ujTemakorPanel.add(jLabel5, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -360,7 +359,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         ujSzoPanel.add(temakorokComboBoxUjSzohoz, gridBagConstraints);
 
-        ujAngolTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        ujAngolTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         ujAngolTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ujAngolTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ujAngolTextField.setMaximumSize(new java.awt.Dimension(250, 50));
@@ -373,7 +372,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 0);
         ujSzoPanel.add(ujAngolTextField, gridBagConstraints);
 
-        ujMagyarTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        ujMagyarTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         ujMagyarTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ujMagyarTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ujMagyarTextField.setMaximumSize(new java.awt.Dimension(250, 50));
@@ -454,12 +453,11 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         temakorokComboBoxSzoszedetTorleshez.setPreferredSize(new java.awt.Dimension(200, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(25, 25, 25, 0);
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 25);
         szoszedetTorlesePanel.add(temakorokComboBoxSzoszedetTorleshez, gridBagConstraints);
 
-        szoszedetTorleseButton.setBackground(new java.awt.Color(255, 0, 0));
+        szoszedetTorleseButton.setBackground(new java.awt.Color(255, 99, 71));
         szoszedetTorleseButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         szoszedetTorleseButton.setForeground(new java.awt.Color(255, 255, 255));
         szoszedetTorleseButton.setText("TÖRLÉS");
@@ -474,10 +472,19 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(25, 25, 25, 25);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 25);
         szoszedetTorlesePanel.add(szoszedetTorleseButton, gridBagConstraints);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Témakör");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 0, 0);
+        szoszedetTorlesePanel.add(jLabel9, gridBagConstraints);
 
         szoszedetTorleseTabPanel.add(szoszedetTorlesePanel, new java.awt.GridBagConstraints());
 
@@ -535,9 +542,15 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_modositButtonMouseClicked
 
     private void szoTorlesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szoTorlesButtonMouseClicked
-        if (szavakComboBox.getSelectedIndex() != -1) {
-            kapcsolat.szoTorles(szavak.get(szavakComboBox.getSelectedIndex()).getId());
-            szavakComboBoxFeltolt();
+        Object[] opciok = {"Igen", "Nem"};
+        int torlesKerdes = JOptionPane.showOptionDialog(null, "Biztosan törölni szeretné?", "Szó törlése",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciok, opciok[0]);
+        
+        if (torlesKerdes == JOptionPane.YES_OPTION) {
+            if (szavakComboBox.getSelectedIndex() != -1) {
+                kapcsolat.szoTorles(szavak.get(szavakComboBox.getSelectedIndex()).getId());
+                szavakComboBoxFeltolt();
+            }
         }
     }//GEN-LAST:event_szoTorlesButtonMouseClicked
 
@@ -545,7 +558,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         String ujAngol = ujAngolTextField.getText();
         String ujMagyar = ujMagyarTextField.getText();
         if (ujAngol.isEmpty() || ujMagyar.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Adja meg az új témakör nevét!", "Hiba", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Adja meg az új szót angolul és magyarul egyaránt!", "Új szó hozzáadása", JOptionPane.ERROR_MESSAGE);
         } else {
             kapcsolat.ujSzo(temakorok.get(temakorokComboBoxUjSzohoz.getSelectedIndex()).getId(), ujAngol, ujMagyar);
         }
@@ -558,7 +571,9 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         String ujTemakor = ujTemakorTextField.getText();
         if (ujTemakor.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Adja meg az új témakör nevét!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
-        } else {
+        } else if (ujTemakor.length() > 20) {
+            JOptionPane.showMessageDialog(null, "Az új témakör hossza maximum 20 karakter hosszú lehet!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
+        } else  {
             kapcsolat.ujTemakor(beFelh.getId(), ujTemakor);
         }
         ujTemakorTextField.setText("");
@@ -567,10 +582,16 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_temakorLetrehozButtonMouseClicked
 
     private void szoszedetTorleseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szoszedetTorleseButtonMouseClicked
-        kapcsolat.szoszedetTorlese(temakorok.get(temakorokComboBoxSzoszedetTorleshez.getSelectedIndex()).getId());
-        temakorokComboBoxokFeltolt();
-        if (szavakComboBox.getItemCount() > 0) {
-            szavakComboBoxFeltolt();
+        Object[] opciok = {"Igen", "Nem"};
+        int torlesKerdes = JOptionPane.showOptionDialog(null, "Biztosan törölni szeretné?", "Szószedet törlése",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciok, opciok[0]);
+        
+        if (torlesKerdes == JOptionPane.YES_OPTION) {
+            kapcsolat.szoszedetTorlese(temakorok.get(temakorokComboBoxSzoszedetTorleshez.getSelectedIndex()).getId());
+            temakorokComboBoxokFeltolt();
+            if (szavakComboBox.getItemCount() > 0) {
+                szavakComboBoxFeltolt();
+            }
         }
     }//GEN-LAST:event_szoszedetTorleseButtonMouseClicked
 
@@ -619,6 +640,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField magyarTextField;
     private javax.swing.JButton modositButton;
     private javax.swing.JComboBox<String> szavakComboBox;

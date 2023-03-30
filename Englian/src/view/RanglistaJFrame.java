@@ -36,7 +36,7 @@ public class RanglistaJFrame extends javax.swing.JFrame {
         beFelh = f;
         kapcsolat = new KapcsolatDB();
         dtm = (DefaultTableModel)ranglistaTable.getModel();
-        temakorok = kapcsolat.temakorokLekerdez(beFelh);
+        temakorok = kapcsolat.temakorokLekerdez(beFelh, true);
         for (Temakor t : temakorok) {
             temakorokComboBox.addItem(t.getMegnevezes());
         }
@@ -69,6 +69,7 @@ public class RanglistaJFrame extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        temakorokComboBox.setBackground(new java.awt.Color(0, 153, 255));
         temakorokComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         temakorokComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Válasszon!" }));
         temakorokComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
