@@ -61,6 +61,9 @@
         <Container class="javax.swing.JPanel" name="szavakSzerkeszteseTabPanel">
           <Properties>
             <Property name="focusable" type="boolean" value="false"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[685, 388]"/>
+            </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -80,6 +83,9 @@
                       <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
+                </Property>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[685, 388]"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -343,6 +349,11 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="ujSzoszedetTabPanel">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[585, 580]"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="&#xda;j sz&#xf3;szedet hozz&#xe1;ad&#xe1;sa">
@@ -361,6 +372,9 @@
                       <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
+                </Property>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[360, 224]"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -457,6 +471,9 @@
                       <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
+                </Property>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[585, 306]"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -634,6 +651,11 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="szoszedetTorleseTabPanel">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[260, 209]"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Sz&#xf3;szedet t&#xf6;rl&#xe9;se">
@@ -652,6 +674,9 @@
                       <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
+                </Property>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[260, 209]"/>
                 </Property>
               </Properties>
               <Constraints>

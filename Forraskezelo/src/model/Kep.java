@@ -6,6 +6,7 @@ package model;
  * @since 2023-03-31
  */
 public class Kep {
+
     private String megnevezes;
     private String forras;
 

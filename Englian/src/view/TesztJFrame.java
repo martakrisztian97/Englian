@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -112,7 +113,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         tesztPanel = new javax.swing.JPanel();
         kepLabel = new javax.swing.JLabel();
         kifejezesLabel = new javax.swing.JLabel();
-        definicioTextField = new javax.swing.JTextField();
+        definicioValaszTextField = new javax.swing.JTextField();
         visszajelzesLabel = new javax.swing.JLabel();
         valaszButton = new javax.swing.JButton();
         kovetkezoButton = new javax.swing.JButton();
@@ -127,6 +128,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         setTitle("Teszt");
         setMaximumSize(new java.awt.Dimension(600, 700));
         setMinimumSize(new java.awt.Dimension(600, 700));
+        setPreferredSize(new java.awt.Dimension(600, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(600, 700));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -139,7 +141,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         inditasPanel.setMaximumSize(new java.awt.Dimension(600, 700));
         inditasPanel.setMinimumSize(new java.awt.Dimension(600, 700));
         inditasPanel.setName(""); // NOI18N
-        inditasPanel.setPreferredSize(new java.awt.Dimension(600, 700));
+        inditasPanel.setPreferredSize(new java.awt.Dimension(700, 700));
         inditasPanel.setLayout(new java.awt.GridBagLayout());
 
         kifejezesNyelveButtonGroup.add(angolRadioButton);
@@ -189,7 +191,6 @@ public class TesztJFrame extends javax.swing.JFrame {
         kezdesButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         kezdesButton.setForeground(new java.awt.Color(255, 255, 255));
         kezdesButton.setText("KEZDÉS");
-        kezdesButton.setToolTipText("Teszt indítása");
         kezdesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kezdesButton.setFocusable(false);
         kezdesButton.setMaximumSize(new java.awt.Dimension(200, 100));
@@ -222,38 +223,35 @@ public class TesztJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         tesztPanel.add(kepLabel, gridBagConstraints);
 
-        kifejezesLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        kifejezesLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         kifejezesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         kifejezesLabel.setText("KIFEJEZÉS");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         tesztPanel.add(kifejezesLabel, gridBagConstraints);
 
-        definicioTextField.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
-        definicioTextField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        definicioTextField.setMaximumSize(new java.awt.Dimension(350, 50));
-        definicioTextField.setMinimumSize(new java.awt.Dimension(350, 50));
-        definicioTextField.setPreferredSize(new java.awt.Dimension(350, 50));
+        definicioValaszTextField.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        definicioValaszTextField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        definicioValaszTextField.setMaximumSize(new java.awt.Dimension(350, 50));
+        definicioValaszTextField.setMinimumSize(new java.awt.Dimension(350, 50));
+        definicioValaszTextField.setPreferredSize(new java.awt.Dimension(350, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
-        tesztPanel.add(definicioTextField, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 25);
+        tesztPanel.add(definicioValaszTextField, gridBagConstraints);
 
         visszajelzesLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         visszajelzesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         visszajelzesLabel.setText("VISSZAJELZÉS");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         tesztPanel.add(visszajelzesLabel, gridBagConstraints);
@@ -263,7 +261,6 @@ public class TesztJFrame extends javax.swing.JFrame {
         valaszButton.setForeground(new java.awt.Color(255, 255, 255));
         valaszButton.setText("VÁLASZ");
         valaszButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        valaszButton.setFocusable(false);
         valaszButton.setMaximumSize(new java.awt.Dimension(125, 50));
         valaszButton.setMinimumSize(new java.awt.Dimension(125, 50));
         valaszButton.setPreferredSize(new java.awt.Dimension(125, 50));
@@ -273,7 +270,7 @@ public class TesztJFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         tesztPanel.add(valaszButton, gridBagConstraints);
@@ -282,7 +279,6 @@ public class TesztJFrame extends javax.swing.JFrame {
         kovetkezoButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         kovetkezoButton.setForeground(new java.awt.Color(255, 255, 255));
         kovetkezoButton.setText("KÖVETKEZŐ");
-        kovetkezoButton.setToolTipText("");
         kovetkezoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kovetkezoButton.setFocusable(false);
         kovetkezoButton.setMaximumSize(new java.awt.Dimension(125, 50));
@@ -294,7 +290,7 @@ public class TesztJFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         tesztPanel.add(kovetkezoButton, gridBagConstraints);
@@ -302,7 +298,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         pontszamLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         pontszamLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         tesztPanel.add(pontszamLabel, gridBagConstraints);
 
@@ -322,8 +318,8 @@ public class TesztJFrame extends javax.swing.JFrame {
         ujraButton.setText("ÚJRA");
         ujraButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ujraButton.setFocusable(false);
-        ujraButton.setMaximumSize(new java.awt.Dimension(200, 100));
-        ujraButton.setMinimumSize(new java.awt.Dimension(200, 100));
+        ujraButton.setMaximumSize(new java.awt.Dimension(175, 100));
+        ujraButton.setMinimumSize(new java.awt.Dimension(175, 100));
         ujraButton.setPreferredSize(new java.awt.Dimension(175, 100));
         ujraButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -342,8 +338,8 @@ public class TesztJFrame extends javax.swing.JFrame {
         bezarasButton.setText("BEZÁRÁS");
         bezarasButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bezarasButton.setFocusable(false);
-        bezarasButton.setMaximumSize(new java.awt.Dimension(200, 100));
-        bezarasButton.setMinimumSize(new java.awt.Dimension(200, 100));
+        bezarasButton.setMaximumSize(new java.awt.Dimension(175, 100));
+        bezarasButton.setMinimumSize(new java.awt.Dimension(175, 100));
         bezarasButton.setPreferredSize(new java.awt.Dimension(175, 100));
         bezarasButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -425,14 +421,13 @@ public class TesztJFrame extends javax.swing.JFrame {
 
     private void valaszButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valaszButtonMouseClicked
         valaszButton.setVisible(false);
-        visszajelzesLabel.setVisible(true); // @todo tolowercase
-        definicioTextField.setEnabled(false);
-        if (definiciok.get(hanyadikSzo-1).equals(definicioTextField.getText())) {
+        visszajelzesLabel.setVisible(true);
+        definicioValaszTextField.setEnabled(false);
+        if (definiciok.get(hanyadikSzo-1).equals(definicioValaszTextField.getText())) {
             visszajelzesLabel.setForeground(Color.GREEN);
             visszajelzesLabel.setText("HELYES!");
             tudta++;
-        }
-        else {
+        } else {
             visszajelzesLabel.setForeground(Color.RED);
             visszajelzesLabel.setText(definiciok.get(hanyadikSzo-1));
         }
@@ -444,9 +439,9 @@ public class TesztJFrame extends javax.swing.JFrame {
         hanyadikSzo++;
         kovetkezoButton.setVisible(false);
         visszajelzesLabel.setVisible(false);
-        definicioTextField.setEnabled(true);
+        definicioValaszTextField.setEnabled(true);
         valaszButton.setVisible(true);
-        definicioTextField.setText("");
+        definicioValaszTextField.setText("");
         if (hanyadikSzo-1 < szavak.size()) {
             kifejezesLabel.setText(kifejezesek.get(hanyadikSzo-1));
             kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep()))); // @todo resize images
@@ -502,7 +497,7 @@ public class TesztJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton angolRadioButton;
     private javax.swing.JLabel aranyLabel;
     private javax.swing.JButton bezarasButton;
-    private javax.swing.JTextField definicioTextField;
+    private javax.swing.JTextField definicioValaszTextField;
     private javax.swing.JLabel eredmenyLabel;
     private javax.swing.JPanel inditasPanel;
     private javax.swing.JLabel kepLabel;

@@ -148,9 +148,11 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szerkesztoTabbedPane.setPreferredSize(new java.awt.Dimension(800, 800));
 
         szavakSzerkeszteseTabPanel.setFocusable(false);
+        szavakSzerkeszteseTabPanel.setMaximumSize(new java.awt.Dimension(685, 388));
         szavakSzerkeszteseTabPanel.setLayout(new java.awt.GridBagLayout());
 
         szavakSzerkesztesePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Szavak szerkesztése", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        szavakSzerkesztesePanel.setMaximumSize(new java.awt.Dimension(685, 388));
         szavakSzerkesztesePanel.setLayout(new java.awt.GridBagLayout());
 
         temakorokComboBox.setBackground(new java.awt.Color(0, 153, 255));
@@ -295,9 +297,11 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
 
         szerkesztoTabbedPane.addTab("Szavak szerkesztése", szavakSzerkeszteseTabPanel);
 
+        ujSzoszedetTabPanel.setMaximumSize(new java.awt.Dimension(585, 580));
         ujSzoszedetTabPanel.setLayout(new java.awt.GridBagLayout());
 
         ujTemakorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Új témakör létrehozása", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        ujTemakorPanel.setMaximumSize(new java.awt.Dimension(360, 224));
         ujTemakorPanel.setLayout(new java.awt.GridBagLayout());
 
         ujTemakorTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -344,6 +348,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         ujSzoszedetTabPanel.add(ujTemakorPanel, gridBagConstraints);
 
         ujSzoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Új szó hozzáadása", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        ujSzoPanel.setMaximumSize(new java.awt.Dimension(585, 306));
         ujSzoPanel.setLayout(new java.awt.GridBagLayout());
 
         temakorokComboBoxUjSzohoz.setBackground(new java.awt.Color(0, 153, 255));
@@ -440,9 +445,11 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
 
         szerkesztoTabbedPane.addTab("Új szószedet hozzáadása", ujSzoszedetTabPanel);
 
+        szoszedetTorleseTabPanel.setMaximumSize(new java.awt.Dimension(260, 209));
         szoszedetTorleseTabPanel.setLayout(new java.awt.GridBagLayout());
 
         szoszedetTorlesePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Szószedet törlése", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        szoszedetTorlesePanel.setMaximumSize(new java.awt.Dimension(260, 209));
         szoszedetTorlesePanel.setLayout(new java.awt.GridBagLayout());
 
         temakorokComboBoxSzoszedetTorleshez.setBackground(new java.awt.Color(0, 153, 255));
@@ -569,11 +576,18 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
 
     private void temakorLetrehozButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_temakorLetrehozButtonMouseClicked
         String ujTemakor = ujTemakorTextField.getText();
+        ArrayList<String> temakorMegnevezesek = new ArrayList<>();
+        for (Temakor t : kapcsolat.temakorokLekerdez(beFelh, false)) {
+            temakorMegnevezesek.add(t.getMegnevezes().toLowerCase());
+        }
+        
         if (ujTemakor.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Adja meg az új témakör nevét!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
         } else if (ujTemakor.length() > 20) {
             JOptionPane.showMessageDialog(null, "Az új témakör hossza maximum 20 karakter hosszú lehet!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
-        } else  {
+        } else if (temakorMegnevezesek.contains(ujTemakor.toLowerCase())) {
+            JOptionPane.showMessageDialog(null, "Ez a témakör már létezik!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
+        } else {
             kapcsolat.ujTemakor(beFelh.getId(), ujTemakor);
         }
         ujTemakorTextField.setText("");

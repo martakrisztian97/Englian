@@ -52,10 +52,10 @@ public class MenuJFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(300, 700));
         setPreferredSize(new java.awt.Dimension(300, 700));
         setResizable(false);
-        setSize(new java.awt.Dimension(300, 675));
+        setSize(new java.awt.Dimension(300, 700));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        udvLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        udvLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         udvLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         udvLabel.setText("Szia, ________!");
         udvLabel.setFocusable(false);
@@ -145,9 +145,9 @@ public class MenuJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(ranglistaButton, gridBagConstraints);
 
-        kijelentkezesButton.setBackground(new java.awt.Color(0, 153, 255));
+        kijelentkezesButton.setBackground(new java.awt.Color(255, 255, 254));
         kijelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        kijelentkezesButton.setForeground(new java.awt.Color(255, 255, 255));
+        kijelentkezesButton.setForeground(new java.awt.Color(0, 153, 255));
         kijelentkezesButton.setText("KIJELENTKEZÉS");
         kijelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kijelentkezesButton.setFocusable(false);

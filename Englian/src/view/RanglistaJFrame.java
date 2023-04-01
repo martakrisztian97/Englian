@@ -56,10 +56,13 @@ public class RanglistaJFrame extends javax.swing.JFrame {
         temakorokComboBox = new javax.swing.JComboBox<>();
         ranglistaScrollPane = new javax.swing.JScrollPane();
         ranglistaTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ranglista témakörönként");
+        setMaximumSize(new java.awt.Dimension(800, 800));
         setMinimumSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(800, 800));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 800));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -84,7 +87,7 @@ public class RanglistaJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         getContentPane().add(temakorokComboBox, gridBagConstraints);
 
@@ -115,8 +118,16 @@ public class RanglistaJFrame extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         getContentPane().add(ranglistaScrollPane, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Témakör");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        getContentPane().add(jLabel1, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);
@@ -184,6 +195,7 @@ public class RanglistaJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane ranglistaScrollPane;
     private javax.swing.JTable ranglistaTable;
     private javax.swing.JComboBox<String> temakorokComboBox;

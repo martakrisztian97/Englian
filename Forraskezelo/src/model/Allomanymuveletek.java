@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 /**
  * Állományműveletek végrehajtására szolgáló osztály.
- *
  * @author Márta Krisztiám
  * @since 2023-03-31
  */

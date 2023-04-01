@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -118,6 +119,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(600, 700));
         setPreferredSize(new java.awt.Dimension(600, 700));
         setResizable(false);
+        setSize(new java.awt.Dimension(600, 700));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -184,9 +186,9 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 40, 10, 0);
         getContentPane().add(regisztracioButton, gridBagConstraints);
 
-        bejelentkezesButton.setBackground(new java.awt.Color(0, 153, 255));
+        bejelentkezesButton.setBackground(Color.WHITE);
         bejelentkezesButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        bejelentkezesButton.setForeground(new java.awt.Color(255, 255, 255));
+        bejelentkezesButton.setForeground(new java.awt.Color(0, 153, 255));
         bejelentkezesButton.setText("MÁR VAN FIÓKOM");
         bejelentkezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bejelentkezesButton.setMaximumSize(new java.awt.Dimension(200, 50));
@@ -208,6 +210,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         getContentPane().add(logoLabel, gridBagConstraints);
 

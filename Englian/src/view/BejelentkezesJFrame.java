@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -87,6 +88,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(600, 600));
         setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
+        setSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         felhasznalonevTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -161,9 +163,9 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 40, 10, 0);
         getContentPane().add(bejelentkezesButton, gridBagConstraints);
 
-        regisztracioButton.setBackground(new java.awt.Color(0, 153, 255));
+        regisztracioButton.setBackground(Color.WHITE);
         regisztracioButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        regisztracioButton.setForeground(new java.awt.Color(255, 255, 255));
+        regisztracioButton.setForeground(new java.awt.Color(0, 153, 255));
         regisztracioButton.setText("ÚJ FIÓK LÉTREHOZÁSA");
         regisztracioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         regisztracioButton.setMaximumSize(new java.awt.Dimension(200, 50));
@@ -182,9 +184,6 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
 
         logoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/proba.png"))); // NOI18N
-        logoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
-        logoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
-        logoLabel.setPreferredSize(new java.awt.Dimension(150, 150));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

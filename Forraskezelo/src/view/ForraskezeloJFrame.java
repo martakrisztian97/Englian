@@ -1,6 +1,12 @@
 package view;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Allomanymuveletek;
 import model.Kep;
 
@@ -22,9 +28,29 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
         for (Kep k : kepek) {
             kepekComboBox.addItem(k.getMegnevezes());
         }
-        jLabel1.setVisible(false);
-        forrasMegnyitButton.setVisible(false);
+        
+        String forras = kepek.get(kepekComboBox.getSelectedIndex()).getForras();
+        if (forras.equals("SAJÁT")) {
+            jLabel1.setVisible(true);
+            forrasMegnyitButton.setVisible(false);
+        } else {
+            jLabel1.setVisible(false);
+            forrasMegnyitButton.setVisible(true);
+        }
     }
+    
+    public void forrasBongeszobenMegnyit() {
+    Desktop d = Desktop.getDesktop();
+    try {
+      try {
+        d.browse(new URI(kepek.get(kepekComboBox.getSelectedIndex()).getForras()));
+      } catch (IOException ex) {
+        Logger.getLogger(ForraskezeloJFrame.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    } catch (URISyntaxException ex) {
+      Logger.getLogger(ForraskezeloJFrame.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,6 +66,7 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
         kepekComboBox = new javax.swing.JComboBox<>();
         forrasMegnyitButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Englián forráskezelő");
@@ -52,7 +79,6 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Forrás megnyitása böngészőben", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         jPanel1.setMaximumSize(new java.awt.Dimension(400, 400));
-        jPanel1.setPreferredSize(null);
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         kepekComboBox.setBackground(new java.awt.Color(0, 153, 255));
@@ -99,20 +125,35 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 25);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        getContentPane().add(jPanel1, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        getContentPane().add(jPanel1, gridBagConstraints);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("ENGLIÁN");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void forrasMegnyitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forrasMegnyitButtonMouseClicked
-        // TODO add your handling code here:
+        forrasBongeszobenMegnyit();
     }//GEN-LAST:event_forrasMegnyitButtonMouseClicked
 
     private void kepekComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_kepekComboBoxItemStateChanged
         String forras = kepek.get(kepekComboBox.getSelectedIndex()).getForras();
         if (forras.equals("SAJÁT")) {
             jLabel1.setVisible(true);
+            forrasMegnyitButton.setVisible(false);
+        } else {
+            jLabel1.setVisible(false);
+            forrasMegnyitButton.setVisible(true);
         }
     }//GEN-LAST:event_kepekComboBoxItemStateChanged
 
@@ -154,6 +195,7 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton forrasMegnyitButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> kepekComboBox;
     // End of variables declaration//GEN-END:variables

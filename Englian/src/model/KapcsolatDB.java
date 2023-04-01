@@ -157,6 +157,7 @@ public class KapcsolatDB {
     /**
      * A felhasználóhoz tartozó szószedetek témaköreinek lekérdezése.
      * @param f A felhasználó.
+     * @param rendezve A témakörök adatait tartalmazó lista legyen-e sorbarendezve a megnevezése alapján. (ABC sorrend)
      * @return A témakörök adatait tartalmazó listával.
      */
     public ArrayList<Temakor> temakorokLekerdez(Felhasznalo f, boolean rendezve) {
