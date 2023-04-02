@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 30. 22:06
+-- Létrehozás ideje: 2023. Ápr 02. 17:54
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -46,8 +46,7 @@ INSERT INTO `eredmenyek` (`id`, `felhasznalo_id`, `temakor_id`, `eredmeny`) VALU
 (3, 1, 3, 33),
 (4, 1, 3, 67),
 (5, 1, 1, 71),
-(9, 1, 16, 0),
-(10, 1, 16, 0);
+(19, 1, 16, 75);
 
 -- --------------------------------------------------------
 
@@ -137,9 +136,10 @@ INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (45, 1, 'tangerine', 'mandarin', 'tangerine.png'),
 (46, 1, 'walnut', 'dió', 'walnut.png'),
 (47, 1, 'watermelon', 'görögdinnye', 'watermelon.png'),
-(48, 16, 'TESZT', '1', 'proba.png'),
-(49, 16, '11111', '111111', 'proba.png'),
-(54, 16, 'wwqqwwq', 'qwwqqwqw', 'proba.png');
+(48, 16, 'A', 'A', 'proba.png'),
+(49, 16, 'C', 'C', 'proba.png'),
+(54, 16, 'B', 'B', 'proba.png'),
+(55, 16, 'D', 'D', 'proba.png');
 
 -- --------------------------------------------------------
 
@@ -194,7 +194,7 @@ INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`, `beepitett`) VALUES
 (3, 'Színek', 'colors.png', 'colors', 1),
 (4, 'Állatok', 'animals.png', 'animals', 1),
 (5, 'Anyagok', 'materials.png', 'materials', 1),
-(16, 'teszt1', 'proba.png', '', 0);
+(16, 'Teszt1', 'proba.png', '', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -234,7 +234,8 @@ ALTER TABLE `tananyag`
 -- A tábla indexei `temakorok`
 --
 ALTER TABLE `temakorok`
-  ADD PRIMARY KEY (`id`) USING BTREE;
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD UNIQUE KEY `megnevezes` (`megnevezes`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -244,7 +245,7 @@ ALTER TABLE `temakorok`
 -- AUTO_INCREMENT a táblához `eredmenyek`
 --
 ALTER TABLE `eredmenyek`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`
@@ -256,19 +257,19 @@ ALTER TABLE `felhasznalok`
 -- AUTO_INCREMENT a táblához `szavak`
 --
 ALTER TABLE `szavak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT a táblához `tananyag`
 --
 ALTER TABLE `tananyag`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT a táblához `temakorok`
 --
 ALTER TABLE `temakorok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Megkötések a kiírt táblákhoz
