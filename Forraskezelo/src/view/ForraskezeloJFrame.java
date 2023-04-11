@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Allomanymuveletek;
@@ -25,9 +27,11 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
     public ForraskezeloJFrame() {
         initComponents();
         kepek = Allomanymuveletek.beolvas("images_sources.txt");
+        Collections.sort(kepek, new CompareKepek());
         for (Kep k : kepek) {
             kepekComboBox.addItem(k.getMegnevezes());
         }
+        
         
         String forras = kepek.get(kepekComboBox.getSelectedIndex()).getForras();
         if (forras.equals("SAJÁT")) {
@@ -70,9 +74,7 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Englián forráskezelő");
-        setMaximumSize(new java.awt.Dimension(500, 500));
         setMinimumSize(new java.awt.Dimension(500, 500));
-        setPreferredSize(new java.awt.Dimension(500, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -130,8 +132,10 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         getContentPane().add(jPanel1, gridBagConstraints);
 
+        jLabel2.setFont(new java.awt.Font("Magneto", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ENGLIÁN");
+        jLabel2.setText("Englián");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -190,6 +194,15 @@ public class ForraskezeloJFrame extends javax.swing.JFrame {
                 new ForraskezeloJFrame().setVisible(true);
             }
         });
+    }
+    
+    public static class CompareKepek implements Comparator<Kep> {
+
+        @Override
+        public int compare(Kep k1, Kep k2) {
+            return k1.getMegnevezes().compareTo(k2.getMegnevezes());
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

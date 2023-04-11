@@ -19,7 +19,7 @@ public class Allomanymuveletek {
             beolvas = new RandomAccessFile(allomany, "r");
             sor = beolvas.readLine();
             while (sor != null) {
-                sor = new String(sor.getBytes("ISO-8859-1"));
+                //sor = new String(sor.getBytes("ISO-8859-1"));
                 lista.add(new Kep(sor.split(";")[0], sor.split(";")[1]));
                 sor = beolvas.readLine();
             }

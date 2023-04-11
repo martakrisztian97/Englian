@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 11. 20:53
+-- Létrehozás ideje: 2023. Ápr 12. 00:51
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -66,8 +66,7 @@ CREATE TABLE `felhasznalok` (
 --
 
 INSERT INTO `felhasznalok` (`id`, `email`, `felhasznalonev`, `jelszo`, `regisztracio_datuma`) VALUES
-(1, 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56'),
-(2, 'test@test.hu', 'test', 'ba8e8c3e23d2e0418ced895c2b31a125', '2023-03-04 23:02:56');
+(1, 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56');
 
 -- --------------------------------------------------------
 
@@ -283,12 +282,7 @@ INSERT INTO `tananyag` (`id`, `felhasznalo_id`, `temakor_id`) VALUES
 (2, 1, 2),
 (3, 1, 3),
 (4, 1, 4),
-(5, 1, 5),
-(6, 2, 1),
-(7, 2, 2),
-(8, 2, 3),
-(9, 2, 4),
-(10, 2, 5);
+(5, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -370,7 +364,7 @@ ALTER TABLE `eredmenyek`
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
@@ -382,7 +376,7 @@ ALTER TABLE `szavak`
 -- AUTO_INCREMENT a táblához `tananyag`
 --
 ALTER TABLE `tananyag`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `temakorok`
