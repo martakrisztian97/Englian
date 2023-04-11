@@ -32,7 +32,7 @@ public class KapcsolatDB {
     }
     
     /**
-     * Regisztrált felhasználó adatainak mentése adatbázisba.
+     * Regisztrált felhasználó adatainak mentése adatbázisba, valamint a beépített szószedetek kapcsolása a felhasználóhoz.
      * @param email A felhasználó email címe.
      * @param felhasznalonev A felhasználó felhasználóneve.
      * @param jelszo A felhasználó jelszava.
@@ -40,11 +40,26 @@ public class KapcsolatDB {
     public void regisztracio(String email, String felhasznalonev, String jelszo) {
         String query = "INSERT INTO felhasznalok (id, email, felhasznalonev, jelszo)"
                 + "VALUES (NULL, '" + email + "', '" + felhasznalonev + "', '" + jelszo + "')";
+        String query2 = "INSERT INTO tananyag(id, felhasznalo_id, temakor_id)"
+                + "VALUES (NULL, (SELECT felhasznalok.id FROM felhasznalok WHERE felhasznalonev LIKE '"+ felhasznalonev +"'), 1)";
+        String query3 = "INSERT INTO tananyag(id, felhasznalo_id, temakor_id)"
+                + "VALUES (NULL, (SELECT felhasznalok.id FROM felhasznalok WHERE felhasznalonev LIKE '"+ felhasznalonev +"'), 2)";
+        String query4 = "INSERT INTO tananyag(id, felhasznalo_id, temakor_id)"
+                + "VALUES (NULL, (SELECT felhasznalok.id FROM felhasznalok WHERE felhasznalonev LIKE '"+ felhasznalonev +"'), 3)";
+        String query5 = "INSERT INTO tananyag(id, felhasznalo_id, temakor_id)"
+                + "VALUES (NULL, (SELECT felhasznalok.id FROM felhasznalok WHERE felhasznalonev LIKE '"+ felhasznalonev +"'), 4)";
+        String query6 = "INSERT INTO tananyag(id, felhasznalo_id, temakor_id)"
+                + "VALUES (NULL, (SELECT felhasznalok.id FROM felhasznalok WHERE felhasznalonev LIKE '"+ felhasznalonev +"'), 5)";
         try {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(host + dbName, userName, password);
             Statement st = (Statement) conn.createStatement();
             st.executeUpdate(query);
+            st.executeUpdate(query2);
+            st.executeUpdate(query3);
+            st.executeUpdate(query4);
+            st.executeUpdate(query5);
+            st.executeUpdate(query6);
             conn.close();
         } catch (SQLException e) {
             System.out.println("Hiba: " + e.getMessage());
@@ -314,13 +329,13 @@ public class KapcsolatDB {
     }
     
     /**
-     * Új témakör létrehozása, valamint a témakör kapcsolásáa a felhasználóhoz.
+     * Új témakör létrehozása, valamint a témakör kapcsolása a felhasználóhoz.
      * @param felhasznaloId A felhasználó azonosítója.
      * @param megnevezes Az új témakör megnevezése.
      */
     public void ujTemakor(int felhasznaloId, String megnevezes) {
         String query = "INSERT INTO temakorok (id, megnevezes, kep, mappa, beepitett)"
-                + "VALUES (NULL, '" + megnevezes + "', 'proba.png', '', 0)";
+                + "VALUES (NULL, '" + megnevezes + "', 'englianlogo.png', '', 0)";
         String query2 = "INSERT INTO tananyag(id, felhasznalo_id, temakor_id) VALUES"
                 + "(NULL, " + felhasznaloId + ", (SELECT temakorok.id FROM temakorok WHERE temakorok.megnevezes LIKE '"+ megnevezes +"') )";
         try {
@@ -345,7 +360,7 @@ public class KapcsolatDB {
      */
     public void ujSzo(int temakorId, String angol, String magyar) {
         String query = "INSERT INTO szavak (id, temakor_id, angol, magyar, kep)"
-                + "VALUES (NULL, '" + temakorId + "', '" + angol + "', '" + magyar + "', 'proba.png')";
+                + "VALUES (NULL, '" + temakorId + "', '" + angol + "', '" + magyar + "', 'empty.png')";
         try {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(host + dbName, userName, password);
