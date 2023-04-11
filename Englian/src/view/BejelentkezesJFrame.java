@@ -182,8 +182,10 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 40, 0, 0);
         getContentPane().add(regisztracioButton, gridBagConstraints);
 
+        logoLabel.setFont(new java.awt.Font("Magneto", 0, 48)); // NOI18N
+        logoLabel.setForeground(new java.awt.Color(0, 153, 255));
         logoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/proba.png"))); // NOI18N
+        logoLabel.setText("Englian");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 02. 17:54
--- Kiszolgáló verziója: 10.4.27-MariaDB
--- PHP verzió: 8.2.0
+-- Létrehozás ideje: 2023. Ápr 11. 20:53
+-- Kiszolgáló verziója: 10.4.28-MariaDB
+-- PHP verzió: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,8 +45,7 @@ INSERT INTO `eredmenyek` (`id`, `felhasznalo_id`, `temakor_id`, `eredmeny`) VALU
 (2, 1, 3, 67),
 (3, 1, 3, 33),
 (4, 1, 3, 67),
-(5, 1, 1, 71),
-(19, 1, 16, 75);
+(5, 1, 1, 71);
 
 -- --------------------------------------------------------
 
@@ -68,7 +67,7 @@ CREATE TABLE `felhasznalok` (
 
 INSERT INTO `felhasznalok` (`id`, `email`, `felhasznalonev`, `jelszo`, `regisztracio_datuma`) VALUES
 (1, 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56'),
-(23, 'test@test.hu', 'test', 'ba8e8c3e23d2e0418ced895c2b31a125', '2023-03-04 23:02:56');
+(2, 'test@test.hu', 'test', 'ba8e8c3e23d2e0418ced895c2b31a125', '2023-03-04 23:02:56');
 
 -- --------------------------------------------------------
 
@@ -96,7 +95,7 @@ INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (5, 1, 'banana', 'banán', 'banana.png'),
 (6, 1, 'blackberry', 'szeder', 'blackberry.png'),
 (7, 1, 'blackcurrant', 'feketeribizli', 'blackcurrant.png'),
-(8, 1, 'blueberry', 'fekete áfonya', 'blueberry.png'),
+(8, 1, 'blueberry', 'kék áfonya', 'blueberry.png'),
 (9, 1, 'cantaloupe', 'sárgadinnye', 'cantaloupe.png'),
 (10, 1, 'cherry', 'cseresznye', 'cherry.png'),
 (11, 1, 'chestnut', 'gesztenye', 'chestnut.png'),
@@ -117,29 +116,151 @@ INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (26, 1, 'mango', 'mangó', 'mango.png'),
 (27, 1, 'nectarine', 'nektarin', 'nectarine.png'),
 (28, 1, 'orange', 'narancs', 'orange.png'),
-(29, 1, 'passion fruit', 'maracuja', 'passion_fruit.png'),
-(30, 1, 'peach', 'őszibarack', 'peach.png'),
-(31, 1, 'peanut', 'földimogyoró', 'peanut.png'),
-(32, 1, 'pear', 'körte', 'pear.png'),
-(33, 1, 'pineapple', 'ananász', 'pineapple.png'),
-(34, 1, 'pistachio', 'pisztácia', 'pistachio.png'),
-(35, 1, 'plum', 'szilva', 'plum.png'),
-(36, 1, 'pomegranate', 'gránátalma', 'pomegranate.png'),
-(37, 1, 'quince', 'birs', 'quince.png'),
-(38, 1, 'raisin', 'mazsola', 'raisin.png'),
-(39, 1, 'raspberry', 'málna', 'raspberry.png'),
-(40, 1, 'redcurrant', 'ribizli', 'redcurrant.png'),
-(41, 1, 'rosehip', 'csipkebogyó', 'rosehip.png'),
-(42, 1, 'sour cherry', 'meggy', 'sour_cherry.png'),
-(43, 1, 'starfruit', 'csillaggyümölcs', 'starfruit.png'),
-(44, 1, 'strawberry', 'eper', 'strawberry.png'),
-(45, 1, 'tangerine', 'mandarin', 'tangerine.png'),
-(46, 1, 'walnut', 'dió', 'walnut.png'),
-(47, 1, 'watermelon', 'görögdinnye', 'watermelon.png'),
-(48, 16, 'A', 'A', 'proba.png'),
-(49, 16, 'C', 'C', 'proba.png'),
-(54, 16, 'B', 'B', 'proba.png'),
-(55, 16, 'D', 'D', 'proba.png');
+(29, 1, 'papaya', 'papaja', 'papaya.png'),
+(30, 1, 'passion fruit', 'maracuja', 'passion_fruit.png'),
+(31, 1, 'peach', 'őszibarack', 'peach.png'),
+(32, 1, 'peanut', 'földimogyoró', 'peanut.png'),
+(33, 1, 'pear', 'körte', 'pear.png'),
+(34, 1, 'pineapple', 'ananász', 'pineapple.png'),
+(35, 1, 'pistachio', 'pisztácia', 'pistachio.png'),
+(36, 1, 'plum', 'szilva', 'plum.png'),
+(37, 1, 'pomegranate', 'gránátalma', 'pomegranate.png'),
+(38, 1, 'quince', 'birs', 'quince.png'),
+(39, 1, 'raisin', 'mazsola', 'raisin.png'),
+(40, 1, 'raspberry', 'málna', 'raspberry.png'),
+(41, 1, 'redcurrant', 'ribizli', 'redcurrant.png'),
+(42, 1, 'rosehip', 'csipkebogyó', 'rosehip.png'),
+(43, 1, 'sour cherry', 'meggy', 'sour_cherry.png'),
+(44, 1, 'starfruit', 'csillaggyümölcs', 'starfruit.png'),
+(45, 1, 'strawberry', 'eper', 'strawberry.png'),
+(46, 1, 'tangerine', 'mandarin', 'tangerine.png'),
+(47, 1, 'walnut', 'dió', 'walnut.png'),
+(48, 1, 'watermelon', 'görögdinnye', 'watermelon.png'),
+(49, 2, 'artichoke', 'articsóka', 'artichoke.png'),
+(50, 2, 'asparagus', 'spárga', 'asparagus.png'),
+(51, 2, 'aubergine', 'padlizsán', 'aubergine.png'),
+(52, 2, 'bean', 'bab', 'bean.png'),
+(53, 2, 'beetroot', 'cékla', 'beetroot.png'),
+(54, 2, 'broccoli', 'brokkoli', 'broccoli.png'),
+(55, 2, 'brussels sprouts', 'kelbimbó', 'brussels_sprouts.png'),
+(56, 2, 'cabbage', 'káposzta', 'cabbage.png'),
+(57, 2, 'carrot', 'répa', 'carrot.png'),
+(58, 2, 'cauliflower', 'karfiol', 'cauliflower.png'),
+(59, 2, 'celery', 'zeller', 'celery.png'),
+(60, 2, 'cherry tomato', 'koktélparadicsom', 'cherry_tomato.png'),
+(61, 2, 'chickpea', 'csicseriborsó', 'chickpea.png'),
+(62, 2, 'chili', 'csilipaprika', 'chili.png'),
+(63, 2, 'courgette', 'cukkini', 'courgette.png'),
+(64, 2, 'cucumber', 'uborka', 'cucumber.png'),
+(65, 2, 'French beans', 'zöldbab', 'French_beans.png'),
+(66, 2, 'garlic', 'fokhagyma', 'garlic.png'),
+(67, 2, 'ginger', 'gyömbér', 'ginger.png'),
+(68, 2, 'kale', 'fodros kel', 'kale.png'),
+(69, 2, 'kohlrabi', 'karalábé', 'kohlrabi.png'),
+(70, 2, 'leek', 'póréhagyma', 'leek.png'),
+(71, 2, 'lentil', 'lencse', 'lentil.png'),
+(72, 2, 'lettuce', 'saláta', 'lettuce.png'),
+(73, 2, 'mushroom', 'gomba', 'mushroom.png'),
+(74, 2, 'onion', 'hagyma', 'onion.png'),
+(75, 2, 'parsley', 'petrezselyem', 'parsley.png'),
+(76, 2, 'pea', 'borsó', 'pea.png'),
+(77, 2, 'pepper', 'paprika', 'pepper.png'),
+(78, 2, 'potato', 'burgonya', 'potato.png'),
+(79, 2, 'pumpkin', 'sütőtök', 'pumpkin.png'),
+(80, 2, 'radish', 'retek', 'radish.png'),
+(81, 2, 'rhubarb', 'rebarbara', 'rhubarb.png'),
+(82, 2, 'sorrel', 'sóska', 'sorrel.png'),
+(83, 2, 'spinach', 'spenót', 'spinach.png'),
+(84, 2, 'split peas', 'sárgaborsó', 'split_peas.png'),
+(85, 2, 'spring onion', 'újhagyma', 'spring_onion.png'),
+(86, 2, 'squash', 'tök', 'squash.png'),
+(87, 2, 'sweet corn', 'csemegekukorica', 'sweet_corn.png'),
+(88, 2, 'sweet potato', 'édesburgonya', 'sweet_potato.png'),
+(89, 2, 'tomato', 'paradicsom', 'tomato.png'),
+(90, 2, 'turnip', 'petrezselyemgyökér', 'turnip.png'),
+(91, 3, 'black', 'fekete', 'black.png'),
+(92, 3, 'white', 'fehér', 'white.png'),
+(93, 3, 'red', 'piros', 'red.png'),
+(94, 3, 'green', 'zöld', 'green.png'),
+(95, 3, 'blue', 'kék', 'blue.png'),
+(96, 3, 'yellow', 'citromsárga', 'yellow.png'),
+(97, 3, 'orange', 'narancssárga', 'orange.png'),
+(98, 3, 'beige', 'bézs', 'beige.png'),
+(99, 3, 'bronze', 'bronz', 'bronze.png'),
+(100, 3, 'brown', 'barna', 'brown.png'),
+(101, 3, 'cyan', 'ciánkék', 'cyan.png'),
+(102, 3, 'gold', 'arany', 'gold.png'),
+(103, 3, 'grey', 'szürke', 'grey.png'),
+(104, 3, 'khaki', 'khaki', 'khaki.png'),
+(105, 3, 'olive', 'olíva', 'olive.png'),
+(106, 3, 'pink', 'rózsaszín', 'pink.png'),
+(107, 3, 'purple', 'lila', 'purple.png'),
+(108, 3, 'silver', 'ezüst', 'silver.png'),
+(109, 3, 'turquoise', 'türkizkék', 'turquoise.png'),
+(110, 4, 'bear', 'medve', 'bear.png'),
+(111, 4, 'bird', 'madár', 'bird.png'),
+(112, 4, 'butterfly', 'lepke', 'butterfly.png'),
+(113, 4, 'camel', 'teve', 'camel.png'),
+(114, 4, 'cat', 'macska', 'cat.png'),
+(115, 4, 'chicken', 'csirke', 'chicken.png'),
+(116, 4, 'cow', 'tehén', 'cow.png'),
+(117, 4, 'crocodile', 'krokodil', 'crocodile.png'),
+(118, 4, 'deer', 'szarvas', 'deer.png'),
+(119, 4, 'dog', 'kutya', 'dog.png'),
+(120, 4, 'dolphin', 'delfin', 'dolphin.png'),
+(121, 4, 'duck', 'kacsa', 'duck.png'),
+(122, 4, 'elephant', 'elefánt', 'elephant.png'),
+(123, 4, 'fish', 'hal', 'fish.png'),
+(124, 4, 'fox', 'róka', 'fox.png'),
+(125, 4, 'frog', 'béka', 'frog.png'),
+(126, 4, 'giraffe', 'zsiráf', 'giraffe.png'),
+(127, 4, 'horse', 'ló', 'horse.png'),
+(128, 4, 'kangaroo', 'kenguru', 'kangaroo.png'),
+(129, 4, 'koala', 'koala', 'koala.png'),
+(130, 4, 'lion', 'oroszlán', 'lion.png'),
+(131, 4, 'monkey', 'majom', 'monkey.png'),
+(132, 4, 'mouse', 'egér', 'mouse.png'),
+(133, 4, 'octopus', 'polip', 'octopus.png'),
+(134, 4, 'panda', 'panda', 'panda.png'),
+(135, 4, 'parrot', 'papagáj', 'parrot.png'),
+(136, 4, 'penguin', 'pingvin', 'penguin.png'),
+(137, 4, 'pig', 'disznó', 'pig.png'),
+(138, 4, 'rabbit', 'nyúl', 'rabbit.png'),
+(139, 4, 'shark', 'cápa', 'shark.png'),
+(140, 4, 'sheep', 'birka', 'sheep.png'),
+(141, 4, 'snail', 'csiga', 'snail.png'),
+(142, 4, 'snake', 'kígyó', 'snake.png'),
+(143, 4, 'spider', 'pók', 'spider.png'),
+(144, 4, 'tiger', 'tigris', 'tiger.png'),
+(145, 4, 'turtle', 'teknős', 'turtle.png'),
+(146, 4, 'wasp', 'darázs', 'wasp.png'),
+(147, 4, 'whale', 'bálna', 'whale.png'),
+(148, 4, 'wolf', 'farkas', 'wolf.png'),
+(149, 4, 'zebra', 'zebra', 'zebra.png'),
+(150, 5, 'aluminium', 'alumínium', 'aluminium.png'),
+(151, 5, 'brick', 'tégla', 'brick.png'),
+(152, 5, 'carbon dioxide', 'szén-dioxid', 'carbon_dioxide.png'),
+(153, 5, 'cement', 'cement', 'cement.png'),
+(154, 5, 'clay', 'agyag', 'clay.png'),
+(155, 5, 'coal', 'szén', 'coal.png'),
+(156, 5, 'copper', 'réz', 'copper.png'),
+(157, 5, 'cotton', 'pamut', 'cotton.png'),
+(158, 5, 'gas', 'gáz', 'gas.png'),
+(159, 5, 'glass', 'üveg', 'glass.png'),
+(160, 5, 'hydrogen', 'hidrogén', 'hydrogen.png'),
+(161, 5, 'ice', 'jég', 'ice.png'),
+(162, 5, 'leather', 'bőr', 'leather.png'),
+(163, 5, 'marble', 'márvány', 'marble.png'),
+(164, 5, 'nitrogen', 'nitrogén', 'nitrogen.png'),
+(165, 5, 'oxygen', 'oxigén', 'oxygen.png'),
+(166, 5, 'paper', 'papír', 'paper.png'),
+(167, 5, 'petrol', 'benzin', 'petrol.png'),
+(168, 5, 'plastic', 'műanyag', 'plastic.png'),
+(169, 5, 'soil', 'talaj', 'soil.png'),
+(170, 5, 'steel', 'acél', 'steel.png'),
+(171, 5, 'stone', 'kő', 'stone.png'),
+(172, 5, 'water', 'víz', 'water.png'),
+(173, 5, 'wood', 'faanyag', 'wood.png');
 
 -- --------------------------------------------------------
 
@@ -163,12 +284,11 @@ INSERT INTO `tananyag` (`id`, `felhasznalo_id`, `temakor_id`) VALUES
 (3, 1, 3),
 (4, 1, 4),
 (5, 1, 5),
-(20, 23, 1),
-(21, 23, 2),
-(22, 23, 3),
-(23, 23, 4),
-(24, 23, 5),
-(32, 1, 16);
+(6, 2, 1),
+(7, 2, 2),
+(8, 2, 3),
+(9, 2, 4),
+(10, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -193,8 +313,7 @@ INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`, `beepitett`) VALUES
 (2, 'Zöldségek', 'vegetables.png', 'vegetables', 1),
 (3, 'Színek', 'colors.png', 'colors', 1),
 (4, 'Állatok', 'animals.png', 'animals', 1),
-(5, 'Anyagok', 'materials.png', 'materials', 1),
-(16, 'Teszt1', 'proba.png', '', 0);
+(5, 'Anyagok', 'materials.png', 'materials', 1);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -245,31 +364,31 @@ ALTER TABLE `temakorok`
 -- AUTO_INCREMENT a táblához `eredmenyek`
 --
 ALTER TABLE `eredmenyek`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
 --
 ALTER TABLE `szavak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT a táblához `tananyag`
 --
 ALTER TABLE `tananyag`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT a táblához `temakorok`
 --
 ALTER TABLE `temakorok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Megkötések a kiírt táblákhoz
