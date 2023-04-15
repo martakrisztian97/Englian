@@ -191,9 +191,9 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         kifejezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         kifejezesButton.setFocusable(false);
         kifejezesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        kifejezesButton.setMaximumSize(new java.awt.Dimension(400, 200));
-        kifejezesButton.setMinimumSize(new java.awt.Dimension(400, 200));
-        kifejezesButton.setPreferredSize(new java.awt.Dimension(400, 200));
+        kifejezesButton.setMaximumSize(new java.awt.Dimension(500, 500));
+        kifejezesButton.setMinimumSize(new java.awt.Dimension(500, 500));
+        kifejezesButton.setPreferredSize(new java.awt.Dimension(500, 200));
         kifejezesButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -204,9 +204,9 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         definicoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         definicoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         definicoButton.setFocusPainted(false);
-        definicoButton.setMaximumSize(new java.awt.Dimension(400, 200));
-        definicoButton.setMinimumSize(new java.awt.Dimension(400, 200));
-        definicoButton.setPreferredSize(new java.awt.Dimension(400, 200));
+        definicoButton.setMaximumSize(new java.awt.Dimension(500, 500));
+        definicoButton.setMinimumSize(new java.awt.Dimension(500, 500));
+        definicoButton.setPreferredSize(new java.awt.Dimension(500, 200));
         definicoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 definicoButtonMouseClicked(evt);
