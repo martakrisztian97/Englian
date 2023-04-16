@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 12. 00:51
+-- Létrehozás ideje: 2023. Ápr 17. 00:42
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -66,7 +66,8 @@ CREATE TABLE `felhasznalok` (
 --
 
 INSERT INTO `felhasznalok` (`id`, `email`, `felhasznalonev`, `jelszo`, `regisztracio_datuma`) VALUES
-(1, 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56');
+(1, 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56'),
+(2, 'teszt@elek.hu', 'tesztelek', 'f9bc9298daf9e0c426b55bd899e5ea9d', '2022-12-19 23:10:14');
 
 -- --------------------------------------------------------
 
@@ -77,8 +78,8 @@ INSERT INTO `felhasznalok` (`id`, `email`, `felhasznalonev`, `jelszo`, `regisztr
 CREATE TABLE `szavak` (
   `id` int(10) UNSIGNED NOT NULL,
   `temakor_id` int(10) UNSIGNED NOT NULL,
-  `angol` varchar(128) DEFAULT NULL,
-  `magyar` varchar(128) DEFAULT NULL,
+  `angol` varchar(32) DEFAULT NULL,
+  `magyar` varchar(32) DEFAULT NULL,
   `kep` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
@@ -259,7 +260,237 @@ INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (170, 5, 'steel', 'acél', 'steel.png'),
 (171, 5, 'stone', 'kő', 'stone.png'),
 (172, 5, 'water', 'víz', 'water.png'),
-(173, 5, 'wood', 'faanyag', 'wood.png');
+(173, 5, 'wood', 'faanyag', 'wood.png'),
+(174, 6, 'accountant', 'könyvelő', 'empty.png'),
+(175, 6, 'actor', 'színész', 'empty.png'),
+(176, 6, 'actress', 'színésznő', 'empty.png'),
+(177, 6, 'architect', 'építészmérnök', 'empty.png'),
+(178, 6, 'artist', 'művész', 'empty.png'),
+(179, 6, 'baker', 'pék', 'empty.png'),
+(180, 6, 'barber', 'borbély', 'empty.png'),
+(181, 6, 'bartender', 'csapos', 'empty.png'),
+(182, 6, 'beautician', 'kozmetikus', 'empty.png'),
+(183, 6, 'biologist', 'biológus', 'empty.png'),
+(184, 6, 'bodyguard', 'testőr', 'empty.png'),
+(185, 6, 'botanist', 'botanikus', 'empty.png'),
+(186, 6, 'bricklayer', 'kőműves', 'empty.png'),
+(187, 6, 'bus driver', 'buszvezető', 'empty.png'),
+(188, 6, 'businessman', 'üzletember', 'empty.png'),
+(189, 6, 'businesswoman', 'üzletasszony', 'empty.png'),
+(190, 6, 'carpenter', 'asztalos', 'empty.png'),
+(191, 6, 'cashier', 'pénztáros', 'empty.png'),
+(192, 6, 'chef', 'séf', 'empty.png'),
+(193, 6, 'chemist', 'vegyész', 'empty.png'),
+(194, 6, 'chimney sweep', 'kéményseprő', 'empty.png'),
+(195, 6, 'cleaner', 'takarító', 'empty.png'),
+(196, 6, 'comedian', 'komikus', 'empty.png'),
+(197, 6, 'composer', 'dalszerző', 'empty.png'),
+(198, 6, 'customs officer', 'vámtisztviselő', 'empty.png'),
+(199, 6, 'dancer', 'táncos', 'empty.png'),
+(200, 6, 'database administrator', 'adatbázis adminisztrátor', 'empty.png'),
+(201, 6, 'dentist', 'fogorvos', 'empty.png'),
+(202, 6, 'detective', 'nyomozó', 'empty.png'),
+(203, 6, 'doctor', 'orvos', 'empty.png'),
+(204, 6, 'driving instructor', 'járművezető oktató', 'empty.png'),
+(205, 6, 'economist', 'közgazdász', 'empty.png'),
+(206, 6, 'electrician', 'villanyszerelő', 'empty.png'),
+(207, 6, 'engineer', 'mérnök', 'empty.png'),
+(208, 6, 'estate agent', 'ingatlan ügynök', 'empty.png'),
+(209, 6, 'factory worker', 'gyári dolgozó', 'empty.png'),
+(210, 6, 'farmer', 'gazda', 'empty.png'),
+(211, 6, 'fashion designer', 'divattervező', 'empty.png'),
+(212, 6, 'film director', 'filmrendező', 'empty.png'),
+(213, 6, 'firefighter', 'tűzoltó', 'empty.png'),
+(214, 6, 'gardener', 'kertész', 'empty.png'),
+(215, 6, 'glazier', 'üveges', 'empty.png'),
+(216, 6, 'graphic designer', 'grafikus tervező', 'empty.png'),
+(217, 6, 'hairdresser', 'fodrász', 'empty.png'),
+(218, 6, 'illustrator', 'illusztrátor', 'empty.png'),
+(219, 6, 'journalist', 'újságíró', 'empty.png'),
+(220, 6, 'judge', 'bíró', 'empty.png'),
+(221, 6, 'lawyer', 'ügyvéd', 'empty.png'),
+(222, 6, 'lecturer', 'egyetemi tanár', 'empty.png'),
+(223, 6, 'librarian', 'könyvtáros', 'empty.png'),
+(224, 6, 'manager', 'menedzser', 'empty.png'),
+(225, 6, 'mechanic', 'szerelő', 'empty.png'),
+(226, 6, 'meteorologist', 'meteorológus', 'empty.png'),
+(227, 6, 'miner', 'bányász', 'empty.png'),
+(228, 6, 'model', 'modell', 'empty.png'),
+(229, 6, 'musician', 'zenész', 'empty.png'),
+(230, 6, 'nanny', 'dada', 'empty.png'),
+(231, 6, 'nurse', 'ápolónő', 'empty.png'),
+(232, 6, 'office worker', ' irodai dolgozó', 'empty.png'),
+(233, 6, 'optician', 'szemész', 'empty.png'),
+(234, 6, 'painter', 'festő', 'empty.png'),
+(235, 6, 'personal trainer', 'személyi edző', 'empty.png'),
+(236, 6, 'pharmacist', 'gyógyszerész', 'empty.png'),
+(237, 6, 'photographer', 'fényképész', 'empty.png'),
+(238, 6, 'physicist', 'fizikus', 'empty.png'),
+(239, 6, 'pilot', 'pilóta', 'empty.png'),
+(240, 6, 'plumber', 'vízvezeték-szerelő', 'empty.png'),
+(241, 6, 'police officer', 'rendőr', 'empty.png'),
+(242, 6, 'politician', 'politikus', 'empty.png'),
+(243, 6, 'postman', 'postás', 'empty.png'),
+(244, 6, 'priest', 'pap', 'empty.png'),
+(245, 6, 'programmer', 'programozó', 'empty.png'),
+(246, 6, 'project manager', 'projektmenedzser', 'empty.png'),
+(247, 6, 'railwayman', 'vasutas', 'empty.png'),
+(248, 6, 'receptionist', 'recepciós', 'empty.png'),
+(249, 6, 'researcher', 'kutató', 'empty.png'),
+(250, 6, 'roofer', 'tetőfedő', 'empty.png'),
+(251, 6, 'sailor', 'tengerész', 'empty.png'),
+(252, 6, 'salesman', 'eladó', 'empty.png'),
+(253, 6, 'saleswoman', 'eladónő', 'empty.png'),
+(254, 6, 'scientist', 'tudós', 'empty.png'),
+(255, 6, 'sculptor', 'szobrász', 'empty.png'),
+(256, 6, 'secretary', 'titkárnő', 'empty.png'),
+(257, 6, 'security officer', 'biztonsági őr', 'empty.png'),
+(258, 6, 'shopkeeper', 'üzletvezető', 'empty.png'),
+(259, 6, 'singer', 'énekes', 'empty.png'),
+(260, 6, 'smith', 'kovács', 'empty.png'),
+(261, 6, 'software developer', 'szoftverfejlesztő', 'empty.png'),
+(262, 6, 'soldier', 'katona', 'empty.png'),
+(263, 6, 'surgeon', 'sebész', 'empty.png'),
+(264, 6, 'tailor', 'szabó', 'empty.png'),
+(265, 6, 'tattoist', 'tetováló', 'empty.png'),
+(266, 6, 'taxi driver', 'taxisofór', 'empty.png'),
+(267, 6, 'teacher', 'tanár', 'empty.png'),
+(268, 6, 'tiler', 'hidegburkoló', 'empty.png'),
+(269, 6, 'tourist guide', 'idegenvezető', 'empty.png'),
+(270, 6, 'train driver', 'vonatvezető', 'empty.png'),
+(271, 6, 'translator', 'fordító', 'empty.png'),
+(272, 6, 'turner', 'esztergályos', 'empty.png'),
+(273, 6, 'vet', 'állatorvos', 'empty.png'),
+(274, 6, 'waiter', 'pincér', 'empty.png'),
+(275, 6, 'waitress', 'pincérnő', 'empty.png'),
+(276, 6, 'web designer', 'webtervező', 'empty.png'),
+(277, 6, 'web developer', 'webfejlesztő', 'empty.png'),
+(278, 6, 'writer', 'író', 'empty.png'),
+(279, 7, 'ankle', 'boka', 'empty.png'),
+(280, 7, 'arm', 'kar', 'empty.png'),
+(281, 7, 'back', 'hát', 'empty.png'),
+(282, 7, 'backbone', 'gerinc', 'empty.png'),
+(283, 7, 'beard', 'szakáll', 'empty.png'),
+(284, 7, 'bone', 'csont', 'empty.png'),
+(285, 7, 'brain', 'agy', 'empty.png'),
+(286, 7, 'calf', 'vádli', 'empty.png'),
+(287, 7, 'ear', 'fül', 'empty.png'),
+(288, 7, 'elbow', 'könyök', 'empty.png'),
+(289, 7, 'eye', 'szem', 'empty.png'),
+(290, 7, 'eyebrow', 'szemöldök', 'empty.png'),
+(291, 7, 'finger', 'ujj', 'empty.png'),
+(292, 7, 'foot', 'lábfej', 'empty.png'),
+(293, 7, 'hair', 'haj', 'empty.png'),
+(294, 7, 'hand', 'kéz', 'empty.png'),
+(295, 7, 'head', 'fej', 'empty.png'),
+(296, 7, 'heart', 'szív', 'empty.png'),
+(297, 7, 'hip', 'csípő', 'empty.png'),
+(298, 7, 'jaw', 'állkapocs', 'empty.png'),
+(299, 7, 'knee', 'térd', 'empty.png'),
+(300, 7, 'leg', 'láb', 'empty.png'),
+(301, 7, 'lip', 'ajak', 'empty.png'),
+(302, 7, 'liver', 'máj', 'empty.png'),
+(303, 7, 'lungs', 'tüdő', 'empty.png'),
+(304, 7, 'moustache', 'bajusz', 'empty.png'),
+(305, 7, 'mouth', 'száj', 'empty.png'),
+(306, 7, 'muscle', 'izom', 'empty.png'),
+(307, 7, 'nail', 'köröm', 'empty.png'),
+(308, 7, 'neck', 'nyak', 'empty.png'),
+(309, 7, 'nose', 'orr', 'empty.png'),
+(310, 7, 'palm', 'tenyér', 'empty.png'),
+(311, 7, 'rib', 'borda', 'empty.png'),
+(312, 7, 'shin', 'sípcsont', 'empty.png'),
+(313, 7, 'shoulder', 'váll', 'empty.png'),
+(314, 7, 'skin', 'bőr', 'empty.png'),
+(315, 7, 'skull', 'koponya', 'empty.png'),
+(316, 7, 'sole', 'talp', 'empty.png'),
+(317, 7, 'stomach', 'gyomor', 'empty.png'),
+(318, 7, 'thigh', 'comb', 'empty.png'),
+(319, 7, 'throat', 'torok', 'empty.png'),
+(320, 7, 'thumb', 'hüvelykujj', 'empty.png'),
+(321, 7, 'tongue', 'nyelv', 'empty.png'),
+(322, 7, 'tooth', 'fog', 'empty.png'),
+(323, 7, 'waist', 'derék', 'empty.png'),
+(324, 7, 'wrist', 'csukló', 'empty.png'),
+(325, 8, 'aerobics', 'aerobik', 'empty.png'),
+(326, 8, 'american football', 'amerikai futball', 'empty.png'),
+(327, 8, 'archery', 'íjászat', 'empty.png'),
+(328, 8, 'athletics', 'atlétika', 'empty.png'),
+(329, 8, 'badminton', 'tollaslabda', 'empty.png'),
+(330, 8, 'baseball', 'baseball', 'empty.png'),
+(331, 8, 'basketball', 'kosárlaba', 'empty.png'),
+(332, 8, 'beach volleyball', 'strandröplabda', 'empty.png'),
+(333, 8, 'boxing', 'boxolás', 'empty.png'),
+(334, 8, 'canoeing', 'kenuzás', 'empty.png'),
+(335, 8, 'championship', 'bajnokság', 'empty.png'),
+(336, 8, 'chess', 'sakk', 'empty.png'),
+(337, 8, 'climbing', 'hegymászás', 'empty.png'),
+(338, 8, 'cricket', 'krikett', 'empty.png'),
+(339, 8, 'cup', 'kupa', 'empty.png'),
+(340, 8, 'cup final:kupadöntő', '', 'empty.png'),
+(341, 8, 'cycling', 'kerékpározás', 'empty.png'),
+(342, 8, 'darts', 'darts', 'empty.png'),
+(343, 8, 'discus throw', 'diszkoszvetés', 'empty.png'),
+(344, 8, 'european champion', 'európa-bajnok', 'empty.png'),
+(345, 8, 'fishing', 'horgászat', 'empty.png'),
+(346, 8, 'football', 'futball', 'empty.png'),
+(347, 8, 'go-karting', 'gokartozás', 'empty.png'),
+(348, 8, 'golf', 'golf', 'empty.png'),
+(349, 8, 'gymnastics', 'torna', 'empty.png'),
+(350, 8, 'hammer throw', 'kalapácsvetés', 'empty.png'),
+(351, 8, 'handball', 'kézilabda', 'empty.png'),
+(352, 8, 'high jump', 'magasugrás', 'empty.png'),
+(353, 8, 'hiking', 'túrázás', 'empty.png'),
+(354, 8, 'horse riding', 'lovaglás', 'empty.png'),
+(355, 8, 'ice hockey', 'jégkorong', 'empty.png'),
+(356, 8, 'javelin throw', 'gerelyhajítás', 'empty.png'),
+(357, 8, 'jogging', 'kocogás', 'empty.png'),
+(358, 8, 'judo', 'cselgáncs', 'empty.png'),
+(359, 8, 'long jump', 'távolugrás', 'empty.png'),
+(360, 8, 'marathon', 'maraton', 'empty.png'),
+(361, 8, 'olympic champion', 'olimpiai bajnok', 'empty.png'),
+(362, 8, 'rowing', 'evezés', 'empty.png'),
+(363, 8, 'rugby', 'rögbi', 'empty.png'),
+(364, 8, 'running', 'futás', 'empty.png'),
+(365, 8, 'sailing', 'vitorlázás', 'empty.png'),
+(366, 8, 'skateboarding', 'gördeszkázás', 'empty.png'),
+(367, 8, 'skiing', 'síelés', 'empty.png'),
+(368, 8, 'snooker', 'biliárd', 'empty.png'),
+(369, 8, 'snowboarding', 'snowboardozás', 'empty.png'),
+(370, 8, 'squash', 'fallabda', 'empty.png'),
+(371, 8, 'the olympic games', 'olimpiai játékok', 'empty.png'),
+(372, 8, 'volleyball', 'röplabda', 'empty.png'),
+(373, 8, 'walking', 'sétálás', 'empty.png'),
+(374, 8, 'water polo', 'vízilabda', 'empty.png'),
+(375, 8, 'water skiing', 'vízisíelés', 'empty.png'),
+(376, 8, 'weightlifting', 'súlyemelés', 'empty.png'),
+(377, 8, 'world cup', 'világbajnokság', 'empty.png'),
+(378, 9, 'beer', 'sör', 'empty.png'),
+(379, 9, 'black coffee', 'fekete kávé', 'empty.png'),
+(380, 9, 'cappuccino', 'cappuccino', 'empty.png'),
+(381, 9, 'champagne', 'pezsgő', 'empty.png'),
+(382, 9, 'cocoa', 'kakaó', 'empty.png'),
+(383, 9, 'coffee', 'kávé', 'empty.png'),
+(384, 9, 'coke', 'kóla', 'empty.png'),
+(385, 9, 'cola', 'kóla', 'empty.png'),
+(386, 9, 'diet cola', 'diétás kóla', 'empty.png'),
+(387, 9, 'fibrous juice', 'rostos gyümölcslé', 'empty.png'),
+(388, 9, 'fruit juice', 'gyümölcslé', 'empty.png'),
+(389, 9, 'fruit tea', 'gyümölcstea', 'empty.png'),
+(390, 9, 'green tea', 'zöld tea', 'empty.png'),
+(391, 9, 'herbal tea', 'gyógytea', 'empty.png'),
+(392, 9, 'hot chocolate', 'forró csokoládé', 'empty.png'),
+(393, 9, 'iced tea', 'jegestea', 'empty.png'),
+(394, 9, 'lemonade', 'limonádé', 'empty.png'),
+(395, 9, 'mineral water', 'ásványvíz', 'empty.png'),
+(396, 9, 'oramge juice', 'narancslé', 'empty.png'),
+(397, 9, 'smoothie', 'smoothie', 'empty.png'),
+(398, 9, 'soda', 'szóda', 'empty.png'),
+(399, 9, 'sparkling water', 'szénsavmentes víz', 'empty.png'),
+(400, 9, 'squash', 'szörp', 'empty.png'),
+(401, 9, 'tap water', 'csapvíz', 'empty.png'),
+(402, 9, 'tea', 'tea', 'empty.png'),
+(403, 9, 'wine', 'bor', 'empty.png');
 
 -- --------------------------------------------------------
 
@@ -282,7 +513,16 @@ INSERT INTO `tananyag` (`id`, `felhasznalo_id`, `temakor_id`) VALUES
 (2, 1, 2),
 (3, 1, 3),
 (4, 1, 4),
-(5, 1, 5);
+(5, 1, 5),
+(6, 2, 1),
+(7, 2, 2),
+(8, 2, 3),
+(9, 2, 4),
+(10, 2, 5),
+(11, 1, 6),
+(12, 1, 7),
+(13, 1, 8),
+(14, 2, 9);
 
 -- --------------------------------------------------------
 
@@ -307,7 +547,11 @@ INSERT INTO `temakorok` (`id`, `megnevezes`, `kep`, `mappa`, `beepitett`) VALUES
 (2, 'Zöldségek', 'vegetables.png', 'vegetables', 1),
 (3, 'Színek', 'colors.png', 'colors', 1),
 (4, 'Állatok', 'animals.png', 'animals', 1),
-(5, 'Anyagok', 'materials.png', 'materials', 1);
+(5, 'Anyagok', 'materials.png', 'materials', 1),
+(6, 'Foglalkozások', 'englianlogo.png', '', 0),
+(7, 'Testrészek', 'englianlogo.png', '', 0),
+(8, 'Sportok', 'englianlogo.png', '', 0),
+(9, 'Italok', 'englianlogo.png', '', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -364,25 +608,25 @@ ALTER TABLE `eredmenyek`
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
 --
 ALTER TABLE `szavak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=404;
 
 --
 -- AUTO_INCREMENT a táblához `tananyag`
 --
 ALTER TABLE `tananyag`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT a táblához `temakorok`
 --
 ALTER TABLE `temakorok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Megkötések a kiírt táblákhoz
