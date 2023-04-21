@@ -29,7 +29,6 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         initComponents();
         kapcsolat = new KapcsolatDB();
         felhasznalonevek = kapcsolat.felhasznalonevekLekerdez();
-        System.out.println(felhasznalonevek);
     }
     
     /**
@@ -47,7 +46,9 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
     public void bejelentkezes() {
         String felhasznalonev = felhasznalonevTextField.getText();
         String jelszo = new String(jelszoPasswordField.getPassword());
-        if (!felhasznalonevek.contains(felhasznalonev)) {
+        if (felhasznalonev.isEmpty() || jelszo.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Felhasználónév és jelszó megadása kötelező!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
+        } else if (!felhasznalonevek.contains(felhasznalonev)) {
             JOptionPane.showMessageDialog(null, "Hibás felhasználónév!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
         } else {
             beFelh = kapcsolat.felhasznaloAdatokLekerdez(felhasznalonev);

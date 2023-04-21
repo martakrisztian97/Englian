@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Color;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -386,8 +385,6 @@ public class TesztJFrame extends javax.swing.JFrame {
     private void kezdesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kezdesButtonMouseClicked
         tesztTemakor = temakorok.get(temakorokComboBox.getSelectedIndex());
         szavak = kapcsolat.szavakAdottTemakorbenLekerdez(tesztTemakor.getId());
-        System.out.println(tesztTemakor.toString()); // @todo
-        System.out.println(szavak); // @todo
         if (szavak.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!", "Üzenet", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -396,13 +393,12 @@ public class TesztJFrame extends javax.swing.JFrame {
             Collections.shuffle(szavak);
             kifejezesekEsDefiniciokBeallitasa();
             kifejezesLabel.setText(kifejezesek.get(0));
-            kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(0).getKep()))); // @todo resize images
+            kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(0).getKep()))); 
         }
     }//GEN-LAST:event_kezdesButtonMouseClicked
 
     private void angolRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_angolRadioButtonItemStateChanged
        kifejezesAngol = angolRadioButtonKijelolve();
-       System.out.println("ANGOL GOMB KIJELÖLVE? - "+kifejezesAngol); //@todo
     }//GEN-LAST:event_angolRadioButtonItemStateChanged
 
     private void bezarasButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bezarasButtonMouseClicked
@@ -444,7 +440,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         definicioValaszTextField.setText("");
         if (hanyadikSzo-1 < szavak.size()) {
             kifejezesLabel.setText(kifejezesek.get(hanyadikSzo-1));
-            kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep()))); // @todo resize images
+            kepLabel.setIcon(new ImageIcon(getClass().getResource("/view/images/"+tesztTemakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
             tesztPanel.setVisible(false);
             vegePanel.setVisible(true);

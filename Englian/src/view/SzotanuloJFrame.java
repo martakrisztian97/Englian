@@ -40,22 +40,18 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
      */
     public SzotanuloJFrame(Felhasznalo f, Temakor t) {
         initComponents();
-        this.setTitle(t.getMegnevezes()+" témakör szótanuló kártyái");
+        this.setTitle(t.getMegnevezes()+" témakör szókártyái");
         tanulasPanel.setVisible(false);
         vegePanel.setVisible(false);
         beFelh = f;
         temakor = t;
         kapcsolat = new KapcsolatDB();
         szavak = kapcsolat.szavakAdottTemakorbenLekerdez(temakor.getId());
-        System.out.println(szavak.toString()); //@todo
         Collections.shuffle(szavak);
         kifejezesek = new ArrayList<>();
         definiciok = new ArrayList<>();
         hanyadikSzo = 1;
-        hatralevoSzavakSzamaLabel.setText("Hátralévő szavak száma: "+(szavak.size()-1));
-        // -----------------------------------------------------------------------
-        System.out.println("ANGOL GOMB KIJELÖLVE? - "+kifejezesAngol); //@todo
-        System.out.println(szavak.toString()); //@todo
+        hatralevoSzavakSzamaLabel.setText("Hátralévő szavak száma: "+(szavak.size()));
         
     }
     
@@ -97,16 +93,16 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         kifejezesNyelveButtonGroup = new javax.swing.ButtonGroup();
+        inditasPanel = new javax.swing.JPanel();
+        angolRadioButton = new javax.swing.JRadioButton();
+        magyarRadioButton = new javax.swing.JRadioButton();
+        kezdesButton = new javax.swing.JButton();
         tanulasPanel = new javax.swing.JPanel();
         kifejezesButton = new javax.swing.JButton();
         definicoButton = new javax.swing.JButton();
         marTudomButton = new javax.swing.JButton();
         megTanulomButton = new javax.swing.JButton();
         hatralevoSzavakSzamaLabel = new javax.swing.JLabel();
-        inditasPanel = new javax.swing.JPanel();
-        angolRadioButton = new javax.swing.JRadioButton();
-        magyarRadioButton = new javax.swing.JRadioButton();
-        kezdesButton = new javax.swing.JButton();
         vegePanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ujraButton = new javax.swing.JButton();
@@ -123,6 +119,67 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        inditasPanel.setMaximumSize(new java.awt.Dimension(600, 700));
+        inditasPanel.setMinimumSize(new java.awt.Dimension(600, 700));
+        inditasPanel.setName(""); // NOI18N
+        inditasPanel.setPreferredSize(new java.awt.Dimension(600, 700));
+        inditasPanel.setLayout(new java.awt.GridBagLayout());
+
+        kifejezesNyelveButtonGroup.add(angolRadioButton);
+        angolRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        angolRadioButton.setSelected(true);
+        angolRadioButton.setText("Angol");
+        angolRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        angolRadioButton.setFocusable(false);
+        angolRadioButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                angolRadioButtonItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 200, 0);
+        inditasPanel.add(angolRadioButton, gridBagConstraints);
+
+        kifejezesNyelveButtonGroup.add(magyarRadioButton);
+        magyarRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        magyarRadioButton.setText("Magyar");
+        magyarRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        magyarRadioButton.setFocusable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 100, 200, 0);
+        inditasPanel.add(magyarRadioButton, gridBagConstraints);
+
+        kezdesButton.setBackground(new java.awt.Color(0, 153, 255));
+        kezdesButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kezdesButton.setForeground(new java.awt.Color(255, 255, 255));
+        kezdesButton.setText("KEZDÉS");
+        kezdesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        kezdesButton.setFocusable(false);
+        kezdesButton.setMaximumSize(new java.awt.Dimension(200, 100));
+        kezdesButton.setMinimumSize(new java.awt.Dimension(200, 100));
+        kezdesButton.setPreferredSize(new java.awt.Dimension(200, 100));
+        kezdesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                kezdesButtonMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        inditasPanel.add(kezdesButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(inditasPanel, gridBagConstraints);
 
         tanulasPanel.setMaximumSize(new java.awt.Dimension(600, 700));
         tanulasPanel.setMinimumSize(new java.awt.Dimension(600, 700));
@@ -210,67 +267,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         getContentPane().add(tanulasPanel, gridBagConstraints);
 
-        inditasPanel.setMaximumSize(new java.awt.Dimension(600, 700));
-        inditasPanel.setMinimumSize(new java.awt.Dimension(600, 700));
-        inditasPanel.setName(""); // NOI18N
-        inditasPanel.setPreferredSize(new java.awt.Dimension(600, 700));
-        inditasPanel.setLayout(new java.awt.GridBagLayout());
-
-        kifejezesNyelveButtonGroup.add(angolRadioButton);
-        angolRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        angolRadioButton.setSelected(true);
-        angolRadioButton.setText("Angol");
-        angolRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        angolRadioButton.setFocusable(false);
-        angolRadioButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                angolRadioButtonItemStateChanged(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 200, 0);
-        inditasPanel.add(angolRadioButton, gridBagConstraints);
-
-        kifejezesNyelveButtonGroup.add(magyarRadioButton);
-        magyarRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        magyarRadioButton.setText("Magyar");
-        magyarRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        magyarRadioButton.setFocusable(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 100, 200, 0);
-        inditasPanel.add(magyarRadioButton, gridBagConstraints);
-
-        kezdesButton.setBackground(new java.awt.Color(0, 153, 255));
-        kezdesButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        kezdesButton.setForeground(new java.awt.Color(255, 255, 255));
-        kezdesButton.setText("KEZDÉS");
-        kezdesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        kezdesButton.setFocusable(false);
-        kezdesButton.setMaximumSize(new java.awt.Dimension(200, 100));
-        kezdesButton.setMinimumSize(new java.awt.Dimension(200, 100));
-        kezdesButton.setPreferredSize(new java.awt.Dimension(200, 100));
-        kezdesButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kezdesButtonMouseClicked(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        inditasPanel.add(kezdesButton, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        getContentPane().add(inditasPanel, gridBagConstraints);
-
         vegePanel.setMaximumSize(new java.awt.Dimension(600, 700));
         vegePanel.setMinimumSize(new java.awt.Dimension(600, 700));
         vegePanel.setPreferredSize(new java.awt.Dimension(600, 700));
@@ -348,7 +344,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
 
     private void angolRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_angolRadioButtonItemStateChanged
        kifejezesAngol = angolRadioButtonKijelolve();
-       System.out.println("ANGOL GOMB KIJELÖLVE? - "+kifejezesAngol); //@todo
     }//GEN-LAST:event_angolRadioButtonItemStateChanged
 
     private void definicoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_definicoButtonMouseClicked
@@ -362,7 +357,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         szavak.remove(hanyadikSzo-1);
         kifejezesek.remove(hanyadikSzo-1);
         definiciok.remove(hanyadikSzo-1);
-        hatralevoSzavakSzamaLabel.setText("Hátralévő szavak száma: "+(szavak.size()-1));
+        hatralevoSzavakSzamaLabel.setText("Hátralévő szavak száma: "+(szavak.size()));
         if (szavak.isEmpty()) {
             tanulasPanel.setVisible(false);
             vegePanel.setVisible(true);
@@ -380,7 +375,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     private void megTanulomButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_megTanulomButtonMouseClicked
         definicoButton.setText("");
         hanyadikSzo++;
-        hatralevoSzavakSzamaLabel.setText("Hátralévő szavak száma: "+(szavak.size()-1));
         if (hanyadikSzo-1 < szavak.size()) {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));

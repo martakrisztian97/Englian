@@ -143,7 +143,6 @@ public class RanglistaJFrame extends javax.swing.JFrame {
 
         // táblázat feltöltése
         if (kivalasztottTemakor != -1) {
-            System.out.println("Selected: "+kivalasztottTemakor+"    TémakörID: "+temakorok.get(kivalasztottTemakor).getId()); // @todo
             eredmenyek = kapcsolat.eredmenyeketLekerdez(temakorok.get(kivalasztottTemakor).getId());
             Object[] sor = new Object[2];
              for (Eredmeny e : eredmenyek) {
