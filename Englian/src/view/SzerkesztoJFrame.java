@@ -44,7 +44,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
             magyarTextField.setEnabled(false);
             angolTextField.setText("");
             magyarTextField.setText("");
-            modositButton.setEnabled(false);
+            modositasButton.setEnabled(false);
             szoTorlesButton.setEnabled(false);
             szoszedetTorleseTabPanel.setEnabled(false);
         }
@@ -104,7 +104,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szavakComboBox = new javax.swing.JComboBox<>();
         angolTextField = new javax.swing.JTextField();
         magyarTextField = new javax.swing.JTextField();
-        modositButton = new javax.swing.JButton();
+        modositasButton = new javax.swing.JButton();
         szoTorlesButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -217,25 +217,25 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 25);
         szavakSzerkesztesePanel.add(magyarTextField, gridBagConstraints);
 
-        modositButton.setBackground(new java.awt.Color(0, 153, 255));
-        modositButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        modositButton.setForeground(new java.awt.Color(255, 255, 255));
-        modositButton.setText("MÓDOSÍT");
-        modositButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        modositButton.setFocusable(false);
-        modositButton.setMaximumSize(new java.awt.Dimension(125, 50));
-        modositButton.setMinimumSize(new java.awt.Dimension(125, 50));
-        modositButton.setPreferredSize(new java.awt.Dimension(125, 50));
-        modositButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        modositasButton.setBackground(new java.awt.Color(0, 153, 255));
+        modositasButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        modositasButton.setForeground(new java.awt.Color(255, 255, 255));
+        modositasButton.setText("MÓDOSÍTÁS");
+        modositasButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modositasButton.setFocusable(false);
+        modositasButton.setMaximumSize(new java.awt.Dimension(125, 50));
+        modositasButton.setMinimumSize(new java.awt.Dimension(125, 50));
+        modositasButton.setPreferredSize(new java.awt.Dimension(125, 50));
+        modositasButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modositButtonMouseClicked(evt);
+                modositasButtonMouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
-        szavakSzerkesztesePanel.add(modositButton, gridBagConstraints);
+        szavakSzerkesztesePanel.add(modositasButton, gridBagConstraints);
 
         szoTorlesButton.setBackground(new java.awt.Color(255, 99, 71));
         szoTorlesButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -443,7 +443,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         ujSzoszedetTabPanel.add(ujSzoPanel, gridBagConstraints);
 
-        szerkesztoTabbedPane.addTab("Új szószedet hozzáadása", ujSzoszedetTabPanel);
+        szerkesztoTabbedPane.addTab("Új szószedet/szó hozzáadása", ujSzoszedetTabPanel);
 
         szoszedetTorleseTabPanel.setMaximumSize(new java.awt.Dimension(260, 209));
         szoszedetTorleseTabPanel.setLayout(new java.awt.GridBagLayout());
@@ -516,7 +516,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
                 magyarTextField.setEnabled(false);
                 angolTextField.setText("");
                 magyarTextField.setText("");
-                modositButton.setEnabled(false);
+                modositasButton.setEnabled(false);
                 szoTorlesButton.setEnabled(false);
                 szoszedetTorleseTabPanel.setEnabled(false);
             }
@@ -529,24 +529,24 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
             magyarTextField.setEnabled(false);
             angolTextField.setText("");
             magyarTextField.setText("");
-            modositButton.setEnabled(false);
+            modositasButton.setEnabled(false);
             szoTorlesButton.setEnabled(false);
         } else {
             angolTextField.setEnabled(true);
             magyarTextField.setEnabled(true);
-            modositButton.setEnabled(true);
+            modositasButton.setEnabled(true);
             szoTorlesButton.setEnabled(true);
             angolTextField.setText(szavak.get(szavakComboBox.getSelectedIndex()).getAngol());
             magyarTextField.setText(szavak.get(szavakComboBox.getSelectedIndex()).getMagyar());
         }
     }//GEN-LAST:event_szavakComboBoxItemStateChanged
 
-    private void modositButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modositButtonMouseClicked
+    private void modositasButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modositasButtonMouseClicked
         if (szavakComboBox.getSelectedIndex() != -1) {
             kapcsolat.szotModosit(szavak.get(szavakComboBox.getSelectedIndex()).getId(), angolTextField.getText(), magyarTextField.getText());
             szavakComboBoxFeltolt();
         }
-    }//GEN-LAST:event_modositButtonMouseClicked
+    }//GEN-LAST:event_modositasButtonMouseClicked
 
     private void szoTorlesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szoTorlesButtonMouseClicked
         Object[] opciok = {"Igen", "Nem"};
@@ -656,7 +656,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField magyarTextField;
-    private javax.swing.JButton modositButton;
+    private javax.swing.JButton modositasButton;
     private javax.swing.JComboBox<String> szavakComboBox;
     private javax.swing.JPanel szavakSzerkesztesePanel;
     private javax.swing.JPanel szavakSzerkeszteseTabPanel;

@@ -218,7 +218,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="modositButton">
+                <Component class="javax.swing.JButton" name="modositasButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -229,7 +229,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="M&#xd3;DOS&#xcd;T"/>
+                    <Property name="text" type="java.lang.String" value="M&#xd3;DOS&#xcd;T&#xc1;S"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
                     </Property>
@@ -245,7 +245,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="modositButtonMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="modositasButtonMouseClicked"/>
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -356,8 +356,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="&#xda;j sz&#xf3;szedet hozz&#xe1;ad&#xe1;sa">
-                <Property name="tabTitle" type="java.lang.String" value="&#xda;j sz&#xf3;szedet hozz&#xe1;ad&#xe1;sa"/>
+              <JTabbedPaneConstraints tabName="&#xda;j sz&#xf3;szedet/sz&#xf3; hozz&#xe1;ad&#xe1;sa">
+                <Property name="tabTitle" type="java.lang.String" value="&#xda;j sz&#xf3;szedet/sz&#xf3; hozz&#xe1;ad&#xe1;sa"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
