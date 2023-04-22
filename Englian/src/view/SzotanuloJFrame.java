@@ -51,7 +51,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         kifejezesek = new ArrayList<>();
         definiciok = new ArrayList<>();
         hanyadikSzo = 1;
-        hatralevoSzavakSzamaLabel.setText("Hátralévő szavak száma: "+(szavak.size()));
+        hatralevoSzavakSzamaLabel.setText("Megtanulandó szavak száma: "+(szavak.size()));
         
     }
     
@@ -190,8 +190,8 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         kifejezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         kifejezesButton.setFocusable(false);
         kifejezesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        kifejezesButton.setMaximumSize(new java.awt.Dimension(500, 500));
-        kifejezesButton.setMinimumSize(new java.awt.Dimension(500, 500));
+        kifejezesButton.setMaximumSize(new java.awt.Dimension(500, 200));
+        kifejezesButton.setMinimumSize(new java.awt.Dimension(500, 200));
         kifejezesButton.setPreferredSize(new java.awt.Dimension(500, 200));
         kifejezesButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -203,8 +203,8 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         definicoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         definicoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         definicoButton.setFocusPainted(false);
-        definicoButton.setMaximumSize(new java.awt.Dimension(500, 500));
-        definicoButton.setMinimumSize(new java.awt.Dimension(500, 500));
+        definicoButton.setMaximumSize(new java.awt.Dimension(500, 200));
+        definicoButton.setMinimumSize(new java.awt.Dimension(500, 200));
         definicoButton.setPreferredSize(new java.awt.Dimension(500, 200));
         definicoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -258,6 +258,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         tanulasPanel.add(megTanulomButton, gridBagConstraints);
 
         hatralevoSzavakSzamaLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        hatralevoSzavakSzamaLabel.setText("Megtanulandó szavak száma: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         tanulasPanel.add(hatralevoSzavakSzamaLabel, gridBagConstraints);
@@ -357,7 +358,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         szavak.remove(hanyadikSzo-1);
         kifejezesek.remove(hanyadikSzo-1);
         definiciok.remove(hanyadikSzo-1);
-        hatralevoSzavakSzamaLabel.setText("Hátralévő szavak száma: "+(szavak.size()));
+        hatralevoSzavakSzamaLabel.setText("Megtanulandó szavak száma: "+(szavak.size()));
         if (szavak.isEmpty()) {
             tanulasPanel.setVisible(false);
             vegePanel.setVisible(true);

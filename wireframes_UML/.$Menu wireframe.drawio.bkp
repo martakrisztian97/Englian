@@ -1,0 +1,34 @@
+<mxfile host="Electron" modified="2023-04-22T09:01:57.388Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="HzLtsi2-OXvCkgj8IRvH" version="21.2.1" type="device">
+  <diagram id="piDafpqhtRUU5qUU-vj8" name="Page-1">
+    <mxGraphModel dx="1036" dy="623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6bDwUw3IAW6oeSV6C1Ho-1" value="" style="whiteSpace=wrap;html=1;fillColor=none;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry width="300" height="700" as="geometry" />
+        </mxCell>
+        <mxCell id="6bDwUw3IAW6oeSV6C1Ho-2" value="TEMATIKUS SZÓSZEDTEK" style="whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="80" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6bDwUw3IAW6oeSV6C1Ho-3" value="Szia, felhasználó!" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Comic Sans MS;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="85" y="10" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6bDwUw3IAW6oeSV6C1Ho-4" value="TESZT INDÍTÁSA" style="whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="180" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6bDwUw3IAW6oeSV6C1Ho-5" value="KILÉPÉS" style="whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="580" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="6bDwUw3IAW6oeSV6C1Ho-7" value="KIJELENTKEZÉS" style="whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="480" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6bDwUw3IAW6oeSV6C1Ho-8" value="SZÓSZEDETEK SZERKESZTÉSE" style="whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="280" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6bDwUw3IAW6oeSV6C1Ho-9" value="RANGLISTA" style="whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="380" width="150" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

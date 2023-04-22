@@ -118,13 +118,13 @@ public class TesztJFrame extends javax.swing.JFrame {
         kovetkezoButton = new javax.swing.JButton();
         pontszamLabel = new javax.swing.JLabel();
         vegePanel = new javax.swing.JPanel();
-        ujraButton = new javax.swing.JButton();
+        ujTesztButton = new javax.swing.JButton();
         bezarasButton = new javax.swing.JButton();
         eredmenyLabel = new javax.swing.JLabel();
         aranyLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Teszt");
+        setTitle("Tesztfeladatsor");
         setMaximumSize(new java.awt.Dimension(600, 700));
         setMinimumSize(new java.awt.Dimension(600, 700));
         setPreferredSize(new java.awt.Dimension(600, 700));
@@ -311,25 +311,25 @@ public class TesztJFrame extends javax.swing.JFrame {
         vegePanel.setPreferredSize(new java.awt.Dimension(600, 700));
         vegePanel.setLayout(new java.awt.GridBagLayout());
 
-        ujraButton.setBackground(new java.awt.Color(0, 153, 255));
-        ujraButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        ujraButton.setForeground(new java.awt.Color(255, 255, 255));
-        ujraButton.setText("ÚJRA");
-        ujraButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ujraButton.setFocusable(false);
-        ujraButton.setMaximumSize(new java.awt.Dimension(175, 100));
-        ujraButton.setMinimumSize(new java.awt.Dimension(175, 100));
-        ujraButton.setPreferredSize(new java.awt.Dimension(175, 100));
-        ujraButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        ujTesztButton.setBackground(new java.awt.Color(0, 153, 255));
+        ujTesztButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ujTesztButton.setForeground(new java.awt.Color(255, 255, 255));
+        ujTesztButton.setText("ÚJ TESZT");
+        ujTesztButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ujTesztButton.setFocusable(false);
+        ujTesztButton.setMaximumSize(new java.awt.Dimension(175, 100));
+        ujTesztButton.setMinimumSize(new java.awt.Dimension(175, 100));
+        ujTesztButton.setPreferredSize(new java.awt.Dimension(175, 100));
+        ujTesztButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ujraButtonMouseClicked(evt);
+                ujTesztButtonMouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        vegePanel.add(ujraButton, gridBagConstraints);
+        vegePanel.add(ujTesztButton, gridBagConstraints);
 
         bezarasButton.setBackground(new java.awt.Color(255, 99, 71));
         bezarasButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -356,16 +356,16 @@ public class TesztJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 0);
         vegePanel.add(eredmenyLabel, gridBagConstraints);
 
         aranyLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         aranyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        aranyLabel.setText("ARÁNY");
+        aranyLabel.setText("SZÁZALÉKOS EREDMÉNY");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 100, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         vegePanel.add(aranyLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -407,13 +407,13 @@ public class TesztJFrame extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bezarasButtonMouseClicked
 
-    private void ujraButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ujraButtonMouseClicked
+    private void ujTesztButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ujTesztButtonMouseClicked
         vegePanel.setVisible(false);
         inditasPanel.setVisible(true);
         pontszamLabel.setText("");
         hanyadikSzo = 1;
         tudta = 0;
-    }//GEN-LAST:event_ujraButtonMouseClicked
+    }//GEN-LAST:event_ujTesztButtonMouseClicked
 
     private void valaszButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valaszButtonMouseClicked
         valaszButton.setVisible(false);
@@ -505,7 +505,7 @@ public class TesztJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel pontszamLabel;
     private javax.swing.JComboBox<String> temakorokComboBox;
     private javax.swing.JPanel tesztPanel;
-    private javax.swing.JButton ujraButton;
+    private javax.swing.JButton ujTesztButton;
     private javax.swing.JButton valaszButton;
     private javax.swing.JPanel vegePanel;
     private javax.swing.JLabel visszajelzesLabel;
