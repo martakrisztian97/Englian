@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-04-23T07:48:00.807Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="wStf3Ey6T0NtEWyfRb_a" version="21.2.1" type="device">
+<mxfile host="Electron" modified="2023-04-23T08:58:36.170Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="RKX30Uf_UxE85HDiN_n6" version="21.2.1" type="device">
   <diagram name="1 oldal" id="Vnp1hMEhvRvHJeusKhug">
     <mxGraphModel dx="1036" dy="623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -143,8 +143,8 @@
             <mxRectangle width="225" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Mk16nbMHVzm9y2ZADHE4-26" value="Témakör" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="310" y="100" width="60" height="30" as="geometry" />
+        <mxCell id="Mk16nbMHVzm9y2ZADHE4-26" value="Témakör" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontSize=16;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="310" y="100" width="200" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

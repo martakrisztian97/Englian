@@ -156,6 +156,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szavakSzerkesztesePanel.setLayout(new java.awt.GridBagLayout());
 
         temakorokComboBox.setBackground(new java.awt.Color(0, 153, 255));
+        temakorokComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         temakorokComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         temakorokComboBox.setFocusable(false);
         temakorokComboBox.setMaximumSize(new java.awt.Dimension(200, 35));
@@ -174,6 +175,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szavakSzerkesztesePanel.add(temakorokComboBox, gridBagConstraints);
 
         szavakComboBox.setBackground(new java.awt.Color(0, 153, 255));
+        szavakComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         szavakComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         szavakComboBox.setFocusable(false);
         szavakComboBox.setMaximumSize(new java.awt.Dimension(300, 35));
@@ -352,6 +354,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         ujSzoPanel.setLayout(new java.awt.GridBagLayout());
 
         temakorokComboBoxUjSzohoz.setBackground(new java.awt.Color(0, 153, 255));
+        temakorokComboBoxUjSzohoz.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         temakorokComboBoxUjSzohoz.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         temakorokComboBoxUjSzohoz.setFocusable(false);
         temakorokComboBoxUjSzohoz.setMaximumSize(new java.awt.Dimension(200, 35));
@@ -367,9 +370,9 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         ujAngolTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         ujAngolTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ujAngolTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        ujAngolTextField.setMaximumSize(new java.awt.Dimension(250, 50));
-        ujAngolTextField.setMinimumSize(new java.awt.Dimension(250, 50));
-        ujAngolTextField.setPreferredSize(new java.awt.Dimension(250, 50));
+        ujAngolTextField.setMaximumSize(new java.awt.Dimension(300, 50));
+        ujAngolTextField.setMinimumSize(new java.awt.Dimension(300, 50));
+        ujAngolTextField.setPreferredSize(new java.awt.Dimension(300, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -380,9 +383,9 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         ujMagyarTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         ujMagyarTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ujMagyarTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        ujMagyarTextField.setMaximumSize(new java.awt.Dimension(250, 50));
-        ujMagyarTextField.setMinimumSize(new java.awt.Dimension(250, 50));
-        ujMagyarTextField.setPreferredSize(new java.awt.Dimension(250, 50));
+        ujMagyarTextField.setMaximumSize(new java.awt.Dimension(300, 50));
+        ujMagyarTextField.setMinimumSize(new java.awt.Dimension(300, 50));
+        ujMagyarTextField.setPreferredSize(new java.awt.Dimension(300, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -449,10 +452,13 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szoszedetTorleseTabPanel.setLayout(new java.awt.GridBagLayout());
 
         szoszedetTorlesePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Szószedet törlése", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-        szoszedetTorlesePanel.setMaximumSize(new java.awt.Dimension(260, 209));
+        szoszedetTorlesePanel.setMaximumSize(new java.awt.Dimension(350, 250));
+        szoszedetTorlesePanel.setMinimumSize(new java.awt.Dimension(350, 250));
+        szoszedetTorlesePanel.setPreferredSize(new java.awt.Dimension(350, 250));
         szoszedetTorlesePanel.setLayout(new java.awt.GridBagLayout());
 
         temakorokComboBoxSzoszedetTorleshez.setBackground(new java.awt.Color(0, 153, 255));
+        temakorokComboBoxSzoszedetTorleshez.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         temakorokComboBoxSzoszedetTorleshez.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         temakorokComboBoxSzoszedetTorleshez.setFocusable(false);
         temakorokComboBoxSzoszedetTorleshez.setMaximumSize(new java.awt.Dimension(200, 35));
