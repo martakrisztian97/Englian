@@ -1,0 +1,229 @@
+<mxfile host="Electron" modified="2023-04-23T12:16:34.383Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="SqB8VXNUMwOI4OfArqdo" version="21.2.1" type="device">
+  <diagram name="1 oldal" id="h_sdG0xfet05f8b0soA9">
+    <mxGraphModel dx="1480" dy="890" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gY15Ywyms6EdynOSf3R4-2" value="" style="strokeWidth=1;shadow=1;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.marginRect2;rectMarginTop=32;whiteSpace=wrap;fontFamily=Comic Sans MS;verticalAlign=middle;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="10" y="10" width="800" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="gY15Ywyms6EdynOSf3R4-3" value="Szavak szerkesztése" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fillColor=#eeeeee;strokeColor=#36393d;fontFamily=Comic Sans MS;" parent="gY15Ywyms6EdynOSf3R4-2" vertex="1">
+          <mxGeometry width="180" height="25" relative="1" as="geometry">
+            <mxPoint x="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gY15Ywyms6EdynOSf3R4-4" value="Új szószedet/szó hozzáadása" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontFamily=Comic Sans MS;" parent="gY15Ywyms6EdynOSf3R4-2" vertex="1">
+          <mxGeometry width="250" height="25" relative="1" as="geometry">
+            <mxPoint x="200" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gY15Ywyms6EdynOSf3R4-5" value="Szószedet törlése" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;gradientColor=none;fontFamily=Comic Sans MS;" parent="gY15Ywyms6EdynOSf3R4-2" vertex="1">
+          <mxGeometry width="190" height="25" relative="1" as="geometry">
+            <mxPoint x="460" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gY15Ywyms6EdynOSf3R4-6" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.topButton;rSize=5;resizeWidth=1;movable=0;deletable=1;fillColor=#eeeeee;strokeColor=#36393d;" parent="gY15Ywyms6EdynOSf3R4-2" vertex="1">
+          <mxGeometry width="800" height="7" relative="1" as="geometry">
+            <mxPoint y="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-40" value="" style="group;verticalAlign=top;" parent="gY15Ywyms6EdynOSf3R4-2" vertex="1" connectable="0">
+          <mxGeometry x="60" y="195" width="680" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="gY15Ywyms6EdynOSf3R4-12" value="" style="whiteSpace=wrap;html=1;rounded=0;fontFamily=Comic Sans MS;fillColor=none;strokeWidth=1;glass=0;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry y="30" width="680" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="gY15Ywyms6EdynOSf3R4-13" value="Témakör 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#000000;fontSize=17;spacingLeft=3;fontFamily=Comic Sans MS;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="240" y="90" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-2" value="Szavak szerkesztése" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=14;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-29" value="Témakör" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="275" y="60" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-30" value="Szó 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#000000;fontSize=17;spacingLeft=3;fontFamily=Comic Sans MS;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="190" y="180" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-31" value="Szó" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="270" y="150" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-32" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="20" y="270" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-33" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="360" y="270" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-36" value="Angol" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="105" y="240" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-35" value="Magyar" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="445" y="240" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-37" value="MÓDOSÍTÁS" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontStyle=1;fontSize=15;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="107.5" y="340" width="125" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-38" value="TÖRLÉS" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontStyle=1;fontSize=15;" parent="sZCGaXeiZL27GAr6mK9c-40" vertex="1">
+          <mxGeometry x="447.5" y="340" width="125" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-40" source="sZCGaXeiZL27GAr6mK9c-33" target="sZCGaXeiZL27GAr6mK9c-33" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-40" source="sZCGaXeiZL27GAr6mK9c-35" target="sZCGaXeiZL27GAr6mK9c-35" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-56" value="" style="strokeWidth=1;shadow=1;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.marginRect2;rectMarginTop=32;whiteSpace=wrap;fontFamily=Comic Sans MS;verticalAlign=middle;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="830" y="10" width="800" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-57" value="Szavak szerkesztése" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontFamily=Comic Sans MS;" parent="sZCGaXeiZL27GAr6mK9c-56" vertex="1">
+          <mxGeometry width="180" height="25" relative="1" as="geometry">
+            <mxPoint x="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-58" value="Új szószedet/szó hozzáadása" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontFamily=Comic Sans MS;fillColor=#eeeeee;strokeColor=#36393d;" parent="sZCGaXeiZL27GAr6mK9c-56" vertex="1">
+          <mxGeometry width="250" height="25" relative="1" as="geometry">
+            <mxPoint x="200" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-59" value="Szószedet törlése" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;gradientColor=none;fontFamily=Comic Sans MS;" parent="sZCGaXeiZL27GAr6mK9c-56" vertex="1">
+          <mxGeometry width="190" height="25" relative="1" as="geometry">
+            <mxPoint x="460" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-60" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.topButton;rSize=5;resizeWidth=1;movable=0;deletable=1;fillColor=#eeeeee;strokeColor=#36393d;" parent="sZCGaXeiZL27GAr6mK9c-56" vertex="1">
+          <mxGeometry width="800" height="7" relative="1" as="geometry">
+            <mxPoint y="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-56" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="581" y="316.83168316831683" as="sourcePoint" />
+            <mxPoint x="581" y="316.83168316831683" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-56" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="581" y="277.2277227722772" as="sourcePoint" />
+            <mxPoint x="581" y="277.2277227722772" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-107" value="" style="group" parent="sZCGaXeiZL27GAr6mK9c-56" vertex="1" connectable="0">
+          <mxGeometry x="219.5" y="70" width="360" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-64" value="Új témakör létrehozása" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=14;" parent="sZCGaXeiZL27GAr6mK9c-107" vertex="1">
+          <mxGeometry width="189.47368421052633" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-62" value="" style="whiteSpace=wrap;html=1;rounded=0;fontFamily=Comic Sans MS;fillColor=none;strokeWidth=1;glass=0;" parent="sZCGaXeiZL27GAr6mK9c-107" vertex="1">
+          <mxGeometry x="0.997229916897507" y="30" width="359.0027700831025" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-68" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="sZCGaXeiZL27GAr6mK9c-107" vertex="1">
+          <mxGeometry x="30.914127423822716" y="90" width="299.1689750692521" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-70" value="Új témakör" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" parent="sZCGaXeiZL27GAr6mK9c-107" vertex="1">
+          <mxGeometry x="115.6786703601108" y="60" width="129.6398891966759" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-72" value="TÉMAKÖR LÉTREHOZÁSA" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontStyle=1;fontSize=15;" parent="sZCGaXeiZL27GAr6mK9c-107" vertex="1">
+          <mxGeometry x="105.20775623268699" y="170" width="149.58448753462605" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-107" source="sZCGaXeiZL27GAr6mK9c-70" target="sZCGaXeiZL27GAr6mK9c-70" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-108" value="" style="group" parent="sZCGaXeiZL27GAr6mK9c-56" vertex="1" connectable="0">
+          <mxGeometry x="60" y="380" width="680" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-92" value="" style="whiteSpace=wrap;html=1;rounded=0;fontFamily=Comic Sans MS;fillColor=none;strokeWidth=1;glass=0;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry y="30" width="680" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-93" value="Témakör 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#000000;fontSize=17;spacingLeft=3;fontFamily=Comic Sans MS;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry x="240" y="90" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-94" value="Új szó hozzáadása" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=14;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-95" value="Témakör" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry x="275" y="60" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-98" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry x="20" y="170" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-99" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry x="357.5" y="170" width="300" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-100" value="Angol" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry x="105" y="140" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-101" value="Magyar" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry x="442.5" y="140" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-103" value="SZÓ HOZZÁADÁSA" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontStyle=1;fontSize=15;" parent="sZCGaXeiZL27GAr6mK9c-108" vertex="1">
+          <mxGeometry x="265" y="260" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-108" source="sZCGaXeiZL27GAr6mK9c-99" target="sZCGaXeiZL27GAr6mK9c-99" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-108" source="sZCGaXeiZL27GAr6mK9c-101" target="sZCGaXeiZL27GAr6mK9c-101" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-123" value="" style="strokeWidth=1;shadow=1;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.marginRect2;rectMarginTop=32;whiteSpace=wrap;fontFamily=Comic Sans MS;verticalAlign=middle;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="1654" y="10" width="800" height="800" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-124" value="Szavak szerkesztés" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontFamily=Comic Sans MS;" parent="sZCGaXeiZL27GAr6mK9c-123" vertex="1">
+          <mxGeometry width="180" height="25" relative="1" as="geometry">
+            <mxPoint x="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-125" value="Új szószedet/szó hozzáadása" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontFamily=Comic Sans MS;" parent="sZCGaXeiZL27GAr6mK9c-123" vertex="1">
+          <mxGeometry width="250" height="25" relative="1" as="geometry">
+            <mxPoint x="200" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-126" value="Szószedet törlése" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontFamily=Comic Sans MS;fillColor=#eeeeee;strokeColor=#36393d;" parent="sZCGaXeiZL27GAr6mK9c-123" vertex="1">
+          <mxGeometry width="190" height="25" relative="1" as="geometry">
+            <mxPoint x="460" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-127" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.topButton;rSize=5;resizeWidth=1;movable=0;deletable=1;fillColor=#eeeeee;strokeColor=#36393d;" parent="sZCGaXeiZL27GAr6mK9c-123" vertex="1">
+          <mxGeometry width="800" height="7" relative="1" as="geometry">
+            <mxPoint y="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-123" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="581" y="316.83168316831683" as="sourcePoint" />
+            <mxPoint x="581" y="316.83168316831683" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-129" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-123" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="581" y="277.2277227722772" as="sourcePoint" />
+            <mxPoint x="581" y="277.2277227722772" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-152" value="" style="group" parent="sZCGaXeiZL27GAr6mK9c-123" vertex="1" connectable="0">
+          <mxGeometry x="224.5" y="260" width="350.9972299168975" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-136" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="sZCGaXeiZL27GAr6mK9c-152" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180.49861495844834" y="90" as="sourcePoint" />
+            <mxPoint x="180.49861495844834" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-131" value="Szószedet törlése" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=14;container=0;" parent="sZCGaXeiZL27GAr6mK9c-152" vertex="1">
+          <mxGeometry width="189.47368421052633" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-132" value="" style="whiteSpace=wrap;html=1;rounded=0;fontFamily=Comic Sans MS;fillColor=none;strokeWidth=1;glass=0;container=0;" parent="sZCGaXeiZL27GAr6mK9c-152" vertex="1">
+          <mxGeometry x="0.9972299168975098" y="30" width="350" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-135" value="TÖRLÉS" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontStyle=1;fontSize=15;container=0;" parent="sZCGaXeiZL27GAr6mK9c-152" vertex="1">
+          <mxGeometry x="117.67174515235457" y="170" width="124.65373961218837" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-150" value="Témakör" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;container=0;" parent="sZCGaXeiZL27GAr6mK9c-152" vertex="1">
+          <mxGeometry x="110.6786703601108" y="70" width="129.6398891966759" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sZCGaXeiZL27GAr6mK9c-149" value="Témakör 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#000000;fontSize=17;spacingLeft=3;fontFamily=Comic Sans MS;container=0;" parent="sZCGaXeiZL27GAr6mK9c-152" vertex="1">
+          <mxGeometry x="76.27562326869804" y="100" width="199.4459833795014" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

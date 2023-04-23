@@ -1,11 +1,11 @@
-<mxfile host="Electron" modified="2023-04-23T09:15:45.654Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="Kl8tkwNneqry8Fxq9KHe" version="21.2.1" type="device">
+<mxfile host="Electron" modified="2023-04-23T12:16:11.717Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="fYRWBkUk7belRrD6IaMJ" version="21.2.1" type="device">
   <diagram name="1 oldal" id="h_sdG0xfet05f8b0soA9">
-    <mxGraphModel dx="-618" dy="623" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="-618" dy="623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="sZCGaXeiZL27GAr6mK9c-123" value="" style="strokeWidth=1;shadow=1;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.marginRect2;rectMarginTop=32;whiteSpace=wrap;fontFamily=Comic Sans MS;verticalAlign=middle;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="1654" y="10" width="800" height="800" as="geometry" />
+          <mxGeometry x="1660" y="9" width="800" height="800" as="geometry" />
         </mxCell>
         <mxCell id="sZCGaXeiZL27GAr6mK9c-124" value="Szavak szerkesztése" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontFamily=Comic Sans MS;" parent="sZCGaXeiZL27GAr6mK9c-123" vertex="1">
           <mxGeometry width="180" height="25" relative="1" as="geometry">
