@@ -62,7 +62,7 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         else {
             kapcsolat.regisztracio(email, felhasznalonev, Hash.MD5(jelszo));
             JOptionPane.showMessageDialog(null, "Sikeres regisztráció!", 
-                    "Sikeres regisztráció", JOptionPane.INFORMATION_MESSAGE);
+                    "Információ", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
             b = new BejelentkezesJFrame();
             b.setVisible(true);
