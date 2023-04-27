@@ -55,7 +55,6 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         } else {
             beFelh = kapcsolat.felhasznaloAdatokLekerdez(felhasznalonev);
             if (Hash.MD5(jelszo).equals(beFelh.getJelszo())) {
-                System.out.println(beFelh.toString());
                 MenuJFrame menu = new MenuJFrame(beFelh);
                 menu.setVisible(true);
                 this.setVisible(false);
