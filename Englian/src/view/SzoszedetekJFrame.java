@@ -52,7 +52,7 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
         gombok = new ArrayList<>();
         
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(0, 3, 20, 20)); // (0 -> bármennyi sor, 4 -> oszlop, 20 -> vízszintes rés, 20 -> függőleges rés)
+        panel.setLayout(new GridLayout(0, 3, 20, 20)); // (0 -> bármennyi sor, 3 -> oszlop, 20 -> vízszintes rés, 20 -> függőleges rés)
              
         for (int i = 0; i < temakorok.size(); i++) {
             ImageIcon kep = new ImageIcon(getClass().getResource("/view/images/"+temakorok.get(i).getKep()));
