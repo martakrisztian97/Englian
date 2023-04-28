@@ -72,10 +72,10 @@ public class SzoszedetekJFrame extends javax.swing.JFrame {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("GOMB FORRÁSA KATTINTÁSKOR: "+gombok.indexOf(e.getSource()));
                     szavak = kapcsolat.szavakAdottTemakorbenLekerdez(temakorok.get(gombok.indexOf(e.getSource())).getId());
                     if (szavak.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!", "Üzenet", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Ez a szószedet nem tartalmaz szavakat, kérem töltsön fel párat!", 
+                                "Információ", JOptionPane.ERROR_MESSAGE);
                     } else {
                         SzotanuloJFrame szotanulo = new SzotanuloJFrame(beFelh, temakorok.get(gombok.indexOf(e.getSource())));
                         szotanulo.setVisible(true);
