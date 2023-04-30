@@ -47,11 +47,9 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         String felhasznalonev = felhasznalonevTextField.getText();
         String jelszo = new String(jelszoPasswordField.getPassword());
         if (felhasznalonev.isEmpty() || jelszo.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Felhasználónév és jelszó megadása kötelező!", 
-                    "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Felhasználónév és jelszó megadása kötelező!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
         } else if (!felhasznalonevek.contains(felhasznalonev)) {
-            JOptionPane.showMessageDialog(null, "Hibás felhasználónév!", 
-                    "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Hibás felhasználónév!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
         } else {
             beFelh = kapcsolat.felhasznaloAdatokLekerdez(felhasznalonev);
             if (Hash.MD5(jelszo).equals(beFelh.getJelszo())) {
@@ -59,8 +57,7 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
                 menu.setVisible(true);
                 this.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(null, "Hibás jelszó!", 
-                        "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Hibás jelszó!", "Sikertelen bejelentkezés", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
