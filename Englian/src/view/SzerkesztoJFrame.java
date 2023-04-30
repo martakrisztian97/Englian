@@ -549,7 +549,8 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
 
     private void modositasButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modositasButtonMouseClicked
         if (szavakComboBox.getSelectedIndex() != -1) {
-            kapcsolat.szotModosit(szavak.get(szavakComboBox.getSelectedIndex()).getId(), angolTextField.getText(), magyarTextField.getText());
+            kapcsolat.szotModosit(szavak.get(szavakComboBox.getSelectedIndex()).getId(),
+                    angolTextField.getText(), magyarTextField.getText());
             szavakComboBoxFeltolt();
         }
     }//GEN-LAST:event_modositasButtonMouseClicked
@@ -571,7 +572,8 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         String ujAngol = ujAngolTextField.getText();
         String ujMagyar = ujMagyarTextField.getText();
         if (ujAngol.isEmpty() || ujMagyar.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Adja meg az új szót angolul és magyarul egyaránt!", "Új szó hozzáadása", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Adja meg az új szót angolul és magyarul egyaránt!", 
+                    "Új szó hozzáadása", JOptionPane.ERROR_MESSAGE);
         } else {
             kapcsolat.ujSzo(temakorok.get(temakorokComboBoxUjSzohoz.getSelectedIndex()).getId(), ujAngol, ujMagyar);
         }
@@ -588,11 +590,14 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         }
         
         if (ujTemakor.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Adja meg az új témakör nevét!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Adja meg az új témakör nevét!", 
+                    "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
         } else if (ujTemakor.length() > 20) {
-            JOptionPane.showMessageDialog(null, "Az új témakör hossza maximum 20 karakter hosszú lehet!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Az új témakör hossza maximum 20 karakter hosszú lehet!", 
+                    "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
         } else if (temakorMegnevezesek.contains(ujTemakor.toLowerCase())) {
-            JOptionPane.showMessageDialog(null, "Ez a témakör már létezik!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ez a témakör már létezik!", 
+                    "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
         } else {
             kapcsolat.ujTemakor(beFelh.getId(), ujTemakor);
         }
