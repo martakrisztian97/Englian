@@ -239,13 +239,16 @@ public class TesztJFrame extends javax.swing.JFrame {
         kifejezesLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         kifejezesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         kifejezesLabel.setText("KIFEJEZÉS");
+        kifejezesLabel.setMaximumSize(new java.awt.Dimension(500, 32));
+        kifejezesLabel.setMinimumSize(new java.awt.Dimension(500, 32));
+        kifejezesLabel.setPreferredSize(new java.awt.Dimension(500, 32));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         tesztPanel.add(kifejezesLabel, gridBagConstraints);
 
-        definicioValaszTextField.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        definicioValaszTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         definicioValaszTextField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         definicioValaszTextField.setMaximumSize(new java.awt.Dimension(350, 50));
         definicioValaszTextField.setMinimumSize(new java.awt.Dimension(350, 50));
@@ -253,7 +256,6 @@ public class TesztJFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 25, 25, 25);
         tesztPanel.add(definicioValaszTextField, gridBagConstraints);
 
@@ -431,8 +433,8 @@ public class TesztJFrame extends javax.swing.JFrame {
         visszajelzesLabel.setVisible(true);
         definicioValaszTextField.setEnabled(false);
         if (definiciok.get(hanyadikSzo-1).equals(definicioValaszTextField.getText())) {
-            visszajelzesLabel.setForeground(Color.GREEN);
-            visszajelzesLabel.setText("HELYES!");
+            visszajelzesLabel.setForeground(new Color(50, 205, 50));
+            visszajelzesLabel.setText("HELYES VÁLASZ");
             tudta++;
         } else {
             visszajelzesLabel.setForeground(Color.RED);

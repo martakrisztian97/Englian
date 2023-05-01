@@ -51,7 +51,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         kifejezesek = new ArrayList<>();
         definiciok = new ArrayList<>();
         hanyadikSzo = 1;
-        hatralevoSzavakSzamaLabel.setText("Megtanulandó szavak száma: "+(szavak.size()));
+        megtanulandoSzavakSzamaLabel.setText("Megtanulandó szavak száma: "+(szavak.size()));
         
     }
     
@@ -98,11 +98,11 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         magyarRadioButton = new javax.swing.JRadioButton();
         kezdesButton = new javax.swing.JButton();
         tanulasPanel = new javax.swing.JPanel();
+        megtanulandoSzavakSzamaLabel = new javax.swing.JLabel();
         kifejezesButton = new javax.swing.JButton();
         definicoButton = new javax.swing.JButton();
         marTudomButton = new javax.swing.JButton();
         megTanulomButton = new javax.swing.JButton();
-        hatralevoSzavakSzamaLabel = new javax.swing.JLabel();
         vegePanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ujraButton = new javax.swing.JButton();
@@ -186,7 +186,13 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         tanulasPanel.setPreferredSize(new java.awt.Dimension(600, 700));
         tanulasPanel.setLayout(new java.awt.GridBagLayout());
 
-        kifejezesButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        megtanulandoSzavakSzamaLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        megtanulandoSzavakSzamaLabel.setText("Megtanulandó szavak száma: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        tanulasPanel.add(megtanulandoSzavakSzamaLabel, gridBagConstraints);
+
+        kifejezesButton.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
         kifejezesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         kifejezesButton.setFocusable(false);
         kifejezesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -200,7 +206,8 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         tanulasPanel.add(kifejezesButton, gridBagConstraints);
 
-        definicoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        definicoButton.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        definicoButton.setText("KATTINTS!");
         definicoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         definicoButton.setFocusPainted(false);
         definicoButton.setMaximumSize(new java.awt.Dimension(500, 200));
@@ -256,12 +263,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         tanulasPanel.add(megTanulomButton, gridBagConstraints);
-
-        hatralevoSzavakSzamaLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        hatralevoSzavakSzamaLabel.setText("Megtanulandó szavak száma: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        tanulasPanel.add(hatralevoSzavakSzamaLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -348,17 +349,17 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_angolRadioButtonItemStateChanged
 
     private void definicoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_definicoButtonMouseClicked
-        if (definicoButton.getText().equals("")) {
+        if (definicoButton.getText().equals("KATTINTS!")) {
             definicoButton.setText(definiciok.get(hanyadikSzo-1));
         }
     }//GEN-LAST:event_definicoButtonMouseClicked
 
     private void marTudomButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_marTudomButtonMouseClicked
-        definicoButton.setText("");
+        definicoButton.setText("KATTINTS!");
         szavak.remove(hanyadikSzo-1);
         kifejezesek.remove(hanyadikSzo-1);
         definiciok.remove(hanyadikSzo-1);
-        hatralevoSzavakSzamaLabel.setText("Megtanulandó szavak száma: "+(szavak.size()));
+        megtanulandoSzavakSzamaLabel.setText("Megtanulandó szavak száma: "+(szavak.size()));
         if (szavak.isEmpty()) {
             tanulasPanel.setVisible(false);
             vegePanel.setVisible(true);
@@ -366,7 +367,8 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
-            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!", "Üzenet", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!", 
+                    "Információ", JOptionPane.INFORMATION_MESSAGE);
             hanyadikSzo = 1;
             kifejezesButton.setText(kifejezesek.get(0));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep())));
@@ -374,13 +376,14 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_marTudomButtonMouseClicked
 
     private void megTanulomButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_megTanulomButtonMouseClicked
-        definicoButton.setText("");
+        definicoButton.setText("KATTINTS!");
         hanyadikSzo++;
         if (hanyadikSzo-1 < szavak.size()) {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
-            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!", "Üzenet", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!",
+                    "Információ", JOptionPane.INFORMATION_MESSAGE);
             hanyadikSzo = 1;
             Collections.shuffle(szavak);
             kifejezesekEsDefiniciokBeallitasa();
@@ -443,7 +446,6 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton angolRadioButton;
     private javax.swing.JButton bezarasButton;
     private javax.swing.JButton definicoButton;
-    private javax.swing.JLabel hatralevoSzavakSzamaLabel;
     private javax.swing.JPanel inditasPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton kezdesButton;
@@ -452,6 +454,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton magyarRadioButton;
     private javax.swing.JButton marTudomButton;
     private javax.swing.JButton megTanulomButton;
+    private javax.swing.JLabel megtanulandoSzavakSzamaLabel;
     private javax.swing.JPanel tanulasPanel;
     private javax.swing.JButton ujraButton;
     private javax.swing.JPanel vegePanel;

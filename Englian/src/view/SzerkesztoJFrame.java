@@ -180,7 +180,7 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         szavakComboBox.setFocusable(false);
         szavakComboBox.setMaximumSize(new java.awt.Dimension(300, 35));
         szavakComboBox.setMinimumSize(new java.awt.Dimension(300, 35));
-        szavakComboBox.setPreferredSize(new java.awt.Dimension(300, 35));
+        szavakComboBox.setPreferredSize(new java.awt.Dimension(350, 35));
         szavakComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 szavakComboBoxItemStateChanged(evt);
@@ -548,10 +548,19 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_szavakComboBoxItemStateChanged
 
     private void modositasButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modositasButtonMouseClicked
+        String angol = angolTextField.getText();
+        String magyar = magyarTextField.getText();
         if (szavakComboBox.getSelectedIndex() != -1) {
-            kapcsolat.szotModosit(szavak.get(szavakComboBox.getSelectedIndex()).getId(),
-                    angolTextField.getText(), magyarTextField.getText());
-            szavakComboBoxFeltolt();
+            if (!angol.isEmpty() && !magyar.isEmpty() && angol.length() <= 32 && magyar.length() <= 32) {
+                kapcsolat.szotModosit(szavak.get(szavakComboBox.getSelectedIndex()).getId(),
+                        angol, magyar);
+                szavakComboBoxFeltolt();
+                JOptionPane.showMessageDialog(null, "Szó módosítása sikeresen megtörtént!", 
+                    "Szó módosítása", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "A módosított szó hossza 1-32 karakter hosszú lehet!", 
+                        "Sikertelen módosítás", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_modositasButtonMouseClicked
 
@@ -571,11 +580,13 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
     private void szoHozzaadButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_szoHozzaadButtonMouseClicked
         String ujAngol = ujAngolTextField.getText();
         String ujMagyar = ujMagyarTextField.getText();
-        if (ujAngol.isEmpty() || ujMagyar.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Adja meg az új szót angolul és magyarul egyaránt!", 
-                    "Új szó hozzáadása", JOptionPane.ERROR_MESSAGE);
-        } else {
+        if (!ujAngol.isEmpty() && !ujMagyar.isEmpty() && ujAngol.length() <= 32 && ujMagyar.length() <= 32) {
             kapcsolat.ujSzo(temakorok.get(temakorokComboBoxUjSzohoz.getSelectedIndex()).getId(), ujAngol, ujMagyar);
+            JOptionPane.showMessageDialog(null, "Új szó sikeresen hozzáadva!", 
+                    "Új szó hozzáadása", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Az új szó hossza 1-32 karakter hosszú lehet!", 
+                    "Új szó hozzáadása", JOptionPane.ERROR_MESSAGE);
         }
         ujAngolTextField.setText("");
         ujMagyarTextField.setText("");
@@ -600,6 +611,8 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
                     "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
         } else {
             kapcsolat.ujTemakor(beFelh.getId(), ujTemakor);
+            JOptionPane.showMessageDialog(null, "A témakör létrehozása sikeres!", 
+                    "Új témakör létrehozása", JOptionPane.INFORMATION_MESSAGE);
         }
         ujTemakorTextField.setText("");
         temakorokComboBoxokFeltolt();
