@@ -109,6 +109,7 @@ public class TesztJFrame extends javax.swing.JFrame {
         magyarRadioButton = new javax.swing.JRadioButton();
         temakorokComboBox = new javax.swing.JComboBox<>();
         kezdesButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         tesztPanel = new javax.swing.JPanel();
         kepLabel = new javax.swing.JLabel();
         kifejezesLabel = new javax.swing.JLabel();
@@ -181,9 +182,9 @@ public class TesztJFrame extends javax.swing.JFrame {
         temakorokComboBox.setPreferredSize(new java.awt.Dimension(200, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(50, 0, 50, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         inditasPanel.add(temakorokComboBox, gridBagConstraints);
 
         kezdesButton.setBackground(new java.awt.Color(0, 153, 255));
@@ -202,10 +203,20 @@ public class TesztJFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(50, 0, 0, 0);
         inditasPanel.add(kezdesButton, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Témakör");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(50, 0, 0, 0);
+        inditasPanel.add(jLabel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -496,6 +507,7 @@ public class TesztJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField definicioValaszTextField;
     private javax.swing.JLabel eredmenyLabel;
     private javax.swing.JPanel inditasPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel kepLabel;
     private javax.swing.JButton kezdesButton;
     private javax.swing.JLabel kifejezesLabel;

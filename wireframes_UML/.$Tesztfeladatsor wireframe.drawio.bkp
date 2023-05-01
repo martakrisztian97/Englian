@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-04-22T14:48:24.332Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="ktgiwy4r5oUNVM5eXcCK" version="21.2.1" type="device">
+<mxfile host="Electron" modified="2023-05-01T10:43:12.914Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="bB1IZf0RM3TCM7CJNte3" version="21.2.1" type="device">
   <diagram name="1 oldal" id="2FKkpB4FTDS06L09Pw6T">
-    <mxGraphModel dx="1036" dy="623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="1">
+    <mxGraphModel dx="2049" dy="1220" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -21,6 +21,9 @@
         </mxCell>
         <mxCell id="jF-k2RIkwj-LOC037KPD-16" value="Szószedet 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#000000;fontSize=17;spacingLeft=3;fontFamily=Comic Sans MS;labelBackgroundColor=none;" parent="jF-k2RIkwj-LOC037KPD-17" vertex="1">
           <mxGeometry x="225" y="320" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YLqB0Xr3UxMZfVkAniiw-1" value="Témakör" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;fontFamily=Comic Sans MS;fontStyle=1;fontSize=16;" vertex="1" parent="jF-k2RIkwj-LOC037KPD-17">
+          <mxGeometry x="235" y="290" width="130" height="30" as="geometry" />
         </mxCell>
         <mxCell id="jF-k2RIkwj-LOC037KPD-18" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="680" y="10" width="600" height="700" as="geometry" />
