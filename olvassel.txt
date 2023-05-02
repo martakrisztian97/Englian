@@ -1,0 +1,23 @@
+Az alkalmazás futtatásához szükséges lépések:
+
+1. XAMPP telepítése, amennyiben nincs telepítve. (Verzió: Apache NetBeans IDE 16)
+
+2. NetBeans telepítése, amennyiben nincs telepítve. (Verzió: XAMPP 8.2.4)
+
+3. NetBeans futtatása:
+	- Nyissa meg az alkalmazás projektjét a NetBeans-ben.
+
+4. Adja hozzá a mysql-connector-java-5.1.39-bin.jar fájlt az alkalmazás projektjéhez.
+	- Kattintson jobb klikkel és válassza a Properties lehetőséget.
+	- Válassza ki a Libraries kategóriát.
+	- Kattintson az "Add JAR/Folder" gombra, és válassza ki a mysql-connector-java-5.1.39-bin.jar fájlt.
+
+5. XAMPP futtatása:
+	- Indítsa el az Apache és a MySQL modulokat.
+	- MySQL modul Admin gombjára kattintva nyissa meg a phpMyAdmin felületét.
+
+6. englian.sql adatbázis importálása
+	- phpMyAdmin felületen kattintson az importálás gombra.
+	- Kattintson a fájlok kiválasztása gombra és válassza ki az englian.sql fájlt.
+
+7. Futtassa az alkalmazást.
