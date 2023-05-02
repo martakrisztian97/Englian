@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Máj 01. 13:09
+-- Létrehozás ideje: 2023. Máj 03. 00:52
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -41,16 +41,9 @@ CREATE TABLE `eredmenyek` (
 --
 
 INSERT INTO `eredmenyek` (`id`, `felhasznalo_id`, `temakor_id`, `eredmeny`) VALUES
-(1, 1, 3, 100),
-(2, 1, 3, 67),
-(3, 1, 3, 33),
-(4, 1, 3, 67),
-(5, 1, 1, 71),
-(6, 1, 3, 5),
-(7, 1, 3, 0),
-(8, 1, 3, 5),
-(9, 1, 3, 5),
-(10, 1, 3, 0);
+(1, 1, 1, 100),
+(2, 1, 1, 71),
+(3, 1, 1, 94);
 
 -- --------------------------------------------------------
 
@@ -358,7 +351,7 @@ INSERT INTO `szavak` (`id`, `temakor_id`, `angol`, `magyar`, `kep`) VALUES
 (263, 6, 'surgeon', 'sebész', 'empty.png'),
 (264, 6, 'tailor', 'szabó', 'empty.png'),
 (265, 6, 'tattoist', 'tetováló', 'empty.png'),
-(266, 6, 'taxi driver', 'taxisofór', 'empty.png'),
+(266, 6, 'taxi driver', 'taxisofőr', 'empty.png'),
 (267, 6, 'teacher', 'tanár', 'empty.png'),
 (268, 6, 'tiler', 'hidegburkoló', 'empty.png'),
 (269, 6, 'tourist guide', 'idegenvezető', 'empty.png'),
@@ -607,13 +600,13 @@ ALTER TABLE `temakorok`
 -- AUTO_INCREMENT a táblához `eredmenyek`
 --
 ALTER TABLE `eredmenyek`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`
