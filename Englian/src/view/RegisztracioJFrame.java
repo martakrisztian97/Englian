@@ -41,28 +41,20 @@ public class RegisztracioJFrame extends javax.swing.JFrame {
         String jelszo = new String(jelszoPasswordField.getPassword());
         String jelszoIsmet = new String(jelszoIsmetPasswordField.getPassword());
         if (!emailValidalas(email))
-            JOptionPane.showMessageDialog(null, "Helyes email címet adjon meg!", 
-                    "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Helyes e-mail címet adjon meg!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else if (emailCimek.contains(email))
-            JOptionPane.showMessageDialog(null, "Ez az e-mail cím már regisztrálva van!", 
-                    "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ez az e-mail cím már regisztrálva van!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else if (felhasznalonev.isEmpty())
-            JOptionPane.showMessageDialog(null, "Felhasználónév megadása kötelező!", 
-                    "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Felhasználónév megadása kötelező!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else if (felhasznaloknevek.contains(felhasznalonev))
-            JOptionPane.showMessageDialog(null, "A felhasználónév már foglalt!", 
-                    "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "A felhasználónév már foglalt!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else if (!jelszo.equals(jelszoIsmet))
-            JOptionPane.showMessageDialog(null, "A jelszavaknak egyezniük kell!", 
-                    "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "A jelszavaknak egyezniük kell!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else if (!jelszoValidalas(jelszo))
-            JOptionPane.showMessageDialog(null, "A jelszónak minimum 8 karakter hosszúnak kell lenni, "
-                    + "valamint tartalmaznia kell kisbetűt, nagybetűt és számot!", 
-                    "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "A jelszónak minimum 8 karakter hosszúnak kell lennie, valamint tartalmaznia kell kisbetűt, nagybetűt és számot!", "Sikertelen regisztráció", JOptionPane.ERROR_MESSAGE);
         else {
             kapcsolat.regisztracio(email, felhasznalonev, Hash.MD5(jelszo));
-            JOptionPane.showMessageDialog(null, "Sikeres regisztráció!", 
-                    "Információ", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sikeres regisztráció!", "Információ", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
             b = new BejelentkezesJFrame();
             b.setVisible(true);

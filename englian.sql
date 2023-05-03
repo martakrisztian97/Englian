@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Máj 03. 00:52
+-- Létrehozás ideje: 2023. Máj 03. 13:15
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -43,7 +43,27 @@ CREATE TABLE `eredmenyek` (
 INSERT INTO `eredmenyek` (`id`, `felhasznalo_id`, `temakor_id`, `eredmeny`) VALUES
 (1, 1, 1, 100),
 (2, 1, 1, 71),
-(3, 1, 1, 94);
+(3, 1, 1, 94),
+(4, 2, 1, 100),
+(5, 2, 1, 83),
+(6, 1, 3, 100),
+(7, 2, 3, 100),
+(8, 1, 2, 83),
+(9, 2, 2, 81),
+(10, 1, 4, 95),
+(11, 1, 5, 63),
+(12, 1, 5, 75),
+(13, 2, 4, 100),
+(14, 2, 5, 79),
+(15, 1, 6, 77),
+(16, 1, 6, 87),
+(17, 1, 7, 83),
+(18, 1, 7, 87),
+(19, 1, 8, 85),
+(20, 1, 8, 89),
+(21, 2, 9, 77),
+(22, 2, 9, 85),
+(23, 2, 9, 100);
 
 -- --------------------------------------------------------
 
@@ -65,7 +85,7 @@ CREATE TABLE `felhasznalok` (
 
 INSERT INTO `felhasznalok` (`id`, `email`, `felhasznalonev`, `jelszo`, `regisztracio_datuma`) VALUES
 (1, 'martakrisztian97@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2022-11-25 16:43:56'),
-(2, 'teszt@elek.hu', 'tesztelek', 'f9bc9298daf9e0c426b55bd899e5ea9d', '2022-12-19 23:10:14');
+(2, 'teszt@elek.hu', 'tesztelek', '39bb37cf36d3b29a9280d8a70a0eed42', '2023-05-03 08:42:23');
 
 -- --------------------------------------------------------
 
@@ -600,13 +620,13 @@ ALTER TABLE `temakorok`
 -- AUTO_INCREMENT a táblához `eredmenyek`
 --
 ALTER TABLE `eredmenyek`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `szavak`

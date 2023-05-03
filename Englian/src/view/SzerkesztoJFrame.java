@@ -555,11 +555,9 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
                 kapcsolat.szotModosit(szavak.get(szavakComboBox.getSelectedIndex()).getId(),
                         angol, magyar);
                 szavakComboBoxFeltolt();
-                JOptionPane.showMessageDialog(null, "Szó módosítása sikeresen megtörtént!", 
-                    "Szó módosítása", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Szó módosítása sikeresen megtörtént!", "Szó módosítása", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "A módosított szó hossza 1-32 karakter hosszú lehet!", 
-                        "Sikertelen módosítás", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "A módosított szó hossza 1-32 karakter hosszú lehet!", "Sikertelen módosítás", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_modositasButtonMouseClicked
@@ -582,11 +580,9 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         String ujMagyar = ujMagyarTextField.getText();
         if (!ujAngol.isEmpty() && !ujMagyar.isEmpty() && ujAngol.length() <= 32 && ujMagyar.length() <= 32) {
             kapcsolat.ujSzo(temakorok.get(temakorokComboBoxUjSzohoz.getSelectedIndex()).getId(), ujAngol, ujMagyar);
-            JOptionPane.showMessageDialog(null, "Új szó sikeresen hozzáadva!", 
-                    "Új szó hozzáadása", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Új szó sikeresen hozzáadva!", "Új szó hozzáadása", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Az új szó hossza 1-32 karakter hosszú lehet!", 
-                    "Új szó hozzáadása", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Az új szó hossza 1-32 karakter hosszú lehet!", "Új szó hozzáadása", JOptionPane.ERROR_MESSAGE);
         }
         ujAngolTextField.setText("");
         ujMagyarTextField.setText("");
@@ -601,18 +597,14 @@ public class SzerkesztoJFrame extends javax.swing.JFrame {
         }
         
         if (ujTemakor.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Adja meg az új témakör nevét!", 
-                    "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Adja meg az új témakör nevét!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
         } else if (ujTemakor.length() > 20) {
-            JOptionPane.showMessageDialog(null, "Az új témakör hossza maximum 20 karakter hosszú lehet!", 
-                    "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Az új témakör hossza maximum 20 karakter hosszú lehet!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
         } else if (temakorMegnevezesek.contains(ujTemakor.toLowerCase())) {
-            JOptionPane.showMessageDialog(null, "Ez a témakör már létezik!", 
-                    "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ez a témakör már létezik!", "Új témakör létrehozása", JOptionPane.ERROR_MESSAGE);
         } else {
             kapcsolat.ujTemakor(beFelh.getId(), ujTemakor);
-            JOptionPane.showMessageDialog(null, "A témakör létrehozása sikeres!", 
-                    "Új témakör létrehozása", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "A témakör létrehozása sikeres!", "Új témakör létrehozása", JOptionPane.INFORMATION_MESSAGE);
         }
         ujTemakorTextField.setText("");
         temakorokComboBoxokFeltolt();

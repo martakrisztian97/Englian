@@ -92,7 +92,6 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         felhasznalonevTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        felhasznalonevTextField.setText("admin");
         felhasznalonevTextField.setToolTipText("");
         felhasznalonevTextField.setMaximumSize(new java.awt.Dimension(250, 50));
         felhasznalonevTextField.setMinimumSize(new java.awt.Dimension(250, 50));
@@ -110,7 +109,6 @@ public class BejelentkezesJFrame extends javax.swing.JFrame {
         getContentPane().add(felhasznalonevTextField, gridBagConstraints);
 
         jelszoPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jelszoPasswordField.setText("admin");
         jelszoPasswordField.setMaximumSize(new java.awt.Dimension(250, 50));
         jelszoPasswordField.setMinimumSize(new java.awt.Dimension(250, 50));
         jelszoPasswordField.setOpaque(true);

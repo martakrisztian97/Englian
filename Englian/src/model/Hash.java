@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Hash függvényekért felelős osztály.
+ * Hash-függvényekért felelős osztály.
  * @author Márta Krisztián
  * @since 2023-02-28
  */

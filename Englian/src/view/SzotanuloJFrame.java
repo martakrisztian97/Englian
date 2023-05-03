@@ -367,8 +367,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
-            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!", 
-                    "Információ", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!", "Információ", JOptionPane.INFORMATION_MESSAGE);
             hanyadikSzo = 1;
             kifejezesButton.setText(kifejezesek.get(0));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(0).getKep())));
@@ -382,8 +381,7 @@ public class SzotanuloJFrame extends javax.swing.JFrame {
             kifejezesButton.setText(kifejezesek.get(hanyadikSzo-1));
             kifejezesButton.setIcon(new ImageIcon(getClass().getResource("/view/images/"+temakor.getMappa()+"/"+szavak.get(hanyadikSzo-1).getKep())));
         } else {
-            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!",
-                    "Információ", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Folytatás a fennmaradó szavakkal!", "Információ", JOptionPane.INFORMATION_MESSAGE);
             hanyadikSzo = 1;
             Collections.shuffle(szavak);
             kifejezesekEsDefiniciokBeallitasa();
